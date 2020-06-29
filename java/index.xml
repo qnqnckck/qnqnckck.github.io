@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Javas on My New Hugo Site</title>
+    <title>Javas on YONGSUNG&#39;s Tech Blog.</title>
     <link>http://example.org/java/</link>
-    <description>Recent content in Javas on My New Hugo Site</description>
+    <description>Recent content in Javas on YONGSUNG&#39;s Tech Blog.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>qnqnckck@gmail.com (KIM YONGSUNG)</managingEditor>
-    <webMaster>qnqnckck@gmail.com (KIM YONGSUNG)</webMaster>
     <lastBuildDate>Mon, 29 Jun 2020 09:05:07 +0900</lastBuildDate>
     
 	<atom:link href="http://example.org/java/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +15,7 @@
       <title>Connection_pool</title>
       <link>http://example.org/java/connection_pool/</link>
       <pubDate>Mon, 29 Jun 2020 09:05:07 +0900</pubDate>
-      <author>qnqnckck@gmail.com (KIM YONGSUNG)</author>
+      
       <guid>http://example.org/java/connection_pool/</guid>
       <description></description>
     </item>
