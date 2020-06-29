@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>YONGSUNG&#39;s Tech Blog.</title>
+    <title>JEI&#39;s PAPA</title>
     <link>http://qnqnckck.github.io/</link>
-    <description>Recent content on YONGSUNG&#39;s Tech Blog.</description>
+    <description>Recent content on JEI&#39;s PAPA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 29 Jun 2020 09:05:07 +0900</lastBuildDate>
@@ -17,24 +17,6 @@
       <pubDate>Mon, 29 Jun 2020 09:05:07 +0900</pubDate>
       
       <guid>http://qnqnckck.github.io/java/connection_pool/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ZSH &#43; Iterm2 터미널 한번에 셋팅하기</title>
-      <link>http://qnqnckck.github.io/etc/terminal/</link>
-      <pubDate>Sat, 27 Jun 2020 01:42:36 +0900</pubDate>
-      
-      <guid>http://qnqnckck.github.io/etc/terminal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Test1</title>
-      <link>http://qnqnckck.github.io/post/test1/</link>
-      <pubDate>Fri, 26 Jun 2020 17:30:58 +0900</pubDate>
-      
-      <guid>http://qnqnckck.github.io/post/test1/</guid>
       <description></description>
     </item>
     
