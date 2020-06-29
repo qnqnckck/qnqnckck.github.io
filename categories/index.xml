@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on YONGSUNG&#39;s Tech Blog.</title>
-    <link>http://example.org/categories/</link>
+    <link>http://qnqnckck.github.io/categories/</link>
     <description>Recent content in Categories on YONGSUNG&#39;s Tech Blog.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 27 Jun 2020 01:42:36 +0900</lastBuildDate>
     
-	<atom:link href="http://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://qnqnckck.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>etc</title>
-      <link>http://example.org/categories/etc/</link>
+      <link>http://qnqnckck.github.io/categories/etc/</link>
       <pubDate>Sat, 27 Jun 2020 01:42:36 +0900</pubDate>
       
-      <guid>http://example.org/categories/etc/</guid>
+      <guid>http://qnqnckck.github.io/categories/etc/</guid>
       <description></description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on YONGSUNG&#39;s Tech Blog.</title>
-    <link>http://example.org/post/</link>
+    <link>http://qnqnckck.github.io/post/</link>
     <description>Recent content in Posts on YONGSUNG&#39;s Tech Blog.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 26 Jun 2020 17:30:58 +0900</lastBuildDate>
     
-	<atom:link href="http://example.org/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://qnqnckck.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Test1</title>
-      <link>http://example.org/post/test1/</link>
+      <link>http://qnqnckck.github.io/post/test1/</link>
       <pubDate>Fri, 26 Jun 2020 17:30:58 +0900</pubDate>
       
-      <guid>http://example.org/post/test1/</guid>
+      <guid>http://qnqnckck.github.io/post/test1/</guid>
       <description></description>
     </item>
     

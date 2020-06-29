@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>YONGSUNG&#39;s Tech Blog.</title>
-    <link>http://example.org/</link>
+    <link>http://qnqnckck.github.io/</link>
     <description>Recent content on YONGSUNG&#39;s Tech Blog.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 29 Jun 2020 09:05:07 +0900</lastBuildDate>
     
-	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://qnqnckck.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Connection_pool</title>
-      <link>http://example.org/java/connection_pool/</link>
+      <link>http://qnqnckck.github.io/java/connection_pool/</link>
       <pubDate>Mon, 29 Jun 2020 09:05:07 +0900</pubDate>
       
-      <guid>http://example.org/java/connection_pool/</guid>
+      <guid>http://qnqnckck.github.io/java/connection_pool/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ZSH &#43; Iterm2 터미널 한번에 셋팅하기</title>
-      <link>http://example.org/etc/terminal/</link>
+      <link>http://qnqnckck.github.io/etc/terminal/</link>
       <pubDate>Sat, 27 Jun 2020 01:42:36 +0900</pubDate>
       
-      <guid>http://example.org/etc/terminal/</guid>
+      <guid>http://qnqnckck.github.io/etc/terminal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Test1</title>
-      <link>http://example.org/post/test1/</link>
+      <link>http://qnqnckck.github.io/post/test1/</link>
       <pubDate>Fri, 26 Jun 2020 17:30:58 +0900</pubDate>
       
-      <guid>http://example.org/post/test1/</guid>
+      <guid>http://qnqnckck.github.io/post/test1/</guid>
       <description></description>
     </item>
     
