@@ -6,9 +6,48 @@
     <description>Recent content in Tags on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>qnqnckck@gmail.com (KIM YONGSUNG)</managingEditor>
+    <webMaster>qnqnckck@gmail.com (KIM YONGSUNG)</webMaster>
+    <lastBuildDate>Sat, 27 Jun 2020 01:42:36 +0900</lastBuildDate>
     
 	<atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>iterm2</title>
+      <link>http://example.org/tags/iterm2/</link>
+      <pubDate>Sat, 27 Jun 2020 01:42:36 +0900</pubDate>
+      <author>qnqnckck@gmail.com (KIM YONGSUNG)</author>
+      <guid>http://example.org/tags/iterm2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>preety</title>
+      <link>http://example.org/tags/preety/</link>
+      <pubDate>Sat, 27 Jun 2020 01:42:36 +0900</pubDate>
+      <author>qnqnckck@gmail.com (KIM YONGSUNG)</author>
+      <guid>http://example.org/tags/preety/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>terminal</title>
+      <link>http://example.org/tags/terminal/</link>
+      <pubDate>Sat, 27 Jun 2020 01:42:36 +0900</pubDate>
+      <author>qnqnckck@gmail.com (KIM YONGSUNG)</author>
+      <guid>http://example.org/tags/terminal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zsh</title>
+      <link>http://example.org/tags/zsh/</link>
+      <pubDate>Sat, 27 Jun 2020 01:42:36 +0900</pubDate>
+      <author>qnqnckck@gmail.com (KIM YONGSUNG)</author>
+      <guid>http://example.org/tags/zsh/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

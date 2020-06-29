@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on My New Hugo Site</title>
-    <link>http://example.org/categories/</link>
-    <description>Recent content in Categories on My New Hugo Site</description>
+    <title>terminal on My New Hugo Site</title>
+    <link>http://example.org/tags/terminal/</link>
+    <description>Recent content in terminal on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>qnqnckck@gmail.com (KIM YONGSUNG)</managingEditor>
     <webMaster>qnqnckck@gmail.com (KIM YONGSUNG)</webMaster>
     <lastBuildDate>Sat, 27 Jun 2020 01:42:36 +0900</lastBuildDate>
     
-	<atom:link href="http://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://example.org/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>etc</title>
-      <link>http://example.org/categories/etc/</link>
+      <title>ZSH &#43; Iterm2 터미널 한번에 셋팅하기</title>
+      <link>http://example.org/etc/terminal/</link>
       <pubDate>Sat, 27 Jun 2020 01:42:36 +0900</pubDate>
       <author>qnqnckck@gmail.com (KIM YONGSUNG)</author>
-      <guid>http://example.org/categories/etc/</guid>
+      <guid>http://example.org/etc/terminal/</guid>
       <description></description>
     </item>
     
