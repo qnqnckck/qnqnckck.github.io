@@ -2,9 +2,9 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://example.org/categories/</loc><lastmod>2020-06-29T21:24:18&#43;09:00</lastmod></url><url>
-            <loc>http://example.org/posts/first_post/</loc><lastmod>2020-06-29T21:24:18&#43;09:00</lastmod></url><url>
-            <loc>http://example.org/</loc><lastmod>2020-06-29T21:24:18&#43;09:00</lastmod></url><url>
-            <loc>http://example.org/posts/</loc><lastmod>2020-06-29T21:24:18&#43;09:00</lastmod></url><url>
-            <loc>http://example.org/categories/test/</loc><lastmod>2020-06-29T21:24:18&#43;09:00</lastmod></url><url>
-            <loc>http://example.org/tags/</loc></url></urlset>
+            <loc>http://example.org/categories/</loc><lastmod>2020-06-29T21:24:18&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://example.org/first_post/</loc><lastmod>2020-06-29T21:24:18&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://example.org/</loc><lastmod>2020-06-29T21:24:18&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://example.org/posts/</loc><lastmod>2020-06-29T21:24:18&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://example.org/categories/test/</loc><lastmod>2020-06-29T21:24:18&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://example.org/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>
