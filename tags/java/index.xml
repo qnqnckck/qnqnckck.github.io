@@ -12,7 +12,7 @@
     <guid>http://qnqnckck.github.io/hikaricp/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/cover/hikari.jpg" referrerpolicy="no-referrer">
-            </div><p>Hikari Connectino Pool 동작 원리 및 옵션 설정 이해하기</p>]]></description>
+            </div><p><strong>Hikari Connectino Pool 동작 원리 및 옵션 설정 이해하기</strong></p>]]></description>
 </item><item>
     <title>Connection Pool 성능테스트 : hikari, tomcat-dbcp, bee, vibur</title>
     <link>http://qnqnckck.github.io/connection_pool_benchmark/</link>
