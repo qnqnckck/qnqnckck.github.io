@@ -9,24 +9,56 @@ Hikari Connectino Pool 동작 원리 및 옵션 설정 이해하기
 1. 등장 배경
  기존 사용되던 tomcat-dbcp, dbcp, bonecp 보다 더 빠르고, 가벼운 Connection Pool로 'zero-overhead'를 위한 경량화 한 라이브러리
 
+* hikari cp가 빠른 이유
+* 코드 디자인 및 최적화를 통해 스레드 간의 잠금 경쟁이 크게 감소
+* JDK 및 cglib의 동적 프록시와 비교하여 javaassist(java 바이트 코드를 조작하는 수단을 제공하는 라이브러리)를 통해 클래스 파일을 직접 수정하여 생성된 프록시 클래스는 작동 속도가 빠름
+* FastList 및 사용자 정의 컬렉션 클래스 도입으로 세부 사항을 최적화하여 제공
+
 2. 동작 원리
 2.1. 구조 및 관리
 
 2.2. Connection 요청시 동작 순서
 
+HikariCP Architecture
 {{< mermaid >}}
-sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice->>John: Hello John, how are you?
-    loop Healthcheck
-        John->John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts <br/>prevail...
-    John-->Alice: Great!
-    John->Bob: How about you?
-    Bob-->John: Jolly good!
+classDiagram
+	PoolBase <|-- HikariPool
+	Closeable <|-- HikariDataSource
+	IBagStateListener <|.. HikariPool
+	DataSource <|-- HikariDataSource
+	HikariPool *-- ConcurrentBag
+	HikariConfig <|-- HikariDataSource
+	HikarPoolMXBean <|.. PoolBase
+	HikarConfigMXBean <|.. HikariConfig
+	HikariDataSource *-- HikariPool
+	PoolBase *-- HikariConfig
+	class HikariConfig
+	class HikariPool
+	class ConcurrentBag
+	class HikarConfigMXBean{<<interface>>}
+	class HikarPoolMXBean{<<interface>>}
+	class IBagStateListener{<<interface>>}
+	class Closeable{<<interface>>}
+	class DataSource{<<interface>>}
+	class HikariDataSource
+	class PoolBase{<<abstract>>}
 {{< /mermaid >}}
+
+ hikari 
+ {{< typeit code=java >}}
+ public class HikariDataSource extends HikariConfig implements DataSource, Closeable
+{
+   private final HikariPool fastPathPool;
+   private volatile HikariPool pool;
+}
+{{< /typeit >}}
+
+
+
+
+배치정보
+연결풀
+데이터소스
 
 
 (1) ThreadLocalList
@@ -48,7 +80,8 @@ sequenceDiagram
 
 옵션 설정 TIP
 Required
-* dataSourceClassName
+* dataSourceClassName : 
+* 	
 * jdbcUrl
 * username
 * password
