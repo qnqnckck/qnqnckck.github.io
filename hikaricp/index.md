@@ -75,7 +75,7 @@ classDiagram
 4. 일정 시간 이내 다른 thread에게 connection이 반납되지 않으면 Exception 발생 
 
 #### 3.2.2 Connection 닫기
-1. idel connection으로 변경(state를 STATE_NOT_IN_USE로 변경)
+1. idle connection으로 변경(state를 STATE_NOT_IN_USE로 변경)
 2. handOffQueue에서 대기 쓰레드가 있는지를 확인하여 connectino 전달 없다면 pool로 삽입
 3. connection 대여 이력 추가
 
@@ -138,5 +138,6 @@ classDiagram
 * [Commons DBCP 이해하기](https://d2.naver.com/helloworld/5102792)
 * [HikariCP 뜯어보기 1편](https://brunch.co.kr/@jehovah/24)
 * [HikariCP 뜯어보기 2편](https://brunch.co.kr/@jehovah/25)
+* [HikariCP Failed to Validate Connection Warning 이야기](https://jaehun2841.github.io/2020/01/08/2020-01-08-hikari-pool-validate-connection/#hikari-pool-failed-to-validate-connection)
 
 
