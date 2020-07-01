@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/qnqnckck.github.io\/hikaricp\/"
-        },"genre": "posts","keywords": "ConnectionPool, java","wordcount":  340 ,
+        },"genre": "posts","keywords": "ConnectionPool, java","wordcount":  333 ,
         "url": "http:\/\/qnqnckck.github.io\/hikaricp\/","datePublished": "2020-06-30T08:24:52+09:00","dateModified": "2020-06-30T08:24:52+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -106,7 +106,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Hikari Connection Pool 파헤치기</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-category">included in <a href="/categories/java/"><i class="far fa-folder fa-fw"></i>java</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-30">2020-06-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;340 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-30">2020-06-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;333 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -205,26 +205,17 @@ JDBC Connection을 맺는 과정에서의 리소스 비용 부담이 되기 때�
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://qnqnckck.github.com/images/hikaricp/image01.png"
-        data-srcset="https://qnqnckck.github.com/images/hikaricp/image01.png, https://qnqnckck.github.com/images/hikaricp/image01.png 1.5x, https://qnqnckck.github.com/images/hikaricp/image01.png 2x"
-        data-sizes="auto"
-        alt="https://qnqnckck.github.com/images/hikaricp/image01.png"
-        title="Alt text" /></p>
-<br>
+</div><br>
 동일한 Proxy
 <h3 id="32-동작-순서">3.2 동작 순서</h3>
 <h4 id="321-connection-가져오기">3.2.1 Connection 가져오기</h4>
+<ol>
+<li>fastPathPool에게 Connection 요청</li>
+<li>fastPathPool에 없으면 Pool에서 Connection 요청</li>
+<li>Pool에도 없다면 handoffQueue에서 대기</li>
+<li>일정 시간 이내 다른 thread에게 connection이 반납되지 않으면 Exception 발생</li>
+</ol>
 <h4 id="322-connection-닫기">3.2.2 Connection 닫기</h4>
-<p>(1) ThreadLocalList
-(2) SharedList
-(3)
-(1) fastPathPool에 Connection 줘요~!</p>
-<p>(2) fastPathPool에 없으면 Pool에다가 Connection 줘요</p>
-<p>(3) pool에 없으면 생성해서 주세요</p>
-<p>(4) 이미 max 설정까지 다 되어서 못준다면, queue에서 대기하세요~!</p>
 <p>2.3. 참고사항</p>
 <p>옵션 설정 TIP</p>
 <table>

@@ -62,9 +62,6 @@ classDiagram
 }
 ```
 
-![Alt text](https://qnqnckck.github.com/images/hikaricp/image01.png "")
-
-
 
 <br>
 동일한 Proxy
@@ -72,23 +69,18 @@ classDiagram
 
 ### 3.2 동작 순서
 #### 3.2.1 Connection 가져오기
+
+1. fastPathPool에게 Connection 요청
+2. fastPathPool에 없으면 Pool에서 Connection 요청
+3. Pool에도 없다면 handoffQueue에서 대기
+4. 일정 시간 이내 다른 thread에게 connection이 반납되지 않으면 Exception 발생 
+
 #### 3.2.2 Connection 닫기
 
 
 
 
 
-
-(1) ThreadLocalList
-(2) SharedList
-(3) 
-(1) fastPathPool에 Connection 줘요~!
-
-(2) fastPathPool에 없으면 Pool에다가 Connection 줘요
-
-(3) pool에 없으면 생성해서 주세요
-
-(4) 이미 max 설정까지 다 되어서 못준다면, queue에서 대기하세요~!
 
 
 2.3. 참고사항
