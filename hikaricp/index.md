@@ -52,7 +52,7 @@ classDiagram
 
 ## 3 설명
 ### 3.1 특징
- hikari CP의 특이점이 있다면 아래 코드와 같이 DataSource에 2개의 pool이 존재한다는 것이다. fastPathPool은 전체 pool에서 요청전에 캐시 처럼 사용한다. [volatile](https://nesoy.github.io/articles/2018-06/Java-volatile)을 사용하는 경우 메인메모리에 read/write를 수행하여 일치되는 값을 공유하여 사용할 수 있지만 오버헤드가 있다.
+ 1. hikari CP의 특이점이 있다면 아래 코드와 같이 DataSource에 2개의 pool이 존재한다는 것이다. fastPathPool은 전체 pool에서 요청전에 캐시 처럼 사용한다. [volatile](https://nesoy.github.io/articles/2018-06/Java-volatile)을 사용하는 경우 메인메모리에 read/write를 수행하여 일치되는 값을 공유하여 사용할 수 있지만 오버헤드가 있다.
 
 ```java
  public class HikariDataSource extends HikariConfig implements DataSource, Closeable
@@ -62,68 +62,81 @@ classDiagram
 }
 ```
 
+2. 다수의 connection이 동시에 연결/닫기 를 수행했을 때의 병목을 방지 하기 위해서 maxLifeTime의 2.5% 수준의 변화를 주어 timeout값을 설정하여 스케쥴에 등록한다. 
 
-<br>
-동일한 Proxy
-
+3. maxLifeTime 설정된 시간 만큼 connection 을 유지만 하고 갱신하지 않는다.(갱신에 따른 오버헤드 제거)
 
 ### 3.2 동작 순서
 #### 3.2.1 Connection 가져오기
 
-1. fastPathPool에게 Connection 요청
+1. fastPathPool에서 대여 이력이 있는지를 확인을 통해 Connection 요청
 2. fastPathPool에 없으면 Pool에서 Connection 요청
 3. Pool에도 없다면 handoffQueue에서 대기
 4. 일정 시간 이내 다른 thread에게 connection이 반납되지 않으면 Exception 발생 
 
 #### 3.2.2 Connection 닫기
+1. idel connection으로 변경(state를 STATE_NOT_IN_USE로 변경)
+2. handOffQueue에서 대기 쓰레드가 있는지를 확인하여 connectino 전달 없다면 pool로 삽입
+3. connection 대여 이력 추가
 
 
+### 3.3 참고
+* HikariCP는 test-while-idle Connection 갱신하여 사용하는 것을 권장하지 않는다.(강제 설정하는 것은 가능)
+  * maxLifeTime만큼만 connection을 유지하고 새로운 connection을 생성하여 사용한다.(불필요한 Validation Query가 발생하지 않음)
+  * maxLifeTime은 DB의 waitTimeout보다는 작은 값을 설정해야 한다.
+  * [(참고) HikariCP는 test-while-idle과 같은 커넥션 갱신 기능이 없을까?](https://pkgonan.github.io/2018/04/HikariCP-test-while-idle)
 
+*** 
 
-
-
-
-2.3. 참고사항
-
-
-
-
-옵션 설정 TIP
+## 4 옵션
+### 4.1 Essentials
 
 | Option | Description |
 | ------ | ----------- |
 | dataSourceClassName   | path to data files to supply the data that will be passed into templates. |
 | jdbcUrl | engine to be used for processing templates. Handlebars is the default. |
 | username  | extension to be used for dest files. |
-	
-* 
-* 
-* password
+| password | |
 
-* autoCommit
-* connectionTimeout
-* idleTimeout
-* maxLifetime
-* connectionTestQuery
-* minimumIdle
-* metricRegistry
-* healthCheckRegistry
-* poolName
+### 4.2 Frequently used
 
-* initializationFailTimeout
-* isolateInternalQueries
-* allowPoolSuspension
-* readOnly
-* registerMbeans
-* catalog
-* connectionInitSql
-* driverClassName
-* transactionIsolation
-* validationTimeout
-* leakDetectionThreshold
-* dataSource
-* schema
-* threadFactory
-* scheduledExecutor
-## 4 참조
+| Option | Description |
+| ------ | ----------- |
+| autoCommit | connection 반납시 commit 여부(default:true)|
+| connectionTimeout | |
+| idleTimeout | |
+| maxLifetime | connection 의 최대 생명주기 (default:1800000(30분)) |
+| connectionTestQuery | |
+| minimumIdle | |
+| metricRegistry | |
+| healthCheckRegistry | |
+| poolName | |
+
+### 4.3 Infrequently used
+
+| Option | Description |
+| ------ | ----------- |
+| initializationFailTimeout | |
+| isolateInternalQueries | |
+| allowPoolSuspension | |
+| readOnly | 읽기모드 전용. 데이터베이스 지원여부를 확인하고 사용 가능(default : false)|
+| registerMbeans | |
+| catalog | |
+| connectionInitSql | |
+| driverClassName | |
+| transactionIsolation | java.sql.Connection에 지정된 Transaction Isolation 설정 (default:none)|
+| validationTimeout | |
+| leakDetectionThreshold | |
+| dataSource | |
+| schema | |
+| threadFactory | |
+| scheduledExecutor | |
+
+## 5 참조
+* [HikariCP Dead lock에서 벗어나기 (이론편)](https://woowabros.github.io/experience/2020/02/06/hikaricp-avoid-dead-lock.html)
+* [JDBC 커넥션 풀들의 리소스 관리 방식 이해하기](https://kakaocommerce.tistory.com/45)
+* [Commons DBCP 이해하기](https://d2.naver.com/helloworld/5102792)
+* [HikariCP 뜯어보기 1편](https://brunch.co.kr/@jehovah/24)
+* [HikariCP 뜯어보기 2편](https://brunch.co.kr/@jehovah/25)
+
 

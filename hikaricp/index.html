@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/qnqnckck.github.io\/hikaricp\/"
-        },"genre": "posts","keywords": "ConnectionPool, java","wordcount":  333 ,
+        },"genre": "posts","keywords": "ConnectionPool, java","wordcount":  481 ,
         "url": "http:\/\/qnqnckck.github.io\/hikaricp\/","datePublished": "2020-06-30T08:24:52+09:00","dateModified": "2020-06-30T08:24:52+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -106,8 +106,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Hikari Connection Pool 파헤치기</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-category">included in <a href="/categories/java/"><i class="far fa-folder fa-fw"></i>java</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-30">2020-06-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;333 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-30">2020-06-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;481 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -133,9 +133,17 @@
             <li><a href="#322-connection-닫기">3.2.2 Connection 닫기</a></li>
           </ul>
         </li>
+        <li><a href="#33-참고">3.3 참고</a></li>
       </ul>
     </li>
-    <li><a href="#4-참조">4 참조</a></li>
+    <li><a href="#4-옵션">4 옵션</a>
+      <ul>
+        <li><a href="#41-essentials">4.1 Essentials</a></li>
+        <li><a href="#42-frequently-used">4.2 Frequently used</a></li>
+        <li><a href="#43-infrequently-used">4.3 Infrequently used</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-참조">5 참조</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><strong>Hikari Connectino Pool 동작 원리 및 옵션 설정 이해하기</strong></p>
@@ -188,7 +196,9 @@ JDBC Connection을 맺는 과정에서의 리소스 비용 부담이 되기 때�
 </table>
 <h2 id="3-설명">3 설명</h2>
 <h3 id="31-특징">3.1 특징</h3>
-<p>hikari CP의 특이점이 있다면 아래 코드와 같이 DataSource에 2개의 pool이 존재한다는 것이다. fastPathPool은 전체 pool에서 요청전에 캐시 처럼 사용한다. <a href="https://nesoy.github.io/articles/2018-06/Java-volatile" target="_blank" rel="noopener noreffer">volatile</a>을 사용하는 경우 메인메모리에 read/write를 수행하여 일치되는 값을 공유하여 사용할 수 있지만 오버헤드가 있다.</p>
+<ol>
+<li>hikari CP의 특이점이 있다면 아래 코드와 같이 DataSource에 2개의 pool이 존재한다는 것이다. fastPathPool은 전체 pool에서 요청전에 캐시 처럼 사용한다. <a href="https://nesoy.github.io/articles/2018-06/Java-volatile" target="_blank" rel="noopener noreffer">volatile</a>을 사용하는 경우 메인메모리에 read/write를 수행하여 일치되는 값을 공유하여 사용할 수 있지만 오버헤드가 있다.</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -205,19 +215,41 @@ JDBC Connection을 맺는 과정에서의 리소스 비용 부담이 되기 때�
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><br>
-동일한 Proxy
+</div><ol start="2">
+<li>
+<p>다수의 connection이 동시에 연결/닫기 를 수행했을 때의 병목을 방지 하기 위해서 maxLifeTime의 2.5% 수준의 변화를 주어 timeout값을 설정하여 스케쥴에 등록한다.</p>
+</li>
+<li>
+<p>maxLifeTime 설정된 시간 만큼 connection 을 유지만 하고 갱신하지 않는다.(갱신에 따른 오버헤드 제거)</p>
+</li>
+</ol>
 <h3 id="32-동작-순서">3.2 동작 순서</h3>
 <h4 id="321-connection-가져오기">3.2.1 Connection 가져오기</h4>
 <ol>
-<li>fastPathPool에게 Connection 요청</li>
+<li>fastPathPool에서 대여 이력이 있는지를 확인을 통해 Connection 요청</li>
 <li>fastPathPool에 없으면 Pool에서 Connection 요청</li>
 <li>Pool에도 없다면 handoffQueue에서 대기</li>
 <li>일정 시간 이내 다른 thread에게 connection이 반납되지 않으면 Exception 발생</li>
 </ol>
 <h4 id="322-connection-닫기">3.2.2 Connection 닫기</h4>
-<p>2.3. 참고사항</p>
-<p>옵션 설정 TIP</p>
+<ol>
+<li>idel connection으로 변경(state를 STATE_NOT_IN_USE로 변경)</li>
+<li>handOffQueue에서 대기 쓰레드가 있는지를 확인하여 connectino 전달 없다면 pool로 삽입</li>
+<li>connection 대여 이력 추가</li>
+</ol>
+<h3 id="33-참고">3.3 참고</h3>
+<ul>
+<li>HikariCP는 test-while-idle Connection 갱신하여 사용하는 것을 권장하지 않는다.(강제 설정하는 것은 가능)
+<ul>
+<li>maxLifeTime만큼만 connection을 유지하고 새로운 connection을 생성하여 사용한다.(불필요한 Validation Query가 발생하지 않음)</li>
+<li>maxLifeTime은 DB의 waitTimeout보다는 작은 값을 설정해야 한다.</li>
+<li><a href="https://pkgonan.github.io/2018/04/HikariCP-test-while-idle" target="_blank" rel="noopener noreffer">(참고) HikariCP는 test-while-idle과 같은 커넥션 갱신 기능이 없을까?</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="4-옵션">4 옵션</h2>
+<h3 id="41-essentials">4.1 Essentials</h3>
 <table>
 <thead>
 <tr>
@@ -238,88 +270,138 @@ JDBC Connection을 맺는 과정에서의 리소스 비용 부담이 되기 때�
 <td>username</td>
 <td>extension to be used for dest files.</td>
 </tr>
+<tr>
+<td>password</td>
+<td></td>
+</tr>
 </tbody>
 </table>
+<h3 id="42-frequently-used">4.2 Frequently used</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>autoCommit</td>
+<td>connection 반납시 commit 여부(default:true)</td>
+</tr>
+<tr>
+<td>connectionTimeout</td>
+<td></td>
+</tr>
+<tr>
+<td>idleTimeout</td>
+<td></td>
+</tr>
+<tr>
+<td>maxLifetime</td>
+<td>connection 의 최대 생명주기 (default:1800000(30분))</td>
+</tr>
+<tr>
+<td>connectionTestQuery</td>
+<td></td>
+</tr>
+<tr>
+<td>minimumIdle</td>
+<td></td>
+</tr>
+<tr>
+<td>metricRegistry</td>
+<td></td>
+</tr>
+<tr>
+<td>healthCheckRegistry</td>
+<td></td>
+</tr>
+<tr>
+<td>poolName</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-infrequently-used">4.3 Infrequently used</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>initializationFailTimeout</td>
+<td></td>
+</tr>
+<tr>
+<td>isolateInternalQueries</td>
+<td></td>
+</tr>
+<tr>
+<td>allowPoolSuspension</td>
+<td></td>
+</tr>
+<tr>
+<td>readOnly</td>
+<td>읽기모드 전용. 데이터베이스 지원여부를 확인하고 사용 가능(default : false)</td>
+</tr>
+<tr>
+<td>registerMbeans</td>
+<td></td>
+</tr>
+<tr>
+<td>catalog</td>
+<td></td>
+</tr>
+<tr>
+<td>connectionInitSql</td>
+<td></td>
+</tr>
+<tr>
+<td>driverClassName</td>
+<td></td>
+</tr>
+<tr>
+<td>transactionIsolation</td>
+<td>java.sql.Connection에 지정된 Transaction Isolation 설정 (default:none)</td>
+</tr>
+<tr>
+<td>validationTimeout</td>
+<td></td>
+</tr>
+<tr>
+<td>leakDetectionThreshold</td>
+<td></td>
+</tr>
+<tr>
+<td>dataSource</td>
+<td></td>
+</tr>
+<tr>
+<td>schema</td>
+<td></td>
+</tr>
+<tr>
+<td>threadFactory</td>
+<td></td>
+</tr>
+<tr>
+<td>scheduledExecutor</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-참조">5 참조</h2>
 <ul>
-<li></li>
-<li></li>
-<li>
-<p>password</p>
-</li>
-<li>
-<p>autoCommit</p>
-</li>
-<li>
-<p>connectionTimeout</p>
-</li>
-<li>
-<p>idleTimeout</p>
-</li>
-<li>
-<p>maxLifetime</p>
-</li>
-<li>
-<p>connectionTestQuery</p>
-</li>
-<li>
-<p>minimumIdle</p>
-</li>
-<li>
-<p>metricRegistry</p>
-</li>
-<li>
-<p>healthCheckRegistry</p>
-</li>
-<li>
-<p>poolName</p>
-</li>
-<li>
-<p>initializationFailTimeout</p>
-</li>
-<li>
-<p>isolateInternalQueries</p>
-</li>
-<li>
-<p>allowPoolSuspension</p>
-</li>
-<li>
-<p>readOnly</p>
-</li>
-<li>
-<p>registerMbeans</p>
-</li>
-<li>
-<p>catalog</p>
-</li>
-<li>
-<p>connectionInitSql</p>
-</li>
-<li>
-<p>driverClassName</p>
-</li>
-<li>
-<p>transactionIsolation</p>
-</li>
-<li>
-<p>validationTimeout</p>
-</li>
-<li>
-<p>leakDetectionThreshold</p>
-</li>
-<li>
-<p>dataSource</p>
-</li>
-<li>
-<p>schema</p>
-</li>
-<li>
-<p>threadFactory</p>
-</li>
-<li>
-<p>scheduledExecutor</p>
-</li>
-</ul>
-<h2 id="4-참조">4 참조</h2></div><div class="post-footer" id="post-footer">
+<li><a href="https://woowabros.github.io/experience/2020/02/06/hikaricp-avoid-dead-lock.html" target="_blank" rel="noopener noreffer">HikariCP Dead lock에서 벗어나기 (이론편)</a></li>
+<li><a href="https://kakaocommerce.tistory.com/45" target="_blank" rel="noopener noreffer">JDBC 커넥션 풀들의 리소스 관리 방식 이해하기</a></li>
+<li><a href="https://d2.naver.com/helloworld/5102792" target="_blank" rel="noopener noreffer">Commons DBCP 이해하기</a></li>
+<li><a href="https://brunch.co.kr/@jehovah/24" target="_blank" rel="noopener noreffer">HikariCP 뜯어보기 1편</a></li>
+<li><a href="https://brunch.co.kr/@jehovah/25" target="_blank" rel="noopener noreffer">HikariCP 뜯어보기 2편</a></li>
+</ul></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
