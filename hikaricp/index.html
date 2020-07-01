@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/qnqnckck.github.io\/hikaricp\/"
-        },"genre": "posts","keywords": "ConnectionPool, java","wordcount":  481 ,
+        },"genre": "posts","keywords": "ConnectionPool, java","wordcount":  641 ,
         "url": "http:\/\/qnqnckck.github.io\/hikaricp\/","datePublished": "2020-06-30T08:24:52+09:00","dateModified": "2020-06-30T08:24:52+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -106,8 +106,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Hikari Connection Pool 파헤치기</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-category">included in <a href="/categories/java/"><i class="far fa-folder fa-fw"></i>java</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-30">2020-06-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;481 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-30">2020-06-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;641 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -139,8 +139,8 @@
     <li><a href="#4-옵션">4 옵션</a>
       <ul>
         <li><a href="#41-essentials">4.1 Essentials</a></li>
-        <li><a href="#42-frequently-used">4.2 Frequently used</a></li>
-        <li><a href="#43-infrequently-used">4.3 Infrequently used</a></li>
+        <li><a href="#42-optionalsfrequently-used">4.2 Optionals(Frequently used)</a></li>
+        <li><a href="#43-optionalsinfrequently-used">4.3 Optionals(Infrequently used)</a></li>
       </ul>
     </li>
     <li><a href="#5-참조">5 참조</a></li>
@@ -260,23 +260,23 @@ JDBC Connection을 맺는 과정에서의 리소스 비용 부담이 되기 때�
 <tbody>
 <tr>
 <td>dataSourceClassName</td>
-<td>path to data files to supply the data that will be passed into templates.</td>
+<td>datasource JDBC 드라이버가 제공하는 클래스 이름</td>
 </tr>
 <tr>
 <td>jdbcUrl</td>
-<td>engine to be used for processing templates. Handlebars is the default.</td>
+<td>db 접속 url</td>
 </tr>
 <tr>
 <td>username</td>
-<td>extension to be used for dest files.</td>
+<td>사용자명</td>
 </tr>
 <tr>
 <td>password</td>
-<td></td>
+<td>사용자 비밀번호</td>
 </tr>
 </tbody>
 </table>
-<h3 id="42-frequently-used">4.2 Frequently used</h3>
+<h3 id="42-optionalsfrequently-used">4.2 Optionals(Frequently used)</h3>
 <table>
 <thead>
 <tr>
@@ -291,11 +291,11 @@ JDBC Connection을 맺는 과정에서의 리소스 비용 부담이 되기 때�
 </tr>
 <tr>
 <td>connectionTimeout</td>
-<td></td>
+<td>connection 연결시도시 타임아웃 값 (default:30000(30초))</td>
 </tr>
 <tr>
 <td>idleTimeout</td>
-<td></td>
+<td>connection pool에서 유휴 상태의 생명주기 (default:600000(10분))</td>
 </tr>
 <tr>
 <td>maxLifetime</td>
@@ -303,27 +303,27 @@ JDBC Connection을 맺는 과정에서의 리소스 비용 부담이 되기 때�
 </tr>
 <tr>
 <td>connectionTestQuery</td>
-<td></td>
+<td>드라이버가 JDBC4를 지원하는 경우에는 설정하지 않음. legacy 드라이버를 위해 사용</td>
 </tr>
 <tr>
 <td>minimumIdle</td>
-<td></td>
+<td>최쇠 연결 유휴 connection 수</td>
 </tr>
 <tr>
 <td>metricRegistry</td>
-<td></td>
+<td>모니터링용. metric을 기록하는데 사용할 Codahale/Dropwizard의 인스턴스를 지정</td>
 </tr>
 <tr>
 <td>healthCheckRegistry</td>
-<td></td>
+<td>모니터링용. health check 정보를 사용할 Codahale/Dropwizard의 인스턴스를 지정</td>
 </tr>
 <tr>
 <td>poolName</td>
-<td></td>
+<td>connection pool의 사용자 이름 정의</td>
 </tr>
 </tbody>
 </table>
-<h3 id="43-infrequently-used">4.3 Infrequently used</h3>
+<h3 id="43-optionalsinfrequently-used">4.3 Optionals(Infrequently used)</h3>
 <table>
 <thead>
 <tr>
@@ -334,35 +334,35 @@ JDBC Connection을 맺는 과정에서의 리소스 비용 부담이 되기 때�
 <tbody>
 <tr>
 <td>initializationFailTimeout</td>
-<td></td>
+<td>초기 연결로 풀에 시드 connection으로 할 수 없을 경우 실패 여부를 제어 (default:1)</td>
 </tr>
 <tr>
 <td>isolateInternalQueries</td>
-<td></td>
+<td>서비스용이 아닌 테스트와 같은 내부 풀 쿼리를 분리 여부를 결정. autoCommit이 비활성화된 경우에만 적용</td>
 </tr>
 <tr>
 <td>allowPoolSuspension</td>
-<td></td>
+<td>JMX를 통해 pool을 일시 중단하고 재개할 수 있는지 여부를 제어. 특정 장애 조치 자동화 시나리오에 유용 (default:false)</td>
 </tr>
 <tr>
 <td>readOnly</td>
-<td>읽기모드 전용. 데이터베이스 지원여부를 확인하고 사용 가능(default : false)</td>
+<td>읽기모드 전용. 데이터베이스 지원여부를 확인하고 사용 가능(default:false)</td>
 </tr>
 <tr>
 <td>registerMbeans</td>
-<td></td>
+<td>JMX 관리 Bean의 등록 여부 제어 (default:false)</td>
 </tr>
 <tr>
 <td>catalog</td>
-<td></td>
+<td>카탈로그 개념을 지원하는 데이터베이스의 기본 카탈로그를 설정. 지정하지 않으면 JDBC 드라이버가 정의한 기본 카탈로그를 사용</td>
 </tr>
 <tr>
 <td>connectionInitSql</td>
-<td></td>
+<td>신규 connection이 pool에 추가되기 전에 실행된 SQL 문 정의</td>
 </tr>
 <tr>
 <td>driverClassName</td>
-<td></td>
+<td>특정 DriverManager를 실행하기 위해 지정하는 특정 Class를 지정</td>
 </tr>
 <tr>
 <td>transactionIsolation</td>
@@ -370,27 +370,27 @@ JDBC Connection을 맺는 과정에서의 리소스 비용 부담이 되기 때�
 </tr>
 <tr>
 <td>validationTimeout</td>
-<td></td>
+<td>connection의 유효한지를 확인할 경우의 타이아웃 값 (default:5000)</td>
 </tr>
 <tr>
 <td>leakDetectionThreshold</td>
-<td></td>
+<td>connection 이 pool에서 벗어나는 시간을 제어. 누수 여부를 검출시 사용 (default:0)</td>
 </tr>
 <tr>
 <td>dataSource</td>
-<td></td>
+<td>hikariCP가 reflection을 통해 생성하지 않고 풀의 인스턴스를 바로 랩핑하는 겨우 설정</td>
 </tr>
 <tr>
 <td>schema</td>
-<td></td>
+<td>스키마 개념을 지원하는 데이터베이스의 기본 스키마를 설정 (default:driver default)</td>
 </tr>
 <tr>
 <td>threadFactory</td>
-<td></td>
+<td>쓰레드 생성시에 사용할 인스턴스를 지정</td>
 </tr>
 <tr>
 <td>scheduledExecutor</td>
-<td></td>
+<td>java.util.concurrent.ScheduledExecutorService 내부적으로 예약 된 다양한 작업에 사용될 인스턴스를 설정 가능</td>
 </tr>
 </tbody>
 </table>

@@ -93,44 +93,44 @@ classDiagram
 
 | Option | Description |
 | ------ | ----------- |
-| dataSourceClassName   | path to data files to supply the data that will be passed into templates. |
-| jdbcUrl | engine to be used for processing templates. Handlebars is the default. |
-| username  | extension to be used for dest files. |
-| password | |
+| dataSourceClassName   | datasource JDBC 드라이버가 제공하는 클래스 이름 |
+| jdbcUrl | db 접속 url  |
+| username  | 사용자명 |
+| password | 사용자 비밀번호 |
 
-### 4.2 Frequently used
+### 4.2 Optionals(Frequently used)
 
 | Option | Description |
 | ------ | ----------- |
 | autoCommit | connection 반납시 commit 여부(default:true)|
-| connectionTimeout | |
-| idleTimeout | |
+| connectionTimeout | connection 연결시도시 타임아웃 값 (default:30000(30초)) |
+| idleTimeout | connection pool에서 유휴 상태의 생명주기 (default:600000(10분)) |
 | maxLifetime | connection 의 최대 생명주기 (default:1800000(30분)) |
-| connectionTestQuery | |
-| minimumIdle | |
-| metricRegistry | |
-| healthCheckRegistry | |
-| poolName | |
+| connectionTestQuery | 드라이버가 JDBC4를 지원하는 경우에는 설정하지 않음. legacy 드라이버를 위해 사용|
+| minimumIdle | 최쇠 연결 유휴 connection 수 |
+| metricRegistry | 모니터링용. metric을 기록하는데 사용할 Codahale/Dropwizard의 인스턴스를 지정|
+| healthCheckRegistry | 모니터링용. health check 정보를 사용할 Codahale/Dropwizard의 인스턴스를 지정 |
+| poolName | connection pool의 사용자 이름 정의|
 
-### 4.3 Infrequently used
+### 4.3 Optionals(Infrequently used)
 
 | Option | Description |
 | ------ | ----------- |
-| initializationFailTimeout | |
-| isolateInternalQueries | |
-| allowPoolSuspension | |
-| readOnly | 읽기모드 전용. 데이터베이스 지원여부를 확인하고 사용 가능(default : false)|
-| registerMbeans | |
-| catalog | |
-| connectionInitSql | |
-| driverClassName | |
+| initializationFailTimeout | 초기 연결로 풀에 시드 connection으로 할 수 없을 경우 실패 여부를 제어 (default:1)|
+| isolateInternalQueries | 서비스용이 아닌 테스트와 같은 내부 풀 쿼리를 분리 여부를 결정. autoCommit이 비활성화된 경우에만 적용 |
+| allowPoolSuspension | JMX를 통해 pool을 일시 중단하고 재개할 수 있는지 여부를 제어. 특정 장애 조치 자동화 시나리오에 유용 (default:false) |
+| readOnly | 읽기모드 전용. 데이터베이스 지원여부를 확인하고 사용 가능(default:false)|
+| registerMbeans | JMX 관리 Bean의 등록 여부 제어 (default:false) |
+| catalog | 카탈로그 개념을 지원하는 데이터베이스의 기본 카탈로그를 설정. 지정하지 않으면 JDBC 드라이버가 정의한 기본 카탈로그를 사용 |
+| connectionInitSql | 신규 connection이 pool에 추가되기 전에 실행된 SQL 문 정의 |
+| driverClassName | 특정 DriverManager를 실행하기 위해 지정하는 특정 Class를 지정 |
 | transactionIsolation | java.sql.Connection에 지정된 Transaction Isolation 설정 (default:none)|
-| validationTimeout | |
-| leakDetectionThreshold | |
-| dataSource | |
-| schema | |
-| threadFactory | |
-| scheduledExecutor | |
+| validationTimeout | connection의 유효한지를 확인할 경우의 타이아웃 값 (default:5000) |
+| leakDetectionThreshold | connection 이 pool에서 벗어나는 시간을 제어. 누수 여부를 검출시 사용 (default:0) |
+| dataSource | hikariCP가 reflection을 통해 생성하지 않고 풀의 인스턴스를 바로 랩핑하는 겨우 설정 |
+| schema | 스키마 개념을 지원하는 데이터베이스의 기본 스키마를 설정 (default:driver default) |
+| threadFactory | 쓰레드 생성시에 사용할 인스턴스를 지정 |
+| scheduledExecutor | java.util.concurrent.ScheduledExecutorService 내부적으로 예약 된 다양한 작업에 사용될 인스턴스를 설정 가능|
 
 ## 5 참조
 * [HikariCP Dead lock에서 벗어나기 (이론편)](https://woowabros.github.io/experience/2020/02/06/hikaricp-avoid-dead-lock.html)
