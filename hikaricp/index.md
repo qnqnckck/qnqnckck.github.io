@@ -50,6 +50,10 @@ classDiagram
 | DataSource | DataSource, HikariDataSource, Closeable | Connection Pool을 지원하기 위한 인터페이스 |
 
 
+![Minion](./images/hikaricp/image01.png "Hikari Pool 구성도")
+
+
+
 ## 3 설명
 ### 3.1 특징
  1. hikari CP의 특이점이 있다면 아래 코드와 같이 DataSource에 2개의 pool이 존재한다는 것이다. fastPathPool은 전체 pool에서 요청전에 캐시 처럼 사용한다. [volatile](https://nesoy.github.io/articles/2018-06/Java-volatile)을 사용하는 경우 메인메모리에 read/write를 수행하여 일치되는 값을 공유하여 사용할 수 있지만 오버헤드가 있다.
