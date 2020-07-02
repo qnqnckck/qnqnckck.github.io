@@ -20,7 +20,7 @@
 <meta name="application-name" content="KIM YONG SUNG&#39;s Tech Blog">
 <meta name="apple-mobile-web-app-title" content="KIM YONG SUNG&#39;s Tech Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://qnqnckck.github.io/hikaricp/" /><link rel="prev" href="http://qnqnckck.github.io/connection_pool_benchmark/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://qnqnckck.github.io/hikaricp/" /><link rel="prev" href="http://qnqnckck.github.io/connection_pool_benchmark/" /><link rel="next" href="http://qnqnckck.github.io/introduce_kubernetes101/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -147,10 +147,9 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><strong>Hikari Connection Pool 동작 원리 및 옵션 설정 이해하기</strong></p>
-<p><a href="/connection_pool_benchmark" rel="">CP(Connection Pool) 라이브러리 성능 검증</a> 을 통해 Hikari 성능이 좋다는 것은 확인하였고, 어떠한 동작 방식으로 성능이 이렇게 좋아질 수 있었는지를 확인하고자 동작 방식과 hikari에서 사용되는 옵션들에 대해 이해할 기회를 가져볼까 한다.
-JDBC Connection을 맺는 과정에서의 리소스 비용 부담이 되기 때문에</p>
+<p><a href="/connection_pool_benchmark" rel="">CP(Connection Pool) 라이브러리 성능 검증</a> 을 통해 Hikari 성능이 좋다는 것은 확인하였고, 어떠한 동작 방식으로 성능이 이렇게 좋아질 수 있었는지를 확인하고자 동작 방식과 hikari에서 사용되는 옵션들에 대해 이해해 보자.</p>
 <h2 id="1-description">1 Description</h2>
-<p>기존 사용되던 tomcat-dbcp, dbcp, bonecp 보다 더 빠르고, 가벼운 Connection Pool로 &lsquo;zero-overhead&rsquo;라고 할 정도의 경량화 된 라이브러리</p>
+<p>기존 사용되던 tomcat-dbcp, dbcp, bonecp 보다 더 빠르고, 가벼운 Connection Pool로 &lsquo;zero-overhead&rsquo;라고 할 정도의 경량화 된 라이브러리이다.</p>
 <ul>
 <li>hikari cp가 빠른 이유
 <ul>
@@ -241,6 +240,7 @@ JDBC Connection을 맺는 과정에서의 리소스 비용 부담이 되기 때�
 <li>Pool에도 없다면 handoffQueue에서 대기</li>
 <li>일정 시간 이내 다른 thread에게 connection이 반납되지 않으면 Exception 발생</li>
 </ol>
+<p><strong>Connection을 얻은 후에는 1000ms(1초) 이내 사용된 경우에는 Validation Query를 수행하지 않는다.</strong></p>
 <h4 id="322-connection-닫기">3.2.2 Connection 닫기</h4>
 <ol>
 <li>idle connection으로 변경(state를 STATE_NOT_IN_USE로 변경)</li>
@@ -437,7 +437,8 @@ JDBC Connection을 맺는 과정에서의 리소스 비용 부담이 되기 때�
         </section>
     </div>
 
-    <div class="post-nav"><a href="/connection_pool_benchmark/" class="prev" rel="prev" title="Connection Pool 성능테스트 : hikari, tomcat-dbcp, bee, vibur"><i class="fas fa-angle-left fa-fw"></i>Connection Pool 성능테스트 : hikari, tomcat-dbcp, bee, vibur</a></div>
+    <div class="post-nav"><a href="/connection_pool_benchmark/" class="prev" rel="prev" title="Connection Pool 성능테스트 : hikari, tomcat-dbcp, bee, vibur"><i class="fas fa-angle-left fa-fw"></i>Connection Pool 성능테스트 : hikari, tomcat-dbcp, bee, vibur</a>
+            <a href="/introduce_kubernetes101/" class="next" rel="next" title="쿠버네티스 이론편">쿠버네티스 이론편<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"></div></article></div>
             </main><footer class="footer">

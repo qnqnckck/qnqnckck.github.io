@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>container - Tag - Tech Blog. of Jei&#39;s PAPA </title>
+        <link>http://qnqnckck.github.io/tags/container/</link>
+        <description>container - Tag - Tech Blog. of Jei&#39;s PAPA </description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>qnqnckck@gmail.com (KIM YONG SUNG)</managingEditor>
+            <webMaster>qnqnckck@gmail.com (KIM YONG SUNG)</webMaster><lastBuildDate>Thu, 02 Jul 2020 15:02:05 &#43;0900</lastBuildDate><atom:link href="http://qnqnckck.github.io/tags/container/" rel="self" type="application/rss+xml" /><item>
+    <title>쿠버네티스 이론편</title>
+    <link>http://qnqnckck.github.io/introduce_kubernetes101/</link>
+    <pubDate>Thu, 02 Jul 2020 15:02:05 &#43;0900</pubDate>
+    <author>Author</author>
+    <guid>http://qnqnckck.github.io/introduce_kubernetes101/</guid>
+    <description><![CDATA[<p>tt</p>]]></description>
+</item></channel>
+</rss>
