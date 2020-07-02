@@ -85,7 +85,7 @@ classDiagram
 3. connection 대여 이력 추가
 
 
-### 3.3 참고
+### 3.3 주의사항
 * HikariCP는 test-while-idle Connection 갱신하여 사용하는 것을 권장하지 않는다.(강제 설정하는 것은 가능)
   * maxLifeTime만큼만 connection을 유지하고 새로운 connection을 생성하여 사용한다.(불필요한 Validation Query가 발생하지 않음)
   * **maxLifeTime은 DB의 waitTimeout보다는 작은 값을 설정해야 한다.**
@@ -144,5 +144,6 @@ classDiagram
 * [HikariCP 뜯어보기 1편](https://brunch.co.kr/@jehovah/24)
 * [HikariCP 뜯어보기 2편](https://brunch.co.kr/@jehovah/25)
 * [HikariCP Failed to Validate Connection Warning 이야기](https://jaehun2841.github.io/2020/01/08/2020-01-08-hikari-pool-validate-connection/#hikari-pool-failed-to-validate-connection)
+* [HikariCP는 test-while-idle과 같은 커넥션 갱신 기능이 없을까?](https://pkgonan.github.io/2018/04/HikariCP-test-while-idle)
 
 

@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/qnqnckck.github.io\/connection_pool_benchmark\/"
-        },"genre": "posts","keywords": "ConnectionPool, Benchmark, java","wordcount":  69 ,
+        },"genre": "posts","keywords": "ConnectionPool, Benchmark, java","wordcount":  59 ,
         "url": "http:\/\/qnqnckck.github.io\/connection_pool_benchmark\/","datePublished": "2020-06-29T23:48:40+09:00","dateModified": "2020-06-29T23:48:40+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,10 +103,10 @@
 <main class="main">
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
-            <div class="toc-content" id="toc-content-auto"></div>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Connection Pool 성능테스트 : hikari, tomcat-dbcp, bee, vibur</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-category">included in <a href="/categories/java/"><i class="far fa-folder fa-fw"></i>java</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-29">2020-06-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;69 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-29">2020-06-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;59 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -115,14 +115,22 @@
         data-srcset="/cover/ConnectionPool.png, /cover/ConnectionPool.png 1.5x, /cover/ConnectionPool.png 2x"
         data-sizes="auto"
         alt="/cover/ConnectionPool.png"
-        title="Connection Pool 성능테스트" /></div><div class="details toc" id="toc-static"  kept="true">
+        title="Connection Pool 성능테스트" /></div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>Connectino Pool 라이브러리 tomcat-dbcp/vibur/bee/hikari 최신 라이브러리 적용한 성능 검증 분석</p>
-<p>회사에서 스프링 프레임워크 업그레이드를 진행하면서 maven으로 사용하고 있는 라이브러리 목록을 정리하고, 업그레이드 가능한 목록을 확인할 업무가 생겼다. 그 중 CP(Connection Pool) 라이브러리는 tomcat-dbcp를 사용하고 있었는데 아마 스프링부트를 사용하고 있였다면 2.0이상의 버전 업그레이드시 default로 사용되는 hikari로 아무 생각없이 적용해서 사용했을 것이다. CP 라이브러리 변경을 위해서 합리적인 이유가 있어야 하기에 성능 검증을 진행했고, 관련 라이브러리로 tomcat-dbcp/vibur/bee/hikari 라이브러리의 성능 테스트를 진행해 보았다.</p></div><div class="post-footer" id="post-footer">
+            </div><div class="content" id="content"><p><strong>Connectino Pool 라이브러리 tomcat-dbcp/vibur/bee/hikari 최신 라이브러리 적용한 성능 검증 분석</strong></p>
+<p>회사에서 스프링 프레임워크 업그레이드를 진행하면서 의존성 있는 라이브러리의 목록을 업데이트하는 업무를 진행하게 되었다. 사용하는 라이브러리 중에서 CP(Connection Pool)는 tomcat-dbcp를 사용하고 있었고, 스프링부트 2.0에서 디폴트로 적용된 Hikari CP에 대해 검토하게 되었다. <a href="https://github.com/brettwooldridge/HikariCP" target="_blank" rel="noopener noreffer">Hikari CP Repository</a>에 성능 비교는 2-3년 전에 진행되었기 때문에 최신 버전과 새로운 CP 라이브러리를 추가하여 성능검증을 진행하였다.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+</table></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
