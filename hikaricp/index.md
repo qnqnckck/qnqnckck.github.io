@@ -2,7 +2,7 @@
 
 **Hikari Connection Pool 동작 원리 및 옵션 설정 이해하기**
 <!--more-->
- [CP(Connection Pool) 라이브러리 성능 검증](/connection_pool_benchmark) 을 통해 Hikari 성능이 좋다는 것은 확인하였고, 어떠한 동작 방식으로 성능이 이렇게 좋아질 수 있었는지를 확인하고자 동작 방식과 hikari에서 사용되는 옵션들에 대해 이해해 보자. 
+ [CP(Connection Pool) 라이브러리 성능 검증](/connection_pool_benchmark) 을 통해 Hikari 성능이 좋다는 것은 확인하였고, 실제 동작상 성능 향상을 위해 어떠한 이점을 가지는지를 확인하고자 동작 방식과 hikari에서 사용되는 옵션들에 대해서 이해해 보자. 
 
 
 ## 1 Description
@@ -55,7 +55,7 @@ classDiagram
 
 ## 3 설명
 ### 3.1 특징
- 1. hikari CP의 특이점이 있다면 아래 코드와 같이 DataSource에 2개의 pool이 존재한다는 것이다. fastPathPool은 전체 pool에서 요청전에 캐시 처럼 사용한다. [volatile](https://nesoy.github.io/articles/2018-06/Java-volatile)을 사용하는 경우 메인메모리에 read/write를 수행하여 일치되는 값을 공유하여 사용할 수 있지만 오버헤드가 있다.
+ 1. hikari CP의 특이점이 있다면 아래 코드와 같이 DataSource에 2개의 pool이 존재한다는 것이다. fastPathPool은 전체 pool에서 요청전에 캐시 처럼 사용한다.([volatile](https://nesoy.github.io/articles/2018-06/Java-volatile)을 사용하는 경우 메인메모리에 read/write를 수행하여 일치되는 값을 공유하여 사용할 수 있지만 오버헤드가 있다.)
 
 ```java
  public class HikariDataSource extends HikariConfig implements DataSource, Closeable
@@ -72,7 +72,7 @@ classDiagram
 ### 3.2 동작 순서
 #### 3.2.1 Connection 가져오기
 
-1. fastPathPool에서 대여 이력이 있는지를 확인을 통해 Connection 요청
+1. fastPathPool에서 대여 이력이 있는지를 확인하여 이력이 있는 경우 Connection 요청
 2. fastPathPool에 없으면 Pool에서 Connection 요청
 3. Pool에도 없다면 handoffQueue에서 대기
 4. 일정 시간 이내 다른 thread에게 connection이 반납되지 않으면 Exception 발생 

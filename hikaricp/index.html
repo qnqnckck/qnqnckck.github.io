@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/qnqnckck.github.io\/hikaricp\/"
-        },"genre": "posts","keywords": "ConnectionPool, java","wordcount":  653 ,
+        },"genre": "posts","keywords": "ConnectionPool, java","wordcount":  654 ,
         "url": "http:\/\/qnqnckck.github.io\/hikaricp\/","datePublished": "2020-06-30T08:24:52+09:00","dateModified": "2020-06-30T08:24:52+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -106,7 +106,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Hikari Connection Pool 파헤치기</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-category">included in <a href="/categories/java/"><i class="far fa-folder fa-fw"></i>java</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-30">2020-06-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;653 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-30">2020-06-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;654 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -147,7 +147,7 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><strong>Hikari Connection Pool 동작 원리 및 옵션 설정 이해하기</strong></p>
-<p><a href="/connection_pool_benchmark" rel="">CP(Connection Pool) 라이브러리 성능 검증</a> 을 통해 Hikari 성능이 좋다는 것은 확인하였고, 어떠한 동작 방식으로 성능이 이렇게 좋아질 수 있었는지를 확인하고자 동작 방식과 hikari에서 사용되는 옵션들에 대해 이해해 보자.</p>
+<p><a href="/connection_pool_benchmark" rel="">CP(Connection Pool) 라이브러리 성능 검증</a> 을 통해 Hikari 성능이 좋다는 것은 확인하였고, 실제 동작상 성능 향상을 위해 어떠한 이점을 가지는지를 확인하고자 동작 방식과 hikari에서 사용되는 옵션들에 대해서 이해해 보자.</p>
 <h2 id="1-description">1 Description</h2>
 <p>기존 사용되던 tomcat-dbcp, dbcp, bonecp 보다 더 빠르고, 가벼운 Connection Pool로 &lsquo;zero-overhead&rsquo;라고 할 정도의 경량화 된 라이브러리이다.</p>
 <ul>
@@ -206,7 +206,7 @@
 <h2 id="3-설명">3 설명</h2>
 <h3 id="31-특징">3.1 특징</h3>
 <ol>
-<li>hikari CP의 특이점이 있다면 아래 코드와 같이 DataSource에 2개의 pool이 존재한다는 것이다. fastPathPool은 전체 pool에서 요청전에 캐시 처럼 사용한다. <a href="https://nesoy.github.io/articles/2018-06/Java-volatile" target="_blank" rel="noopener noreffer">volatile</a>을 사용하는 경우 메인메모리에 read/write를 수행하여 일치되는 값을 공유하여 사용할 수 있지만 오버헤드가 있다.</li>
+<li>hikari CP의 특이점이 있다면 아래 코드와 같이 DataSource에 2개의 pool이 존재한다는 것이다. fastPathPool은 전체 pool에서 요청전에 캐시 처럼 사용한다.(<a href="https://nesoy.github.io/articles/2018-06/Java-volatile" target="_blank" rel="noopener noreffer">volatile</a>을 사용하는 경우 메인메모리에 read/write를 수행하여 일치되는 값을 공유하여 사용할 수 있지만 오버헤드가 있다.)</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -235,7 +235,7 @@
 <h3 id="32-동작-순서">3.2 동작 순서</h3>
 <h4 id="321-connection-가져오기">3.2.1 Connection 가져오기</h4>
 <ol>
-<li>fastPathPool에서 대여 이력이 있는지를 확인을 통해 Connection 요청</li>
+<li>fastPathPool에서 대여 이력이 있는지를 확인하여 이력이 있는 경우 Connection 요청</li>
 <li>fastPathPool에 없으면 Pool에서 Connection 요청</li>
 <li>Pool에도 없다면 handoffQueue에서 대기</li>
 <li>일정 시간 이내 다른 thread에게 connection이 반납되지 않으면 Exception 발생</li>
