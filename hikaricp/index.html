@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/qnqnckck.github.io\/hikaricp\/"
-        },"genre": "posts","keywords": "ConnectionPool, java","wordcount":  655 ,
+        },"genre": "posts","keywords": "ConnectionPool, java","wordcount":  653 ,
         "url": "http:\/\/qnqnckck.github.io\/hikaricp\/","datePublished": "2020-06-30T08:24:52+09:00","dateModified": "2020-06-30T08:24:52+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -106,7 +106,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Hikari Connection Pool 파헤치기</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-category">included in <a href="/categories/java/"><i class="far fa-folder fa-fw"></i>java</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-30">2020-06-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;655 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-30">2020-06-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;653 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -240,11 +240,11 @@
 <li>Pool에도 없다면 handoffQueue에서 대기</li>
 <li>일정 시간 이내 다른 thread에게 connection이 반납되지 않으면 Exception 발생</li>
 </ol>
-<p><strong>Connection을 얻은 후에는 1000ms(1초) 이내 사용된 경우에는 Validation Query를 수행하지 않는다.</strong></p>
+<p><strong>Connection이 1000ms(1초) 이내 사용된 경우에는 유효성 검증을 하지 않는다.</strong></p>
 <h4 id="322-connection-닫기">3.2.2 Connection 닫기</h4>
 <ol>
 <li>idle connection으로 변경(state를 STATE_NOT_IN_USE로 변경)</li>
-<li>handOffQueue에서 대기 쓰레드가 있는지를 확인하여 connectino 전달 없다면 pool로 삽입</li>
+<li>handOffQueue에서 대기 쓰레드가 있는지를 확인하여 connectio 전달 없다면 pool로 삽입</li>
 <li>connection 대여 이력 추가</li>
 </ol>
 <h3 id="33-참고">3.3 참고</h3>
@@ -252,7 +252,7 @@
 <li>HikariCP는 test-while-idle Connection 갱신하여 사용하는 것을 권장하지 않는다.(강제 설정하는 것은 가능)
 <ul>
 <li>maxLifeTime만큼만 connection을 유지하고 새로운 connection을 생성하여 사용한다.(불필요한 Validation Query가 발생하지 않음)</li>
-<li>maxLifeTime은 DB의 waitTimeout보다는 작은 값을 설정해야 한다.</li>
+<li><strong>maxLifeTime은 DB의 waitTimeout보다는 작은 값을 설정해야 한다.</strong></li>
 <li><a href="https://pkgonan.github.io/2018/04/HikariCP-test-while-idle" target="_blank" rel="noopener noreffer">(참고) HikariCP는 test-while-idle과 같은 커넥션 갱신 기능이 없을까?</a></li>
 </ul>
 </li>

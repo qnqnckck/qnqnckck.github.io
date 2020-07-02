@@ -77,18 +77,18 @@ classDiagram
 3. Pool에도 없다면 handoffQueue에서 대기
 4. 일정 시간 이내 다른 thread에게 connection이 반납되지 않으면 Exception 발생 
 
-**Connection을 얻은 후에는 1000ms(1초) 이내 사용된 경우에는 Validation Query를 수행하지 않는다.** 
+**Connection이 1000ms(1초) 이내 사용된 경우에는 유효성 검증을 하지 않는다.**
 
 #### 3.2.2 Connection 닫기
 1. idle connection으로 변경(state를 STATE_NOT_IN_USE로 변경)
-2. handOffQueue에서 대기 쓰레드가 있는지를 확인하여 connectino 전달 없다면 pool로 삽입
+2. handOffQueue에서 대기 쓰레드가 있는지를 확인하여 connectio 전달 없다면 pool로 삽입
 3. connection 대여 이력 추가
 
 
 ### 3.3 참고
 * HikariCP는 test-while-idle Connection 갱신하여 사용하는 것을 권장하지 않는다.(강제 설정하는 것은 가능)
   * maxLifeTime만큼만 connection을 유지하고 새로운 connection을 생성하여 사용한다.(불필요한 Validation Query가 발생하지 않음)
-  * maxLifeTime은 DB의 waitTimeout보다는 작은 값을 설정해야 한다.
+  * **maxLifeTime은 DB의 waitTimeout보다는 작은 값을 설정해야 한다.**
   * [(참고) HikariCP는 test-while-idle과 같은 커넥션 갱신 기능이 없을까?](https://pkgonan.github.io/2018/04/HikariCP-test-while-idle)
 
 *** 
