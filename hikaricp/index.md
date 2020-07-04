@@ -11,7 +11,7 @@
 * hikari cp가 빠른 이유
   * 코드 디자인 및 최적화를 통해 스레드 간의 잠금 경쟁이 크게 감소
   * JDK 및 cglib의 동적 프록시와 비교하여 javaassist(java 바이트 코드를 조작하는 수단을 제공하는 라이브러리)를 통해 클래스 파일을 직접 수정하여 생성된 프록시 클래스는 작동 속도가 빠름
-  * FastList 및 사용자 정의 컬렉션 클래스 도입하여 세부 로직을 최적화하여 제공
+  * FastList 및 사용자 정의 컬렉션 클래스 도입하여 세부 로직을 최적화하여 제공 
 
 ## 2 Architecture
  다른 DBCP들과 아키텍쳐들은 유사하며, 아키텍쳐의 차이에 의한 성능차이가 아닌 pool(ConcurrentBag) 구조 및 관리 방법에 의한 것임을 확인 할 수 있습니다. 
@@ -81,14 +81,14 @@ classDiagram
 
 #### 3.2.2 Connection 닫기
 1. idle connection으로 변경(state를 STATE_NOT_IN_USE로 변경)
-2. handOffQueue에서 대기 쓰레드가 있는지를 확인하여 connectio 전달 없다면 pool로 삽입
+2. handOffQueue에서 대기 쓰레드가 있는지를 확인하여 connection 전달 없다면 pool로 삽입
 3. connection 대여 이력 추가
 
 
 ### 3.3 주의사항
 * HikariCP는 test-while-idle Connection 갱신하여 사용하는 것을 권장하지 않는다.(강제 설정하는 것은 가능)
   * maxLifeTime만큼만 connection을 유지하고 새로운 connection을 생성하여 사용한다.(불필요한 Validation Query가 발생하지 않음)
-  * **maxLifeTime은 DB의 waitTimeout보다는 작은 값을 설정해야 한다.**
+  * **maxLifeTime은 DB의 waitTimeout보다는 작은 값을 설정해야 한다.(2~5 초 : 문서상 30초는 업데이트가 안된거라고 함) **
   * [(참고) HikariCP는 test-while-idle과 같은 커넥션 갱신 기능이 없을까?](https://pkgonan.github.io/2018/04/HikariCP-test-while-idle)
 
 *** 
@@ -145,5 +145,7 @@ classDiagram
 * [HikariCP 뜯어보기 2편](https://brunch.co.kr/@jehovah/25)
 * [HikariCP Failed to Validate Connection Warning 이야기](https://jaehun2841.github.io/2020/01/08/2020-01-08-hikari-pool-validate-connection/#hikari-pool-failed-to-validate-connection)
 * [HikariCP는 test-while-idle과 같은 커넥션 갱신 기능이 없을까?](https://pkgonan.github.io/2018/04/HikariCP-test-while-idle)
+* [HikariCP Maximum Pool Size 설정 시, 고려해야할 부분](https://jaehun2841.github.io/2020/01/27/2020-01-27-hikaricp-maximum-pool-size-tuning/)
+
 
 
