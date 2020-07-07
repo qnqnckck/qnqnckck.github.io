@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/qnqnckck.github.io\/connection_pool_benchmark\/"
-        },"genre": "posts","keywords": "ConnectionPool, Benchmark, java","wordcount":  304 ,
+        },"genre": "posts","keywords": "ConnectionPool, Benchmark, java","wordcount":  328 ,
         "url": "http:\/\/qnqnckck.github.io\/connection_pool_benchmark\/","datePublished": "2020-06-29T23:48:40+09:00","dateModified": "2020-06-29T23:48:40+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -106,7 +106,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Connection Pool 성능테스트 : hikari, tomcat-dbcp, bee, vibur</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-category">included in <a href="/categories/java/"><i class="far fa-folder fa-fw"></i>java</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-29">2020-06-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;304 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-29">2020-06-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;328 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -343,7 +343,15 @@
 <div class="echarts" id="id-4" style="width: 100%; height: 30rem;"></div>
 <h2 id="3-분석">3 분석</h2>
 <p>Stub 드라이버의 경우 DB 서버 실제 질의를 날리지 않기 때문에 순수 라이브러리의 성능지표이며, 결과만 보면 압도적으로 hikari와 bee 라이브러리가 가장 좋은 성능을 보여주었다. mysql 드라이버의 경우 private 회사망에 분리되어 있는 DB 서버에 접속하여 테스트를 진행하였으며 실제 질의 후 응답까지에 네트워크 시간을 포함한 소요시간이 가장 큰 영향을 끼치기 때문에 거의 유사하 결과를 확인 할 수 있었다.</p>
-<p>그렇다면 응답 속도도 동일하면 성능적으로 차이가 없는 것인가? 그렇지 않다. 각각의 라이브러리의 장점들이 있을텐데 hikari의 경우에는 connection을 캐시하는 상품을</p></div><div class="post-footer" id="post-footer">
+<p>그렇다면 응답 속도도 동일하면 성능적으로 차이가 없는 것인가? 그렇지 않다. 각각의 라이브러리의 장점들이 있을텐데 hikari의 경우에는 connection을 fastPathPool을 통해 동일 쓰레드 요청에 대 이전에 사용된 connection을 전달해 준다. 이부분에 대해서 성능은 실제 얼마나 응답속도 부분에 대해 기여할지는 추후에 테스트하게 되면 공유 하도록 하겠다.</p><script src="https://utteranc.es/client.js"
+        repo="qnqnckck/qnqnckck.github.io"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+        </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
