@@ -2,18 +2,18 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://qnqnckck.github.io/categories/</loc><lastmod>2020-07-02T15:02:05&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/tags/container/</loc><lastmod>2020-07-02T15:02:05&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/tags/kubernetes/</loc><lastmod>2020-07-02T15:02:05&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/categories/kubernetes/</loc><lastmod>2020-07-02T15:02:05&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/posts/</loc><lastmod>2020-07-02T15:02:05&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/tags/</loc><lastmod>2020-07-02T15:02:05&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/</loc><lastmod>2020-07-02T15:02:05&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/introduce_kubernetes101/</loc><lastmod>2020-07-02T15:02:05&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/tags/connectionpool/</loc><lastmod>2020-06-30T08:24:52&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://qnqnckck.github.io/hikaricp/</loc><lastmod>2020-06-30T08:24:52&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://qnqnckck.github.io/tags/java/</loc><lastmod>2020-06-30T08:24:52&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://qnqnckck.github.io/categories/java/</loc><lastmod>2020-06-30T08:24:52&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://qnqnckck.github.io/tags/benchmark/</loc><lastmod>2020-06-29T23:48:40&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://qnqnckck.github.io/connection_pool_benchmark/</loc><lastmod>2020-06-29T23:48:40&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://qnqnckck.github.io/categories/</loc><lastmod>2020-07-02T15:02:05&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/container/</loc><lastmod>2020-07-02T15:02:05&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/kubernetes/</loc><lastmod>2020-07-02T15:02:05&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://qnqnckck.github.io/categories/kubernetes/</loc><lastmod>2020-07-02T15:02:05&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://qnqnckck.github.io/posts/</loc><lastmod>2020-07-02T15:02:05&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/</loc><lastmod>2020-07-02T15:02:05&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://qnqnckck.github.io/</loc><lastmod>2020-07-02T15:02:05&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://qnqnckck.github.io/introduce_kubernetes101/</loc><lastmod>2020-07-02T15:02:05&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/connectionpool/</loc><lastmod>2020-06-30T08:24:52&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://qnqnckck.github.io/hikaricp/</loc><lastmod>2020-06-30T08:24:52&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/java/</loc><lastmod>2020-06-30T08:24:52&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://qnqnckck.github.io/categories/java/</loc><lastmod>2020-06-30T08:24:52&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/benchmark/</loc><lastmod>2020-06-29T23:48:40&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://qnqnckck.github.io/connection_pool_benchmark/</loc><lastmod>2020-06-29T23:48:40&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
             <loc>http://qnqnckck.github.io/about/</loc><lastmod>2019-08-02T11:04:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>
