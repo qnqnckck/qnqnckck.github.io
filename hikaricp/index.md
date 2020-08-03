@@ -113,7 +113,7 @@ classDiagram
 | maxLifetime | connection 의 최대 생명주기 (default:1800000(30분)) |
 | connectionTestQuery | 드라이버가 JDBC4를 지원하는 경우에는 설정하지 않음. legacy 드라이버를 위해 사용|
 | minimumIdle | 최소 연결 유휴 connection 수 |
-| maximumPoolSize | 최대 연결 유휴 connection 수 |
+| maximumPoolSize | 최대 연결 connection 수 |
 | metricRegistry | 모니터링용. metric을 기록하는데 사용할 Codahale/Dropwizard의 인스턴스를 지정|
 | healthCheckRegistry | 모니터링용. health check 정보를 사용할 Codahale/Dropwizard의 인스턴스를 지정 |
 | poolName | connection pool의 사용자 이름 정의|
