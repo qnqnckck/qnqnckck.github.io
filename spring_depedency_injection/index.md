@@ -134,7 +134,7 @@ public class TestBService
 
 {{< admonition type=failure title="Log">}}
 Description : 
-The dependencies of some of the beans in the application context form a cycle
+The dependencies of some of the beans in the application context from a cycle
 {{< /admonition >}}
 
 
