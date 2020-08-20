@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>java - Tag - Tech Blog. of Jei&#39;s PAPA </title>
+        <title>Java - Tag - Tech Blog. of Jei&#39;s PAPA </title>
         <link>http://qnqnckck.github.io/tags/java/</link>
-        <description>java - Tag - Tech Blog. of Jei&#39;s PAPA </description>
+        <description>Java - Tag - Tech Blog. of Jei&#39;s PAPA </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>qnqnckck@gmail.com (KIM YONG SUNG)</managingEditor>
             <webMaster>qnqnckck@gmail.com (KIM YONG SUNG)</webMaster><lastBuildDate>Tue, 30 Jun 2020 08:24:52 &#43;0900</lastBuildDate><atom:link href="http://qnqnckck.github.io/tags/java/" rel="self" type="application/rss+xml" /><item>
     <title>Hikari Connection Pool 파헤치기</title>
@@ -20,7 +20,7 @@
     <author>Author</author>
     <guid>http://qnqnckck.github.io/connection_pool_benchmark/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/cover/ConnectionPool.png" referrerpolicy="no-referrer">
+                <img src="/cover/connection_pool.png" referrerpolicy="no-referrer">
             </div><p><strong>Connectino Pool 라이브러리 tomcat-dbcp/vibur/bee/hikari 최신 라이브러리 적용한 성능 검증 분석</strong></p>]]></description>
 </item></channel>
 </rss>

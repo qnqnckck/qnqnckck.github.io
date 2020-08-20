@@ -11,7 +11,7 @@
     <author>Author</author>
     <guid>http://qnqnckck.github.io/connection_pool_benchmark/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/cover/ConnectionPool.png" referrerpolicy="no-referrer">
+                <img src="/cover/connection_pool.png" referrerpolicy="no-referrer">
             </div><p><strong>Connectino Pool 라이브러리 tomcat-dbcp/vibur/bee/hikari 최신 라이브러리 적용한 성능 검증 분석</strong></p>]]></description>
 </item></channel>
 </rss>

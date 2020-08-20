@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>스프링에 의존성 주입 방법 - Tech Blog. of Jei&#39;s PAPA </title><meta name="Description" content="의존성 주입하는 방식과 추천 방법"><meta property="og:title" content="스프링에 의존성 주입 방법" />
+<meta property="og:description" content="의존성 주입하는 방식과 추천 방법" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://qnqnckck.github.io/spring_depedency_injection/" />
+<meta property="og:image" content="http://qnqnckck.github.io/logo.png"/>
+<meta property="article:published_time" content="2020-08-20T22:48:15+09:00" />
+<meta property="article:modified_time" content="2020-08-20T22:48:15+09:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://qnqnckck.github.io/logo.png"/>
+
+<meta name="twitter:title" content="스프링에 의존성 주입 방법"/>
+<meta name="twitter:description" content="의존성 주입하는 방식과 추천 방법"/>
+<meta name="application-name" content="KIM YONG SUNG&#39;s Tech Blog">
+<meta name="apple-mobile-web-app-title" content="KIM YONG SUNG&#39;s Tech Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://qnqnckck.github.io/spring_depedency_injection/" /><link rel="prev" href="http://qnqnckck.github.io/hikaricp/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "스프링에 의존성 주입 방법",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/qnqnckck.github.io\/spring_depedency_injection\/"
+        },"genre": "posts","keywords": "Spring, Dependency Injection","wordcount":  551 ,
+        "url": "http:\/\/qnqnckck.github.io\/spring_depedency_injection\/","datePublished": "2020-08-20T22:48:15+09:00","dateModified": "2020-08-20T22:48:15+09:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "KIM YONG SUNG"
+            },"description": "의존성 주입하는 방식과 추천 방법"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Tech Blog. of Jei&#39;s PAPA "><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>JEI&#39;s PAPA</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qnqnckck.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Tech Blog. of Jei&#39;s PAPA "><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>JEI&#39;s PAPA</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qnqnckck.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">스프링에 의존성 주입 방법</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-category">included in <a href="/categories/spring/"><i class="far fa-folder fa-fw"></i>spring</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-20">2020-08-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;551 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/cover/dependency_injection.png"
+        data-srcset="/cover/dependency_injection.png, /cover/dependency_injection.png 1.5x, /cover/dependency_injection.png 2x"
+        data-sizes="auto"
+        alt="/cover/dependency_injection.png"
+        title="의존성 주입하는 방식과 추천 방법" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-서론">1 서론</a></li>
+    <li><a href="#2-주입-종류-및-예">2 주입 종류 및 예</a>
+      <ul>
+        <li><a href="#21-생성자-주입constructor-injection">2.1 생성자 주입(Constructor Injection)</a></li>
+        <li><a href="#22-필드-주입field-injection">2.2 필드 주입(Field Injection)</a></li>
+        <li><a href="#23-수정자-주입setter-injection">2.3 수정자 주입(Setter Injection)</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-생성자-주입-방법을-써야하는-이유">3 생성자 주입 방법을 써야하는 이유</a>
+      <ul>
+        <li><a href="#31-순환-참조를-방지">3.1 순환 참조를 방지</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-회고">4 회고</a></li>
+    <li><a href="#5-참조">5 참조</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><strong>스프링에 의존성 주입을 사용하는 방법</strong></p>
+<h2 id="1-서론">1 서론</h2>
+<p>스프링 프레임워크를 사용하면서 컨트롤러에서 서비스 빈을 사용할 때에는 아래와 같이 필드 주입을 위해 @autowired 어노테이션을 사용하였다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"> <span class="nd">@Controller</span>
+ <span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestController</span> 
+<span class="o">{</span>
+   <span class="nd">@Autowired</span>
+   <span class="kd">private</span> <span class="n">TestService</span> <span class="n">testService</span><span class="o">;</span>
+
+   <span class="o">....</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>legacy 코드들을 통해 학습하면서, 필드 주입으로 간단하고 명확하게 사용하는 가장 좋은 방법이라고 생각하였다. 그러나 스프링 관련 동영상을 보다가 생성자 주입(Constructor Injection)을 사용하는 습관이 좋다라는 이야기를 듣고 주입에 대한 개념과 사용방법을 다시 한번 살펴보았다.</p>
+<h2 id="2-주입-종류-및-예">2 주입 종류 및 예</h2>
+<h3 id="21-생성자-주입constructor-injection">2.1 생성자 주입(Constructor Injection)</h3>
+<p>스프링 가이드에 권장 방식으로 생성자에 @Autowired를 통해 주입을 할 수 있다. 단일 생성자에는 생략이 가능하며 2개이상의 생성자를 가지는 경우 @autowired 어노테이션을 전부 붙여주어야 한다. 생성자 객체를 생성할 때 빈을 주입되기 때문에 생성전 필요한 빈들을 찾게 된다. 다른 주입 방식들과의 차이점이며, 이 특징은 순환 참조(Circular Depencies)등의 방지가 가능하다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestComponent</span> 
+<span class="o">{</span>
+   <span class="kd">private</span> <span class="kd">final</span> <span class="n">TestService</span> <span class="n">testService</span><span class="o">;</span>
+
+   <span class="c1">// 단일 생성자인경우 @Autowired 생략이 가능
+</span><span class="c1"></span>   <span class="kd">public</span> <span class="nf">TestComponent</span><span class="o">(</span><span class="n">TestService</span> <span class="n">testService</span><span class="o">){</span>
+   		<span class="k">this</span><span class="o">.</span><span class="na">testService</span> <span class="o">=</span> <span class="n">testService</span><span class="o">;</span>
+   <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="22-필드-주입field-injection">2.2 필드 주입(Field Injection)</h3>
+<p>필드 주입은 가독성 및 사용하기 편리하다. 필드 주입의 경우 빈을 생성한 후에 어노테이션이 붙은 필드에 해당하는 빈을 주입하는 방식이다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestComponent</span> 
+<span class="o">{</span>
+   <span class="nd">@Autowired</span>
+   <span class="kd">private</span> <span class="n">TestService</span> <span class="n">testService</span><span class="o">;</span>
+
+   <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="23-수정자-주입setter-injection">2.3 수정자 주입(Setter Injection)</h3>
+<p>수정자(Setter)를 사용한 방법으로 클래스의 캡슐화시 변수들을 getter/setter로 사용하는 방식과 동일하다. TestComponent 빈이 생성이 된 후 setTestService 메소드 호출을 통해 주입 되는 방식이며, 생성자 주입과 빈이 생성되는 순서가 다르기 때문에 final 사용은 불가능하다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestComponent</span> 
+<span class="o">{</span>
+   <span class="kd">private</span> <span class="n">TestService</span> <span class="n">testService</span><span class="o">;</span>
+	
+   <span class="nd">@Autowired</span>
+   <span class="kd">private</span> <span class="kt">void</span> <span class="nf">setTestService</span><span class="o">(</span><span class="n">TestService</span> <span class="n">testService</span><span class="o">){</span>
+   		<span class="k">this</span><span class="o">.</span><span class="na">testService</span> <span class="o">=</span> <span class="n">testService</span><span class="o">;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="3-생성자-주입-방법을-써야하는-이유">3 생성자 주입 방법을 써야하는 이유</h2>
+<h3 id="31-순환-참조를-방지">3.1 순환 참조를 방지</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestAService</span>
+<span class="o">{</span>
+   <span class="nd">@Autowired</span>
+   <span class="kd">private</span> <span class="n">TestBService</span> <span class="n">testBService</span><span class="o">;</span>
+	
+   <span class="kd">private</span> <span class="kt">void</span> <span class="nf">callTestB</span><span class="o">(){</span>
+   		<span class="n">testBService</span><span class="o">.</span><span class="na">callTestA</span><span class="o">();</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestBService</span>
+<span class="o">{</span>
+   <span class="nd">@Autowired</span>
+   <span class="kd">private</span> <span class="n">TestAService</span> <span class="n">testAService</span><span class="o">;</span>
+   
+   <span class="kd">private</span> <span class="kt">void</span> <span class="nf">callTestA</span><span class="o">(){</span>
+   		<span class="n">testAService</span><span class="o">.</span><span class="na">callTestB</span><span class="o">();</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>위 2개의 클래스 TestAService, TestBService 필드 주입을 통해 상호 서비스간의 참조하고 메소드들도 서로 참조하여 메소드 실행시에 stackOverflow가 발생하는 예제의 코드이다. (상호 참조하지 않는다면 문제가 발생할만한 비즈니스 로직상에 순환참조도 없을것이다.) 위 2개의 클래스를 가지는 어플리케이션을 구동하게 되면 각 서비스들의 빈이 생성이 된 후, 각자 의존성이 있는 빈이 컨테이너에 존재하기 때문에 실행에는 아무런 오류가 발생하지 않는다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestAService</span>
+<span class="o">{</span>
+   <span class="kd">private</span> <span class="kd">final</span> <span class="n">TestBService</span> <span class="n">testBService</span><span class="o">;</span>
+	
+   <span class="kd">public</span> <span class="nf">TestAService</span><span class="o">(</span><span class="n">TestBService</span> <span class="n">testBService</span><span class="o">){</span>
+   		<span class="k">this</span><span class="o">.</span><span class="na">testBService</span> <span class="o">=</span> <span class="n">testBservice</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">private</span> <span class="kt">void</span> <span class="nf">callTestB</span><span class="o">(){</span>
+   		<span class="n">testBService</span><span class="o">.</span><span class="na">callTestA</span><span class="o">();</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestBService</span>
+<span class="o">{</span>
+   <span class="kd">private</span> <span class="kd">final</span> <span class="n">TestAService</span> <span class="n">testAService</span><span class="o">;</span>
+  
+   <span class="kd">public</span> <span class="nf">TestBService</span><span class="o">(</span><span class="n">TestAService</span> <span class="n">testAService</span><span class="o">){</span>
+   		<span class="k">this</span><span class="o">.</span><span class="na">testAService</span> <span class="o">=</span> <span class="n">testAservice</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">private</span> <span class="kt">void</span> <span class="nf">callTestA</span><span class="o">(){</span>
+   		<span class="n">testAService</span><span class="o">.</span><span class="na">callTestB</span><span class="o">();</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>이번에는 생성자 주입을 통해 코드를 구성하였다. 자신의 빈을 생성하기 전에 의존성 있는 빈들을 검색하기 때문에 2개의 서비스 모두 생성되지 않고, 계속 서로의 생성자를 호출하게 되며, 스프링에서는 이것을 순환참조로 감지하여 오류 메세지를 전달한다.</p>
+<p>어플리케이션을 동작시키면 다음과 같은 로그를 확인 할 수 있다.</p>
+<div class="details admonition failure open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-times-circle fa-fw"></i>Log<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Description :
+The dependencies of some of the beans in the application context form a cycle</div>
+        </div>
+    </div>
+<h2 id="4-회고">4 회고</h2>
+<p>요약하자면 생성자 주입을 사용하면 컴파일 타임에 NPE 방지하면 객체를 생성하고, 순환참조도 가능하며, immutabliliy하게 final을 사용할 수 있다. 생성자 주입을 사용하도록 하자~!</p>
+<h2 id="5-참조">5 참조</h2>
+<ul>
+<li><a href="https://yaboong.github.io/spring/2019/08/29/why-field-injection-is-bad/" target="_blank" rel="noopener noreffer">스프링 - 생성자 주입을 사용해야 하는 이유, 필드인젝션이 좋지 않은 이유</a></li>
+<li><a href="https://jobc.tistory.com/203" target="_blank" rel="noopener noreffer">순환 참조 해결하기</a></li>
+</ul><script src="https://utteranc.es/client.js"
+        repo="qnqnckck/qnqnckck.github.io"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+        </div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-08-20</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/spring_depedency_injection/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://qnqnckck.github.io/spring_depedency_injection/" data-title="스프링에 의존성 주입 방법" data-via="TbKJfZKC8hbj9Jv" data-hashtags="Spring,Dependency Injection"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://qnqnckck.github.io/spring_depedency_injection/" data-hashtag="Spring"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://qnqnckck.github.io/spring_depedency_injection/" data-title="스프링에 의존성 주입 방법" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://qnqnckck.github.io/spring_depedency_injection/" data-title="스프링에 의존성 주입 방법"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://qnqnckck.github.io/spring_depedency_injection/" data-title="스프링에 의존성 주입 방법" data-image="/cover/dependency_injection.png"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="Share on Myspace" data-sharer="myspace" data-url="http://qnqnckck.github.io/spring_depedency_injection/" data-title="스프링에 의존성 주입 방법" data-description="의존성 주입하는 방식과 추천 방법"><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="Share on Blogger" data-sharer="blogger" data-url="http://qnqnckck.github.io/spring_depedency_injection/" data-title="스프링에 의존성 주입 방법" data-description="의존성 주입하는 방식과 추천 방법"><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="http://qnqnckck.github.io/spring_depedency_injection/" data-title="스프링에 의존성 주입 방법"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/spring/">Spring</a>,&nbsp;<a href="/tags/dependency-injection/">Dependency Injection</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/hikaricp/" class="prev" rel="prev" title="Hikari Connection Pool 파헤치기"><i class="fas fa-angle-left fa-fw"></i>Hikari Connection Pool 파헤치기</a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.73.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="qnqnckck.github.io" target="_blank">KIM YONG SUNG</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
