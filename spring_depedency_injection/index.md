@@ -139,7 +139,7 @@ The dependencies of some of the beans in the application context from a cycle
 
 
 ## 4 회고
- 요약하자면 생성자 주입을 사용하면 컴파일 타임에 NPE 방지하면 객체를 생성하고, 순환참조도 가능하며, immutabliliy하게 final을 사용할 수 있다. 생성자 주입을 사용하도록 하자~!
+ 요약하자면 생성자 주입을 사용하면 컴파일 타임에 NPE 방지하면서 객체를 생성하고, 순환참조 방지도 가능하며, immutabliliy하게 final을 사용할 수 있다. 생성자 주입을 사용하도록 하자~!
 
 ## 5 참조
 * [스프링 - 생성자 주입을 사용해야 하는 이유, 필드인젝션이 좋지 않은 이유](https://yaboong.github.io/spring/2019/08/29/why-field-injection-is-bad/)
