@@ -96,7 +96,6 @@ public class TestBService
 ```
 위 2개의 클래스 TestAService, TestBService 필드 주입을 통해 상호 서비스간의 참조하고 메소드들도 서로 참조하여 메소드 실행시에 stackOverflow가 발생하는 예제의 코드이다. (상호 참조하지 않는다면 문제가 발생할만한 비즈니스 로직상에 순환참조도 없을것이다.) 위 2개의 클래스를 가지는 어플리케이션을 구동하게 되면 각 서비스들의 빈이 생성이 된 후, 각자 의존성이 있는 빈이 컨테이너에 존재하기 때문에 실행에는 아무런 오류가 발생하지 않는다.
 
-
 ```java
 @Service
 public class TestAService
