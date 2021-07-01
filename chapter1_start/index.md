@@ -46,7 +46,7 @@ test$ code .
 
 <br>
 
-node에서 많은 기능을 제공하는 라이브러리인 [lodash](https://lodash.com/)와 TypeScript를 transfiling(compile이라고도 명명 하지만 typescript에서 javascript로 변환하는 것)과 실행을 함께 하기 위해 사용되는 ts-node를 설치한다. 그 이후 테스트 코드를 생성해보자.
+node에서 많은 기능을 제공하는 라이브러리인 [lodash](https://lodash.com/)와 TypeScript를 transpiling(compile이라고도 명명 하지만 typescript에서 javascript로 변환하는 것)과 실행을 함께 하기 위해 사용되는 ts-node를 설치한다. 그 이후 테스트 코드를 생성해보자.
 
 ```shell
 test$ yarn tsc --init //컴파일러 옵션을 정의된 tsconfig.js 생성
