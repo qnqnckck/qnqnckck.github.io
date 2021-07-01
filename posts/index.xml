@@ -32,7 +32,7 @@
                 <img src="/cover/anaconda.png" referrerpolicy="no-referrer">
             </div><p><strong>Anaconda를 사용하여 독립적인 가상환경을 구성하기</strong></p>]]></description>
 </item><item>
-    <title>스프링에 의존성 주입 방법</title>
+    <title>스프링에 생성자로 의존성 주입 방법</title>
     <link>http://qnqnckck.github.io/spring_depedency_injection/</link>
     <pubDate>Thu, 20 Aug 2020 22:48:15 &#43;0900</pubDate>
     <author>Author</author>
