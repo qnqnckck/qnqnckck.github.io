@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Node - Tag - Tech Blog. of Jei&#39;s PAPA </title>
+        <link>http://qnqnckck.github.io/tags/node/</link>
+        <description>Node - Tag - Tech Blog. of Jei&#39;s PAPA </description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>qnqnckck@gmail.com (KIM YONG SUNG)</managingEditor>
+            <webMaster>qnqnckck@gmail.com (KIM YONG SUNG)</webMaster><lastBuildDate>Wed, 30 Jun 2021 22:57:42 &#43;0900</lastBuildDate><atom:link href="http://qnqnckck.github.io/tags/node/" rel="self" type="application/rss+xml" /><item>
+    <title>[Node&#43;React] Chapter1 시작하기</title>
+    <link>http://qnqnckck.github.io/chapter1_start/</link>
+    <pubDate>Wed, 30 Jun 2021 22:57:42 &#43;0900</pubDate>
+    <author>Author</author>
+    <guid>http://qnqnckck.github.io/chapter1_start/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/cover/class_node_chapter1.png" referrerpolicy="no-referrer">
+            </div><p><strong>Node+React 1강</strong></p>]]></description>
+</item></channel>
+</rss>

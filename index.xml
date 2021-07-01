@@ -4,9 +4,27 @@
         <link>http://qnqnckck.github.io/</link>
         <description>This is My New Hugo Site</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>qnqnckck@gmail.com (KIM YONG SUNG)</managingEditor>
-            <webMaster>qnqnckck@gmail.com (KIM YONG SUNG)</webMaster><lastBuildDate>Sat, 22 Aug 2020 00:24:25 &#43;0900</lastBuildDate>
+            <webMaster>qnqnckck@gmail.com (KIM YONG SUNG)</webMaster><lastBuildDate>Wed, 30 Jun 2021 22:57:42 &#43;0900</lastBuildDate>
             <atom:link href="http://qnqnckck.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>[Node&#43;React] Chapter1 시작하기</title>
+    <link>http://qnqnckck.github.io/chapter1_start/</link>
+    <pubDate>Wed, 30 Jun 2021 22:57:42 &#43;0900</pubDate>
+    <author>Author</author>
+    <guid>http://qnqnckck.github.io/chapter1_start/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/cover/class_node_chapter1.png" referrerpolicy="no-referrer">
+            </div><p><strong>Node+React 1강</strong></p>]]></description>
+</item><item>
+    <title>Timeout에 대한 정리</title>
+    <link>http://qnqnckck.github.io/timeout/</link>
+    <pubDate>Fri, 04 Sep 2020 23:44:46 &#43;0900</pubDate>
+    <author>Author</author>
+    <guid>http://qnqnckck.github.io/timeout/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/cover/timeout.gif" referrerpolicy="no-referrer">
+            </div><p><strong>HTTP 통신에 TIMEOUT 설정 한방에 자료로 한번에 설정하자.</strong></p>]]></description>
+</item><item>
     <title>ANACONDA 사용법</title>
     <link>http://qnqnckck.github.io/anaconda_usage/</link>
     <pubDate>Sat, 22 Aug 2020 00:24:25 &#43;0900</pubDate>

@@ -2,18 +2,27 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://qnqnckck.github.io/anaconda_usage/</loc><lastmod>2020-08-22T00:24:25&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/categories/</loc><lastmod>2020-08-22T00:24:25&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/posts/</loc><lastmod>2020-08-22T00:24:25&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/tags/python/</loc><lastmod>2020-08-22T00:24:25&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/categories/python/</loc><lastmod>2020-08-22T00:24:25&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/tags/</loc><lastmod>2020-08-22T00:24:25&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/</loc><lastmod>2020-08-22T00:24:25&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/tags/virtual-environment/</loc><lastmod>2020-08-22T00:24:25&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/tags/dependency-injection/</loc><lastmod>2020-08-20T22:48:15&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/tags/spring/</loc><lastmod>2020-08-20T22:48:15&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/categories/spring/</loc><lastmod>2020-08-20T22:48:15&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/spring_depedency_injection/</loc><lastmod>2020-08-20T22:48:15&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/chapter1_start/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/categories/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/node/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/categories/node/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/posts/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/react/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/socket/</loc><lastmod>2020-09-04T23:44:46&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/timeout/</loc><lastmod>2020-09-04T23:44:46&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/timeout/</loc><lastmod>2020-09-04T23:44:46&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/web/</loc><lastmod>2020-09-04T23:44:46&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/categories/web/</loc><lastmod>2020-09-04T23:44:46&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/anaconda_usage/</loc><lastmod>2020-08-22T00:24:25&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/python/</loc><lastmod>2020-08-22T00:24:25&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/categories/python/</loc><lastmod>2020-08-22T00:24:25&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/virtual-environment/</loc><lastmod>2020-08-22T00:24:25&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/dependency-injection/</loc><lastmod>2020-08-20T22:48:15&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/spring/</loc><lastmod>2020-08-20T22:48:15&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/categories/spring/</loc><lastmod>2020-08-20T22:48:15&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/spring_depedency_injection/</loc><lastmod>2020-08-20T22:48:15&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://qnqnckck.github.io/tags/connectionpool/</loc><lastmod>2020-06-30T08:24:52&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://qnqnckck.github.io/hikaricp/</loc><lastmod>2020-06-30T08:24:52&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://qnqnckck.github.io/tags/java/</loc><lastmod>2020-06-30T08:24:52&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
