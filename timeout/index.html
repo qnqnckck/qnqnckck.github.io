@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/qnqnckck.github.io\/timeout\/"
-        },"genre": "posts","keywords": "Web, Socket, timeout","wordcount":  32 ,
+        },"genre": "posts","keywords": "Web, Socket, timeout","wordcount":  108 ,
         "url": "http:\/\/qnqnckck.github.io\/timeout\/","datePublished": "2020-09-04T23:44:46+09:00","dateModified": "2020-09-04T23:44:46+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -106,7 +106,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Timeout에 대한 정리</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-category">included in <a href="/categories/web/"><i class="far fa-folder fa-fw"></i>Web</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-09-04">2020-09-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;32 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-09-04">2020-09-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;108 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -121,10 +121,34 @@
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p><strong>HTTP 통신에 TIMEOUT 설정 한방에 자료로 한번에 설정하자.</strong></p>
-<p>처음 포스팅 때 DB Connection Pool 사용을 위해 DBCP 라이브러리 뒤적뒤적 하면서 성능비교를 했었다. 근데 이번에는 Http Connection Pool 반영하였다.</p>
-<p>OKHTTP를 사용하면서 설정했던
-readTimeout</p><script src="https://utteranc.es/client.js"
+            </div><div class="content" id="content"><p><strong>HTTP 통신에 TIMEOUT 설정 한방에 한번에 이해하자.</strong></p>
+<p>처음 포스팅 때 DB Connection Pool 사용을 위해 DBCP 라이브러리 뒤적뒤적 하면서 성능비교를 했었다. 근데 이번에는 Http Connection Library 로 okhttp 사용하였는데 timeout 설정을 각 서버별로 다르게 적용해야 했는데 매번 헷갈린거 같아, 설명 및 그림으로 나타내어 리마인드한다.</p>
+<table>
+<thead>
+<tr>
+<th>Timeout</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection</td>
+<td><strong>요청부터 TCP Handshake가 완료되기까지의 지속시간</strong></td>
+</tr>
+<tr>
+<td>Read</td>
+<td><strong>서버에 요청 이후 응답의 모든 패킷이 전송되기까지의 시간</strong>으로 클라이언트와 서버가 연결되었지만 요청이 처리가 지연되는 경우 클라이언트가 대기할 수 있는 시간</td>
+</tr>
+<tr>
+<td>Write</td>
+<td><strong>서버로 패킷을 전송하는데 걸리는 시간</strong>으로 서버 연결 이후의 패킷 전송 시간</td>
+</tr>
+<tr>
+<td>Call</td>
+<td><strong>호출 시작부터 완료까지의 시간제한</strong>으로 DNS 확인, 연결, 요청 본문 작성, 서버처리 및 응답 본문 읽기를 포함한다. 기본값은 0으로 시간 제한이 없음을 나타낸다.</td>
+</tr>
+</tbody>
+</table><script src="https://utteranc.es/client.js"
         repo="qnqnckck/qnqnckck.github.io"
         issue-term="pathname"
         theme="preferred-color-scheme"
