@@ -113,7 +113,7 @@ AWS에서 managed로 제공되는 AWS MSK가 있지만, kafka의 새로운 버�
 
 
 
-#### 3.2.4 Data Visualzation 비교
+#### 3.2.4 Data Visualization 비교
 (나라면) Kibana는 필수/Grafana는 선택/다른 기타 등등 선택
 * Grafana는 고정된 쿼리를 날려서 화면의 View를 보여주기 때문에, 인터페이스가 더 깔끔하고 보기 좋을 수는 있지만, Kibana에서처럼 키에 대한 필터를 필요할 때마다 동적으로 설정하기는 어렵기 때문에 Kibana는 필수 Grafana는 선택이라고 생각한다.
 

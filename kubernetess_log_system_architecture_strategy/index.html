@@ -131,7 +131,7 @@
             <li><a href="#321-data-shipper-비교">3.2.1 Data Shipper 비교</a></li>
             <li><a href="#322-data-stream-queue-비교">3.2.2 Data Stream Queue 비교</a></li>
             <li><a href="#323-data-indexer-비교">3.2.3 Data Indexer 비교</a></li>
-            <li><a href="#324-data-visualzation-비교">3.2.4 Data Visualzation 비교</a></li>
+            <li><a href="#324-data-visualization-비교">3.2.4 Data Visualization 비교</a></li>
           </ul>
         </li>
         <li><a href="#33-final-architecture">3.3 Final Architecture</a>
@@ -368,7 +368,7 @@
 <li>실제 FluentD만으로도 충분히 상용 운영이 가능한 것을 확인하였으며, 기능상으로만 봐도 입력받고 파싱하고 출력을 내보내는 것으로 ES와 합을 맞추기 위한 기능으로 충분히 활용 가능하다.</li>
 <li>FluentD도 복구전략으로 파일에 쓰고 관리를 하기 때문에 예외적인 Edge Case들이 아닌 이상은 복구전략으로 문제 없다.</li>
 </ul>
-<h4 id="324-data-visualzation-비교">3.2.4 Data Visualzation 비교</h4>
+<h4 id="324-data-visualization-비교">3.2.4 Data Visualization 비교</h4>
 <p>(나라면) Kibana는 필수/Grafana는 선택/다른 기타 등등 선택</p>
 <ul>
 <li>Grafana는 고정된 쿼리를 날려서 화면의 View를 보여주기 때문에, 인터페이스가 더 깔끔하고 보기 좋을 수는 있지만, Kibana에서처럼 키에 대한 필터를 필요할 때마다 동적으로 설정하기는 어렵기 때문에 Kibana는 필수 Grafana는 선택이라고 생각한다.</li>
