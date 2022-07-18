@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Elastic Search - Tag - Tech Blog. of Jei&#39;s PAPA </title>
+        <link>http://qnqnckck.github.io/tags/elastic-search/</link>
+        <description>Elastic Search - Tag - Tech Blog. of Jei&#39;s PAPA </description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>qnqnckck@gmail.com (KIM YONG SUNG)</managingEditor>
+            <webMaster>qnqnckck@gmail.com (KIM YONG SUNG)</webMaster><lastBuildDate>Thu, 14 Jul 2022 14:24:37 &#43;0900</lastBuildDate><atom:link href="http://qnqnckck.github.io/tags/elastic-search/" rel="self" type="application/rss+xml" /><item>
+    <title>AWS &#43; 쿠버네티스 환경에서의 로그 시스템 구축 전략</title>
+    <link>http://qnqnckck.github.io/kubernetess_log_system_architecture_strategy/</link>
+    <pubDate>Thu, 14 Jul 2022 14:24:37 &#43;0900</pubDate>
+    <author>KIM YONG SUNG</author>
+    <guid>http://qnqnckck.github.io/kubernetess_log_system_architecture_strategy/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/cover/aws_kubernetes_log_system.jpg" referrerpolicy="no-referrer">
+            </div><p><strong>AWS 클라우드 환경 여러 서비스 서버들에 대한 로그중앙화 관리 아키텍처 설계</strong></p>]]></description>
+</item>
+</channel>
+</rss>

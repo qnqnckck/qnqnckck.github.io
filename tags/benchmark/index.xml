@@ -8,10 +8,11 @@
     <title>Connection Pool 성능테스트 : hikari, tomcat-dbcp, bee, vibur</title>
     <link>http://qnqnckck.github.io/connection_pool_benchmark/</link>
     <pubDate>Mon, 29 Jun 2020 23:48:40 &#43;0900</pubDate>
-    <author>Author</author>
+    <author>KIM YONG SUNG</author>
     <guid>http://qnqnckck.github.io/connection_pool_benchmark/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/cover/connection_pool.png" referrerpolicy="no-referrer">
             </div><p><strong>Connectino Pool 라이브러리 tomcat-dbcp/vibur/bee/hikari 최신 라이브러리 적용한 성능 검증 분석</strong></p>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

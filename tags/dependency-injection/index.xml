@@ -8,10 +8,11 @@
     <title>스프링에 생성자로 의존성 주입 방법</title>
     <link>http://qnqnckck.github.io/spring_depedency_injection/</link>
     <pubDate>Thu, 20 Aug 2020 22:48:15 &#43;0900</pubDate>
-    <author>Author</author>
+    <author>KIM YONG SUNG</author>
     <guid>http://qnqnckck.github.io/spring_depedency_injection/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/cover/dependency_injection.png" referrerpolicy="no-referrer">
             </div><p><strong>의존성 주입 방법 종류 및 특징</strong></p>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

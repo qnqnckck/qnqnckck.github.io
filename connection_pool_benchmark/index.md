@@ -50,7 +50,7 @@
 | ------ | ----------- | ----| ----| ---|
 | ms당 수행횟수(ops/ms) | 1921.732 | 27429.626 | 45446.493 | 2930.534 |
 
-{{< echarts >}}
+{{< echarts >}} 
 title:
     text: Cycle Connection(ops/ms)
     top: 2%

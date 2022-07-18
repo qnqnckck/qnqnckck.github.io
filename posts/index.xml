@@ -4,59 +4,85 @@
         <link>http://qnqnckck.github.io/posts/</link>
         <description>All Posts | Tech Blog. of Jei&#39;s PAPA </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>qnqnckck@gmail.com (KIM YONG SUNG)</managingEditor>
-            <webMaster>qnqnckck@gmail.com (KIM YONG SUNG)</webMaster><lastBuildDate>Wed, 30 Jun 2021 22:57:42 &#43;0900</lastBuildDate><atom:link href="http://qnqnckck.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>qnqnckck@gmail.com (KIM YONG SUNG)</webMaster><lastBuildDate>Thu, 14 Jul 2022 14:24:37 &#43;0900</lastBuildDate><atom:link href="http://qnqnckck.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>AWS &#43; 쿠버네티스 환경에서의 로그 시스템 구축 전략</title>
+    <link>http://qnqnckck.github.io/kubernetess_log_system_architecture_strategy/</link>
+    <pubDate>Thu, 14 Jul 2022 14:24:37 &#43;0900</pubDate>
+    <author>KIM YONG SUNG</author>
+    <guid>http://qnqnckck.github.io/kubernetess_log_system_architecture_strategy/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/cover/aws_kubernetes_log_system.jpg" referrerpolicy="no-referrer">
+            </div><p><strong>AWS 클라우드 환경 여러 서비스 서버들에 대한 로그중앙화 관리 아키텍처 설계</strong></p>]]></description>
+</item>
+<item>
     <title>[Node&#43;React] Chapter1 시작하기</title>
     <link>http://qnqnckck.github.io/chapter1_start/</link>
     <pubDate>Wed, 30 Jun 2021 22:57:42 &#43;0900</pubDate>
-    <author>Author</author>
+    <author>KIM YONG SUNG</author>
     <guid>http://qnqnckck.github.io/chapter1_start/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/cover/class_node_chapter1.png" referrerpolicy="no-referrer">
             </div><p><strong>Node+React 1강</strong></p>]]></description>
-</item><item>
+</item>
+<item>
+    <title>[AWS] Signed URL를 사용한 CloudFront</title>
+    <link>http://qnqnckck.github.io/aws_cloudfront_and_s3/</link>
+    <pubDate>Tue, 23 Feb 2021 22:54:03 &#43;0900</pubDate>
+    <author>KIM YONG SUNG</author>
+    <guid>http://qnqnckck.github.io/aws_cloudfront_and_s3/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/cover/aws_cloudfront_s3.png" referrerpolicy="no-referrer">
+            </div><p><strong>[AWS] CloudFront의 Signed URL 사용법 using JAVA</strong></p>]]></description>
+</item>
+<item>
     <title>Timeout에 대한 정리</title>
     <link>http://qnqnckck.github.io/timeout/</link>
     <pubDate>Fri, 04 Sep 2020 23:44:46 &#43;0900</pubDate>
-    <author>Author</author>
+    <author>KIM YONG SUNG</author>
     <guid>http://qnqnckck.github.io/timeout/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/cover/timeout.gif" referrerpolicy="no-referrer">
             </div><p><strong>HTTP 통신에 TIMEOUT 설정 한방에 한번에 이해하자.</strong></p>]]></description>
-</item><item>
+</item>
+<item>
     <title>ANACONDA 사용법</title>
     <link>http://qnqnckck.github.io/anaconda_usage/</link>
     <pubDate>Sat, 22 Aug 2020 00:24:25 &#43;0900</pubDate>
-    <author>Author</author>
+    <author>KIM YONG SUNG</author>
     <guid>http://qnqnckck.github.io/anaconda_usage/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/cover/anaconda.png" referrerpolicy="no-referrer">
             </div><p><strong>Anaconda를 사용하여 독립적인 가상환경을 구성하기</strong></p>]]></description>
-</item><item>
+</item>
+<item>
     <title>스프링에 생성자로 의존성 주입 방법</title>
     <link>http://qnqnckck.github.io/spring_depedency_injection/</link>
     <pubDate>Thu, 20 Aug 2020 22:48:15 &#43;0900</pubDate>
-    <author>Author</author>
+    <author>KIM YONG SUNG</author>
     <guid>http://qnqnckck.github.io/spring_depedency_injection/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/cover/dependency_injection.png" referrerpolicy="no-referrer">
             </div><p><strong>의존성 주입 방법 종류 및 특징</strong></p>]]></description>
-</item><item>
+</item>
+<item>
     <title>Hikari Connection Pool 파헤치기</title>
     <link>http://qnqnckck.github.io/hikaricp/</link>
     <pubDate>Tue, 30 Jun 2020 08:24:52 &#43;0900</pubDate>
-    <author>Author</author>
+    <author>KIM YONG SUNG</author>
     <guid>http://qnqnckck.github.io/hikaricp/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/cover/hikari.jpg" referrerpolicy="no-referrer">
             </div><p><strong>Hikari Connection Pool 동작 원리 및 옵션 설정 이해하기</strong></p>]]></description>
-</item><item>
+</item>
+<item>
     <title>Connection Pool 성능테스트 : hikari, tomcat-dbcp, bee, vibur</title>
     <link>http://qnqnckck.github.io/connection_pool_benchmark/</link>
     <pubDate>Mon, 29 Jun 2020 23:48:40 &#43;0900</pubDate>
-    <author>Author</author>
+    <author>KIM YONG SUNG</author>
     <guid>http://qnqnckck.github.io/connection_pool_benchmark/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/cover/connection_pool.png" referrerpolicy="no-referrer">
             </div><p><strong>Connectino Pool 라이브러리 tomcat-dbcp/vibur/bee/hikari 최신 라이브러리 적용한 성능 검증 분석</strong></p>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

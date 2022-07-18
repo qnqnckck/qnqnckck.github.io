@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>AWS - Category - Tech Blog. of Jei&#39;s PAPA </title>
+        <link>http://qnqnckck.github.io/categories/aws/</link>
+        <description>AWS - Category - Tech Blog. of Jei&#39;s PAPA </description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>qnqnckck@gmail.com (KIM YONG SUNG)</managingEditor>
+            <webMaster>qnqnckck@gmail.com (KIM YONG SUNG)</webMaster><lastBuildDate>Tue, 23 Feb 2021 22:54:03 &#43;0900</lastBuildDate><atom:link href="http://qnqnckck.github.io/categories/aws/" rel="self" type="application/rss+xml" /><item>
+    <title>[AWS] Signed URL를 사용한 CloudFront</title>
+    <link>http://qnqnckck.github.io/aws_cloudfront_and_s3/</link>
+    <pubDate>Tue, 23 Feb 2021 22:54:03 &#43;0900</pubDate>
+    <author>KIM YONG SUNG</author>
+    <guid>http://qnqnckck.github.io/aws_cloudfront_and_s3/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/cover/aws_cloudfront_s3.png" referrerpolicy="no-referrer">
+            </div><p><strong>[AWS] CloudFront의 Signed URL 사용법 using JAVA</strong></p>]]></description>
+</item>
+</channel>
+</rss>

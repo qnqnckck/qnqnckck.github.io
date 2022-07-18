@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta name="generator" content="Hugo 0.73.0" />
+	<meta name="generator" content="Hugo 0.101.0" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Tech Blog. of Jei&#39;s PAPA </title><meta name="Description" content="This is My New Hugo Site"><meta property="og:title" content="Tech Blog. of Jei&#39;s PAPA " />
 <meta property="og:description" content="This is My New Hugo Site" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://qnqnckck.github.io/" />
-<meta property="og:image" content="http://qnqnckck.github.io/logo.png"/>
-<meta property="og:updated_time" content="2021-06-30T22:57:42+09:00" />
+<meta property="og:url" content="http://qnqnckck.github.io/" /><meta property="og:image" content="http://qnqnckck.github.io/logo.png"/><meta property="og:site_name" content="My cool site" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://qnqnckck.github.io/logo.png"/>
 
@@ -21,7 +19,9 @@
 <meta name="apple-mobile-web-app-title" content="KIM YONG SUNG&#39;s Tech Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://qnqnckck.github.io/" /><link rel="alternate" href="/index.xml" type="application/rss+xml" title="Tech Blog. of Jei&#39;s PAPA ">
-    <link rel="feed" href="/index.xml" type="application/rss+xml" title="Tech Blog. of Jei&#39;s PAPA "><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    <link rel="feed" href="/index.xml" type="application/rss+xml" title="Tech Blog. of Jei&#39;s PAPA "><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "WebSite",
@@ -31,7 +31,7 @@
             },"description": "This is My New Hugo Site","name": "Tech Blog. of Jei's PAPA "
     }
     </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -42,16 +42,16 @@
             <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qnqnckck" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
                         <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
                     </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <i class="fas fa-adjust fa-fw"></i>
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
@@ -70,39 +70,51 @@
                     <div class="search mobile" id="search-mobile">
                         <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
                         <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
                     </div>
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         Cancel
                     </a>
                 </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qnqnckck" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <i class="fas fa-adjust fa-fw"></i>
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a></div>
     </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
-</div>
-<main class="main">
-                <div class="container"><div class="page home" posts><div class="home-profile"><div class="home-avatar"><a href="/posts/" title="Posts"><img
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="page home" data-home="posts"><div class="home-profile"><div class="home-avatar"><a href="/posts/" title="Posts"><img
         class="lazyload"
         src="/svg/loading.min.svg"
         data-src="/images/jei.png"
         data-srcset="/images/jei.png, /images/jei.png 1.5x, /images/jei.png 2x"
         data-sizes="auto"
         alt="/images/jei.png"
-        title="/images/jei.png" /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/qnqnckck" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://linkedin.com/in/yong-sung-kim-8785ab39" title="LinkedIn" target="_blank" rel="noopener noreffer me"><i class="fab fa-linkedin fa-fw"></i></a><a href="https://twitter.com/TbKJfZKC8hbj9Jv" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://www.instagram.com/qnqnckck" title="Instagram" target="_blank" rel="noopener noreffer me"><i class="fab fa-instagram fa-fw"></i></a><a href="mailto:qnqnckck@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
+        title="/images/jei.png" width="564" height="558" /></a></div><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"><a href="https://github.com/qnqnckck" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github fa-fw" aria-hidden="true"></i></a><a href="https://linkedin.com/in/yong-sung-kim-8785ab39" title="LinkedIn" target="_blank" rel="noopener noreffer me"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="https://twitter.com/TbKJfZKC8hbj9Jv" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="https://www.instagram.com/qnqnckck" title="Instagram" target="_blank" rel="noopener noreffer me"><i class="fab fa-instagram fa-fw" aria-hidden="true"></i></a><a href="mailto:qnqnckck@gmail.com" title="Email" rel="me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw" aria-hidden="true"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/kubernetess_log_system_architecture_strategy/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/cover/aws_kubernetes_log_system.jpg"
+        data-srcset="/cover/aws_kubernetes_log_system.jpg, /cover/aws_kubernetes_log_system.jpg 1.5x, /cover/aws_kubernetes_log_system.jpg 2x"
+        data-sizes="auto"
+        alt="/cover/aws_kubernetes_log_system.jpg"
+        title="중앙 로그시스템 설계" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/kubernetess_log_system_architecture_strategy/">AWS + 쿠버네티스 환경에서의 로그 시스템 구축 전략</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-07-14">2022-07-14</time></span>&nbsp;<span class="post-category">included in <a href="/categories/architecture/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Architecture</a></span></div><div class="content"><p><strong>AWS 클라우드 환경 여러 서비스 서버들에 대한 로그중앙화 관리 아키텍처 설계</strong></p></div><div class="post-footer">
+        <a href="/kubernetess_log_system_architecture_strategy/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/aws/">AWS</a>,&nbsp;<a href="/tags/elk/">ELK</a>,&nbsp;<a href="/tags/fluentd/">FluentD</a>,&nbsp;<a href="/tags/filebeat/">Filebeat</a>,&nbsp;<a href="/tags/kafka/">Kafka</a>,&nbsp;<a href="/tags/kinesis/">Kinesis</a>,&nbsp;<a href="/tags/elastic-search/">Elastic Search</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/chapter1_start/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -112,10 +124,24 @@
         alt="/cover/class_node_chapter1.png"
         title="토이프로젝트를 진행하며 Node와 React를 학습한다." /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/chapter1_start/">[Node&#43;React] Chapter1 시작하기</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-publish">published on <time datetime="2021-06-30">2021-06-30</time></span>&nbsp;<span class="post-category">included in <a href="/categories/node/"><i class="far fa-folder fa-fw"></i>Node</a></span></div><div class="content"><p><strong>Node+React 1강</strong></p></div><div class="post-footer">
+        <a href="/chapter1_start/">[Node+React] Chapter1 시작하기</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-publish">published on <time datetime="2021-06-30">2021-06-30</time></span>&nbsp;<span class="post-category">included in <a href="/categories/node/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Node</a></span></div><div class="content"><p><strong>Node+React 1강</strong></p></div><div class="post-footer">
         <a href="/chapter1_start/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/node/">Node</a>,&nbsp;<a href="/tags/react/">React</a></div></div>
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/node/">Node</a>,&nbsp;<a href="/tags/react/">React</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/aws_cloudfront_and_s3/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/cover/aws_cloudfront_s3.png"
+        data-srcset="/cover/aws_cloudfront_s3.png, /cover/aws_cloudfront_s3.png 1.5x, /cover/aws_cloudfront_s3.png 2x"
+        data-sizes="auto"
+        alt="/cover/aws_cloudfront_s3.png"
+        title="/cover/aws_cloudfront_s3.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/aws_cloudfront_and_s3/">[AWS] Signed URL를 사용한 CloudFront</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-publish">published on <time datetime="2021-02-23">2021-02-23</time></span>&nbsp;<span class="post-category">included in <a href="/categories/aws/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>AWS</a></span></div><div class="content"><p><strong>[AWS] CloudFront의 Signed URL 사용법 using JAVA</strong></p></div><div class="post-footer">
+        <a href="/aws_cloudfront_and_s3/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/cloud/">Cloud</a>,&nbsp;<a href="/tags/cdn/">CDN</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/timeout/"><img
         class="lazyload"
@@ -127,9 +153,9 @@
         title="Timeout 뜻은 알겠으나, 그 종류가 너무 많다. 한번에 정리하자." /></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/timeout/">Timeout에 대한 정리</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-09-04">2020-09-04</time></span>&nbsp;<span class="post-category">included in <a href="/categories/web/"><i class="far fa-folder fa-fw"></i>Web</a></span></div><div class="content"><p><strong>HTTP 통신에 TIMEOUT 설정 한방에 한번에 이해하자.</strong></p></div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-09-04">2020-09-04</time></span>&nbsp;<span class="post-category">included in <a href="/categories/web/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Web</a></span></div><div class="content"><p><strong>HTTP 통신에 TIMEOUT 설정 한방에 한번에 이해하자.</strong></p></div><div class="post-footer">
         <a href="/timeout/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/web/">Web</a>,&nbsp;<a href="/tags/socket/">Socket</a>,&nbsp;<a href="/tags/timeout/">timeout</a></div></div>
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/web/">Web</a>,&nbsp;<a href="/tags/socket/">Socket</a>,&nbsp;<a href="/tags/timeout/">timeout</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/anaconda_usage/"><img
         class="lazyload"
@@ -141,9 +167,9 @@
         title="아나콘다를 사용한 가상환경 구축 방법을 익힌다." /></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/anaconda_usage/">ANACONDA 사용법</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-08-22">2020-08-22</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a></span></div><div class="content"><p><strong>Anaconda를 사용하여 독립적인 가상환경을 구성하기</strong></p></div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-08-22">2020-08-22</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content"><p><strong>Anaconda를 사용하여 독립적인 가상환경을 구성하기</strong></p></div><div class="post-footer">
         <a href="/anaconda_usage/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/virtual-environment/">Virtual Environment</a>,&nbsp;<a href="/tags/python/">Python</a></div></div>
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/virtual-environment/">Virtual Environment</a>,&nbsp;<a href="/tags/python/">Python</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/spring_depedency_injection/"><img
         class="lazyload"
@@ -155,48 +181,28 @@
         title="의존성 주입하는 방식과 추천 방법" /></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/spring_depedency_injection/">스프링에 생성자로 의존성 주입 방법</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-08-20">2020-08-20</time></span>&nbsp;<span class="post-category">included in <a href="/categories/spring/"><i class="far fa-folder fa-fw"></i>Spring</a></span></div><div class="content"><p><strong>의존성 주입 방법 종류 및 특징</strong></p></div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-08-20">2020-08-20</time></span>&nbsp;<span class="post-category">included in <a href="/categories/spring/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Spring</a></span></div><div class="content"><p><strong>의존성 주입 방법 종류 및 특징</strong></p></div><div class="post-footer">
         <a href="/spring_depedency_injection/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/spring/">Spring</a>,&nbsp;<a href="/tags/dependency-injection/">Dependency Injection</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/hikaricp/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/cover/hikari.jpg"
-        data-srcset="/cover/hikari.jpg, /cover/hikari.jpg 1.5x, /cover/hikari.jpg 2x"
-        data-sizes="auto"
-        alt="/cover/hikari.jpg"
-        title="Hikari cp의 원리를 설명한다." /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/hikaricp/">Hikari Connection Pool 파헤치기</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-06-30">2020-06-30</time></span>&nbsp;<span class="post-category">included in <a href="/categories/java/"><i class="far fa-folder fa-fw"></i>Java</a></span></div><div class="content"><p><strong>Hikari Connection Pool 동작 원리 및 옵션 설정 이해하기</strong></p></div><div class="post-footer">
-        <a href="/hikaricp/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/connectionpool/">ConnectionPool</a>,&nbsp;<a href="/tags/java/">Java</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/connection_pool_benchmark/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/cover/connection_pool.png"
-        data-srcset="/cover/connection_pool.png, /cover/connection_pool.png 1.5x, /cover/connection_pool.png 2x"
-        data-sizes="auto"
-        alt="/cover/connection_pool.png"
-        title="Connection Pool 성능테스트" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/connection_pool_benchmark/">Connection Pool 성능테스트 : hikari, tomcat-dbcp, bee, vibur</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-06-29">2020-06-29</time></span>&nbsp;<span class="post-category">included in <a href="/categories/java/"><i class="far fa-folder fa-fw"></i>Java</a></span></div><div class="content"><p><strong>Connectino Pool 라이브러리 tomcat-dbcp/vibur/bee/hikari 최신 라이브러리 적용한 성능 검증 분석</strong></p></div><div class="post-footer">
-        <a href="/connection_pool_benchmark/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/connectionpool/">ConnectionPool</a>,&nbsp;<a href="/tags/benchmark/">Benchmark</a>,&nbsp;<a href="/tags/java/">Java</a></div></div>
-</article></div></div>
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/spring/">Spring</a>,&nbsp;<a href="/tags/dependency-injection/">Dependency Injection</a></div></div>
+</article><ul class="pagination"><li class="page-item active">
+                    <span class="page-link">
+                        <a href="/">1</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/2/">2</a>
+                    </span>
+                </li></ul></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.73.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="qnqnckck.github.io" target="_blank">KIM YONG SUNG</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.101.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="qnqnckck.github.io" target="_blank">KIM YONG SUNG</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up fa-fw"></i>
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment fa-fw"></i>
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"KIM YONG SUNG(JEI's PAPA) Tech Blog."},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/index.umd.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"KIM YONG SUNG(JEI's PAPA) Tech Blog."},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

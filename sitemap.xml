@@ -2,14 +2,27 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://qnqnckck.github.io/chapter1_start/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/categories/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/tags/node/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/categories/node/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/posts/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/tags/react/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/tags/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://qnqnckck.github.io/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/categories/architecture/</loc><lastmod>2022-07-14T14:24:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/aws/</loc><lastmod>2022-07-14T14:24:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/kubernetess_log_system_architecture_strategy/</loc><lastmod>2022-07-14T14:24:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/categories/</loc><lastmod>2022-07-14T14:24:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/elastic-search/</loc><lastmod>2022-07-14T14:24:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/elk/</loc><lastmod>2022-07-14T14:24:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/filebeat/</loc><lastmod>2022-07-14T14:24:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/fluentd/</loc><lastmod>2022-07-14T14:24:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/kafka/</loc><lastmod>2022-07-14T14:24:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/kinesis/</loc><lastmod>2022-07-14T14:24:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/posts/</loc><lastmod>2022-07-14T14:24:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/</loc><lastmod>2022-07-14T14:24:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/</loc><lastmod>2022-07-14T14:24:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://qnqnckck.github.io/chapter1_start/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/node/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/categories/node/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/react/</loc><lastmod>2021-06-30T22:57:42&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/aws_cloudfront_and_s3/</loc><lastmod>2021-02-23T22:54:03&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/categories/aws/</loc><lastmod>2021-02-23T22:54:03&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/cdn/</loc><lastmod>2021-02-23T22:54:03&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://qnqnckck.github.io/tags/cloud/</loc><lastmod>2021-02-23T22:54:03&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://qnqnckck.github.io/tags/socket/</loc><lastmod>2020-09-04T23:44:46&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://qnqnckck.github.io/tags/timeout/</loc><lastmod>2020-09-04T23:44:46&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://qnqnckck.github.io/timeout/</loc><lastmod>2020-09-04T23:44:46&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -28,5 +41,4 @@
             <loc>http://qnqnckck.github.io/tags/java/</loc><lastmod>2020-06-30T08:24:52&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://qnqnckck.github.io/categories/java/</loc><lastmod>2020-06-30T08:24:52&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://qnqnckck.github.io/tags/benchmark/</loc><lastmod>2020-06-29T23:48:40&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://qnqnckck.github.io/connection_pool_benchmark/</loc><lastmod>2020-06-29T23:48:40&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://qnqnckck.github.io/about/</loc><lastmod>2019-08-02T11:04:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>
+            <loc>http://qnqnckck.github.io/connection_pool_benchmark/</loc><lastmod>2020-06-29T23:48:40&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>

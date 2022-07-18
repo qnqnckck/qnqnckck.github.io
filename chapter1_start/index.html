@@ -4,14 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>[Node&#43;React] Chapter1 시작하기 - Tech Blog. of Jei&#39;s PAPA </title><meta name="Description" content="토이프로젝트를 진행하며 Node와 React를 학습한다."><meta property="og:title" content="[Node&#43;React] Chapter1 시작하기" />
 <meta property="og:description" content="토이프로젝트를 진행하며 Node와 React를 학습한다." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://qnqnckck.github.io/chapter1_start/" />
-<meta property="og:image" content="http://qnqnckck.github.io/logo.png"/>
+<meta property="og:url" content="http://qnqnckck.github.io/chapter1_start/" /><meta property="og:image" content="http://qnqnckck.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-06-30T22:57:42+09:00" />
-<meta property="article:modified_time" content="2021-06-30T22:57:42+09:00" />
+<meta property="article:modified_time" content="2021-06-30T22:57:42+09:00" /><meta property="og:site_name" content="My cool site" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://qnqnckck.github.io/logo.png"/>
 
@@ -20,7 +19,9 @@
 <meta name="application-name" content="KIM YONG SUNG&#39;s Tech Blog">
 <meta name="apple-mobile-web-app-title" content="KIM YONG SUNG&#39;s Tech Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://qnqnckck.github.io/chapter1_start/" /><link rel="prev" href="http://qnqnckck.github.io/timeout/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://qnqnckck.github.io/chapter1_start/" /><link rel="prev" href="http://qnqnckck.github.io/aws_cloudfront_and_s3/" /><link rel="next" href="http://qnqnckck.github.io/kubernetess_log_system_architecture_strategy/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -38,7 +39,7 @@
             },"description": "토이프로젝트를 진행하며 Node와 React를 학습한다."
     }
     </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -49,16 +50,16 @@
             <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qnqnckck" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
                         <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
                     </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <i class="fas fa-adjust fa-fw"></i>
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
@@ -77,37 +78,35 @@
                     <div class="search mobile" id="search-mobile">
                         <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
                         <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
                     </div>
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         Cancel
                     </a>
                 </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qnqnckck" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <i class="fas fa-adjust fa-fw"></i>
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a></div>
     </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
-</div>
-<main class="main">
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content always-active" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">[Node&#43;React] Chapter1 시작하기</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-category">included in <a href="/categories/node/"><i class="far fa-folder fa-fw"></i>Node</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-30">2021-06-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;328 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">[Node+React] Chapter1 시작하기</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-category">included in <a href="/categories/node/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Node</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-06-30">2021-06-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;328 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -115,10 +114,10 @@
         data-srcset="/cover/class_node_chapter1.png, /cover/class_node_chapter1.png 1.5x, /cover/class_node_chapter1.png 2x"
         data-sizes="auto"
         alt="/cover/class_node_chapter1.png"
-        title="토이프로젝트를 진행하며 Node와 React를 학습한다." /></div><div class="details toc" id="toc-static"  kept="">
+        title="토이프로젝트를 진행하며 Node와 React를 학습한다." /></div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
-                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
@@ -141,76 +140,76 @@
 <h3 id="21-개발-환경">2.1 개발 환경</h3>
 <ul>
 <li>OS : MAC</li>
-<li>Development Tool : <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreffer">Visual Studio Code</a></li>
-<li>Framework : <a href="https://nodejs.org/ko/" target="_blank" rel="noopener noreffer">NodeJs v16.4.0</a></li>
+<li>Development Tool : <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreffer ">Visual Studio Code</a></li>
+<li>Framework : <a href="https://nodejs.org/ko/" target="_blank" rel="noopener noreffer ">NodeJs v16.4.0</a></li>
 <li>PackageManager : yarn v1.22.10
 <ul>
-<li>npm도 가능 자신이 익숙한걸로~! - <a href="https://dark0946.tistory.com/419" target="_blank" rel="noopener noreffer">NPM? Yarn? , 본인에게 편한게 최고!</a></li>
+<li>npm도 가능 자신이 익숙한걸로~! - <a href="https://dark0946.tistory.com/419" target="_blank" rel="noopener noreffer ">NPM? Yarn? , 본인에게 편한게 최고!</a></li>
 <li>설치 방법</li>
 </ul>
 </li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">~$ brew install yarn
-or
-~$ npm install -g yarn
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">~$ brew install yarn
+</span></span></span><span class="line"><span class="cl"><span class="go">or
+</span></span></span><span class="line"><span class="cl"><span class="go">~$ npm install -g yarn
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="22-vscodevisual-studio-code-설정">2.2 VSCode(Visual Studio Code) 설정</h3>
 <p>VSCode/Yarn/NodeJs 전부 설치를 했다면 VSCode에서 사용하기 좋은 확장 플러그인 및 아래 기능을 설정하도록 하자.</p>
 <ul>
 <li>Prettier : Code Formater로 협업 시 코드 규격을 자동 적용해 준다.
 <ul>
-<li><a href="https://uxgjs.tistory.com/150" target="_blank" rel="noopener noreffer">VSCode Formater 인 Prettier 완벽 적용하기</a></li>
+<li><a href="https://uxgjs.tistory.com/150" target="_blank" rel="noopener noreffer ">VSCode Formater 인 Prettier 완벽 적용하기</a></li>
 </ul>
 </li>
-<li><a href="https://torbjorn.tistory.com/642" target="_blank" rel="noopener noreffer">VSCode 쉘에서 code 명령어로 visual studio code 열기</a></li>
+<li><a href="https://torbjorn.tistory.com/642" target="_blank" rel="noopener noreffer ">VSCode 쉘에서 code 명령어로 visual studio code 열기</a></li>
 </ul>
 <h2 id="3-시작하기">3 시작하기</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">~$ mkdir test
-~$ cd test
-test$ yarn init  
-test$ code .
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">~$ mkdir test
+</span></span></span><span class="line"><span class="cl"><span class="go">~$ cd test
+</span></span></span><span class="line"><span class="cl"><span class="go">test$ yarn init  
+</span></span></span><span class="line"><span class="cl"><span class="go">test$ code .
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>프로젝트 폴더를 생성하고, yarn init을 통해 프로젝트 초기화를 통해 <a href="https://docs.npmjs.com/cli/v7/configuring-npm/package-json" target="_blank" rel="noopener noreffer">pakcage.json</a>을 생성하고 VSCode를 실행한다. 그리고 TypeScript를 사용할 예정이다.</p>
+</div><p>프로젝트 폴더를 생성하고, yarn init을 통해 프로젝트 초기화를 통해 <a href="https://docs.npmjs.com/cli/v7/configuring-npm/package-json" target="_blank" rel="noopener noreffer ">pakcage.json</a>을 생성하고 VSCode를 실행한다. 그리고 TypeScript를 사용할 예정이다.</p>
 <br>
-<p><a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreffer">TypeScript</a>는 자바스크립트를 사용함에 있어, 높은 가독성과 코드 품질을 제공하기 위한 것으로 컴파일 환경에서 에러를 잡아 낼 수도 있다.</p>
+<p><a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreffer ">TypeScript</a>는 자바스크립트를 사용함에 있어, 높은 가독성과 코드 품질을 제공하기 위한 것으로 컴파일 환경에서 에러를 잡아 낼 수도 있다.</p>
 <ul>
-<li><a href="https://heropy.blog/2020/01/27/typescript/" target="_blank" rel="noopener noreffer">한눈에 보는 타입스크립트</a></li>
+<li><a href="https://heropy.blog/2020/01/27/typescript/" target="_blank" rel="noopener noreffer ">한눈에 보는 타입스크립트</a></li>
 </ul>
 <br>
-<p>node에서 많은 기능을 제공하는 라이브러리인 <a href="https://lodash.com/" target="_blank" rel="noopener noreffer">lodash</a>와 TypeScript를 transpiling(compile이라고도 명명 하지만 typescript에서 javascript로 변환하는 것)과 실행을 함께 하기 위해 사용되는 ts-node를 설치한다. 그 이후 테스트 코드를 생성해보자.</p>
+<p>node에서 많은 기능을 제공하는 라이브러리인 <a href="https://lodash.com/" target="_blank" rel="noopener noreffer ">lodash</a>와 TypeScript를 transpiling(compile이라고도 명명 하지만 typescript에서 javascript로 변환하는 것)과 실행을 함께 하기 위해 사용되는 ts-node를 설치한다. 그 이후 테스트 코드를 생성해보자.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">test$ yarn tsc --init //컴파일러 옵션을 정의된 tsconfig.js 생성
-test$ yarn add lodash
-test$ yarn add ts-node --dev
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">test$ yarn tsc --init //컴파일러 옵션을 정의된 tsconfig.js 생성
+</span></span><span class="line"><span class="cl">test$ yarn add lodash
+</span></span><span class="line"><span class="cl">test$ yarn add ts-node --dev
+</span></span></code></pre></td></tr></table>
 </div>
 </div> <br> 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -218,18 +217,18 @@ test$ yarn add ts-node --dev
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="cm">/*(src/test.ts)*/</span>
-<span class="kr">import</span> <span class="nx">_</span> <span class="nx">from</span> <span class="s2">&#34;lodash&#34;</span><span class="p">;</span>
-
-<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">foo</span><span class="p">));</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="cm">/*(src/test.ts)*/</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">_</span> <span class="kr">from</span> <span class="s2">&#34;lodash&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">foo</span><span class="p">));</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><br>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -237,78 +236,69 @@ test$ yarn add ts-node --dev
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/*(src/test.js)*/</span>
-<span class="kd">var</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;lodash&#34;</span><span class="p">);</span>
-
-<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">foo</span><span class="p">));</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="cm">/*(src/test.js)*/</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;lodash&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">foo</span><span class="p">));</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><br>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">test$ ts-node src/test.js
-<span class="m">2</span>
-test$ node src/test.js
-<span class="m">2</span>
-/* 동일 결과가 나왔다면 끝 */
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">test$ ts-node src/test.js
+</span></span><span class="line"><span class="cl"><span class="m">2</span>
+</span></span><span class="line"><span class="cl">test$ node src/test.js
+</span></span><span class="line"><span class="cl"><span class="m">2</span>
+</span></span><span class="line"><span class="cl">/* 동일 결과가 나왔다면 끝 */
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="4-회고">4 회고</h2>
-<p>우선 첫 날이라 Warm-up 수준으로 진행하였다, 육아로 인해 밤 11시부터 시작하였는데 강의 진행해주신 JHW님 감사합니다.</p><script src="https://utteranc.es/client.js"
-        repo="qnqnckck/qnqnckck.github.io"
-        issue-term="pathname"
-        theme="preferred-color-scheme"
-        crossorigin="anonymous"
-        async>
-</script>
-
-        </div><div class="post-footer" id="post-footer">
+<p>우선 첫 날이라 Warm-up 수준으로 진행하였다, 육아로 인해 밤 11시부터 시작하였는데 강의 진행해주신 JHW님 감사합니다.</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
                 <span>Updated on 2021-06-30</span>
-            </div>
-            <div class="post-info-license"></div>
-        </div>
+            </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
                             <a class="link-to-markdown" href="/chapter1_start/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://qnqnckck.github.io/chapter1_start/" data-title="[Node&#43;React] Chapter1 시작하기" data-via="TbKJfZKC8hbj9Jv" data-hashtags="Node,React"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://qnqnckck.github.io/chapter1_start/" data-hashtag="Node"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://qnqnckck.github.io/chapter1_start/" data-title="[Node&#43;React] Chapter1 시작하기" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://qnqnckck.github.io/chapter1_start/" data-title="[Node&#43;React] Chapter1 시작하기"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://qnqnckck.github.io/chapter1_start/" data-title="[Node&#43;React] Chapter1 시작하기" data-image="/cover/class_node_chapter1.png"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="Share on Myspace" data-sharer="myspace" data-url="http://qnqnckck.github.io/chapter1_start/" data-title="[Node&#43;React] Chapter1 시작하기" data-description="토이프로젝트를 진행하며 Node와 React를 학습한다."><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="Share on Blogger" data-sharer="blogger" data-url="http://qnqnckck.github.io/chapter1_start/" data-title="[Node&#43;React] Chapter1 시작하기" data-description="토이프로젝트를 진행하며 Node와 React를 학습한다."><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="http://qnqnckck.github.io/chapter1_start/" data-title="[Node&#43;React] Chapter1 시작하기"><i class="fab fa-evernote fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://qnqnckck.github.io/chapter1_start/" data-title="[Node&#43;React] Chapter1 시작하기" data-via="TbKJfZKC8hbj9Jv" data-hashtags="Node,React"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://qnqnckck.github.io/chapter1_start/" data-hashtag="Node"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://qnqnckck.github.io/chapter1_start/" data-title="[Node&#43;React] Chapter1 시작하기" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://qnqnckck.github.io/chapter1_start/" data-title="[Node&#43;React] Chapter1 시작하기"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://qnqnckck.github.io/chapter1_start/" data-title="[Node&#43;React] Chapter1 시작하기" data-image="/cover/class_node_chapter1.png"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Blogger" data-sharer="blogger" data-url="http://qnqnckck.github.io/chapter1_start/" data-title="[Node&#43;React] Chapter1 시작하기" data-description="토이프로젝트를 진행하며 Node와 React를 학습한다."><i class="fab fa-blogger fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="http://qnqnckck.github.io/chapter1_start/" data-title="[Node&#43;React] Chapter1 시작하기"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/node/">Node</a>,&nbsp;<a href="/tags/react/">React</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/node/">Node</a>,&nbsp;<a href="/tags/react/">React</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/timeout/" class="prev" rel="prev" title="Timeout에 대한 정리"><i class="fas fa-angle-left fa-fw"></i>Timeout에 대한 정리</a></div>
+    <div class="post-nav"><a href="/aws_cloudfront_and_s3/" class="prev" rel="prev" title="[AWS] Signed URL를 사용한 CloudFront"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>[AWS] Signed URL를 사용한 CloudFront</a>
+            <a href="/kubernetess_log_system_architecture_strategy/" class="next" rel="next" title="AWS &#43; 쿠버네티스 환경에서의 로그 시스템 구축 전략">AWS + 쿠버네티스 환경에서의 로그 시스템 구축 전략<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.73.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="qnqnckck.github.io" target="_blank">KIM YONG SUNG</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.101.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="qnqnckck.github.io" target="_blank">KIM YONG SUNG</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up fa-fw"></i>
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment fa-fw"></i>
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>
