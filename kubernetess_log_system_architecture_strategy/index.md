@@ -95,24 +95,52 @@ AWS에서 managed로 제공되는 AWS MSK가 있지만, kafka의 새로운 버�
 * https://logz.io/blog/fluentd-logstash/
 * https://www.upsolver.com/blog/comparing-apache-kafka-amazon-kinesis
 
+||Event Routing|Plugin Ecosystem|Transport|Performance|
+| - | - | - | - | - |
+| Logstash |Algorithmic statements|Centralized|Deploy With Redis for Reliability|Use more memory. Use Elastic Beats for leaft.|
+|Fluentd|Tags|Decentralized|Built-in reliability but hard to configure.|Uses less memory. Use Fluent Bit and Fluentd forwarder for leafts.|
+
 | | 장점| 단점|
 | - | ----------- | ----------- |
-| **Logstash** | | |
-| **FluentD** | | |
+| **Logstash** | ES에서 제공하는 것으로 업데이트에 따라 동일 버전사용하므로 고민이 필요 없음 |kafka나 kinesis 시스템 필요, 운영 리소스가 만항짐 |
+| **FluentD** | 독립적인 시스템으로 생각 가능하며, Data Queue 모듈이 필요 없음 | logstash보다는 es와 궁합이 낮음 |
+
+(나라면) 다음 이유로 FluentD를 사용 할 거 같다.
+* ES 버전 업데이트가 빈번하지만 설치 후 ES를 업데이트가 필요할 때는 보안 취약점 관련해서 업데이트가 하겠지만, 실상 내부 운영으로 사용되기 때문에 이마저도 업데이트 하지 않는다.
+* kafka나 kinesis도 필요 없이 운영 가능하다. (운영하는 시스템은 적을 수록 좋기 때문에)
+* 실제 FluentD만으로도 충분히 상용 운영이 가능한 것을 확인하였으며, 기능상으로만 봐도 입력받고 파싱하고 출력을 내보내는 것으로 ES와 합을 맞추기 위한 기능으로 충분히 활용 가능하다.
+* FluentD도 복구전략으로 파일에 쓰고 관리를 하기 때문에 예외적인 Edge Case들이 아닌 이상은 복구전략으로 문제 없다.
+
+
 
 #### 3.2.4 Data Visualzation 비교
-| | 장점| 단점|
-| - | ----------- | ----------- |
-| **Kibana** | | |
-| **Grafana** | | |
-
+(나라면) Kibana는 필수/Grafana는 선택/다른 기타 등등 선택
+* Grafana는 고정된 쿼리를 날려서 화면의 View를 보여주기 때문에, 인터페이스가 더 깔끔하고 보기 좋을 수는 있지만, Kibana에서처럼 키에 대한 필터를 필요할 때마다 동적으로 설정하기는 어렵기 때문에 Kibana는 필수 Grafana는 선택이라고 생각한다.
 
 ### 3.3 Final Architecture
+#### 3.3.1 내가 생각한 아키텍처
+ 위에서 조사했던 내용 기반으론 내가 생각했던 아키텍처의 그림은 아래와 같다.
+![Minion](./images/logsystem/image03.png "내가 생각한 모듈 기반 로그시스템 구성")
 
+#### 3.3.2. 피드백 from 똑똑한 놈들 And Google
+ 네이버/카카오 기타 등등에 다른 회사 지인들에게는 어떻게 쓰는지가 궁금해서 내가 생각했던거를 공유하고 피드백을 받아보았다.
+{{< admonition type=failure title="돌아온 답변">}}
+ "생각대로 해도 되는데, 정말 큰 기업이 아니고서는 Managed Service를 쓰는게 훨씬 비용측면에서 유리할거다." FluentD도 그렇지만 결론적으로 서버 운영 비용이 들 뿐더라, AWS 기능들을 조합하는게 좋고 alive 여부/리소스 모니터링등 신뢰성을 가지려면 전문인력이 필요한데 그런 구성이 아니라면 하지말라는게 평론이였다.
+{{< /admonition >}}
+<br>
+ 그러면 AWS에 로그시스템은 어떤 기능등을 조합해서 쓰고 있는가?
 
-### 3.4 Consideration
+ * 베이스 : Kinesis/Amazon MSK-카프카 (대부분 Kinesis 사용), Amazon ES
+ * 그 외 : Lambda/S3
+ <br>
+ <br>
 
-#### 3.4.1
+ ![Minion](./images/logsystem/image04.png "AWS에서 조합 로그시스템 구성")
 
+로그 데이터 전송에 경우는 어플리케이션과 분리하여 의존성을 줄이는 방법으로 파일로 로그를 쓰고, filebeat/Amazon CloudWatch/FluentBit를 사용한다. (나라면) 로그 공통 룰을 가지고 개발이 되었다면, filebeat/fluentBit를 둘중 하나 사용할 것이고, 예외적인 모듈이 한개라도 있다면 마음편히 cloudwatch를 사용할 것이다. 위의 s3를 선택한 그려놓은 이유는 필요에 따라 ES가 아닌 다른 모듈에서 로그 정보를 활용할 수 있기 때문에 확장 개념으로 보면 된다.
+
+### 3.4 Review
+ 고민은 엄청 많이 한거에 비해 내가 생각했던 거와 달리 결론적으로는 하나도 반영되지 않았다. 우선 여러 기업에서 클라우드에 Managed Service를 많이 사용하고 있음에도 불구하고 나의 경험부족으로 인해 신뢰성을 갖지 못했고 그로 인해 결과도출하는데 빙빙 돌아온 경향이 있었다. 또한 비용만 생각하다보니 on-premise 기반의 아키텍처로 생각이 bias되었던 부분들에 대해 부족한 점을 느낀다. 
+ **지식이 부족함을 반성하고 앞으로 열심히 경험쌓고 배워야겠다.**
 
 
