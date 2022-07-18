@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/qnqnckck.github.io\/kubernetess_log_system_architecture_strategy\/"
-        },"genre": "posts","keywords": "AWS, ELK, FluentD, Filebeat, Kafka, Kinesis, Elastic Search","wordcount":  1065 ,
+        },"genre": "posts","keywords": "AWS, ELK, FluentD, Filebeat, Kafka, Kinesis, Elastic Search","wordcount":  1068 ,
         "url": "http:\/\/qnqnckck.github.io\/kubernetess_log_system_architecture_strategy\/","datePublished": "2022-07-14T14:24:37+09:00","dateModified": "2022-07-14T14:24:37+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -105,8 +105,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">AWS + 쿠버네티스 환경에서의 로그 시스템 구축 전략</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://qnqnckck.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>KIM YONG SUNG</a></span>&nbsp;<span class="post-category">included in <a href="/categories/architecture/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Architecture</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-14">2022-07-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1065 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-14">2022-07-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1068 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -137,12 +137,13 @@
         <li><a href="#33-final-architecture">3.3 Final Architecture</a>
           <ul>
             <li><a href="#331-내가-생각한-아키텍처">3.3.1 내가 생각한 아키텍처</a></li>
-            <li><a href="#332-피드백-from-똑똑한-놈들-and-google">3.3.2. 피드백 from 똑똑한 놈들 and Google</a></li>
+            <li><a href="#332-피드백-from-똑똑한-놈들-and-google">3.3.2 피드백 from 똑똑한 놈들 and Google</a></li>
           </ul>
         </li>
-        <li><a href="#34-review">3.4 Review</a></li>
       </ul>
     </li>
+    <li><a href="#4-review">4 Review</a></li>
+    <li><a href="#5-reference">5 Reference</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><strong>AWS 클라우드 환경 여러 서비스 서버들에 대한 로그중앙화 관리 아키텍처 설계</strong></p>
@@ -385,7 +386,7 @@
             alt="/images/logsystem/image03.png" width="787" height="325" />
     </a><figcaption class="image-caption">내가 생각한 모듈 기반 로그시스템 구성</figcaption>
     </figure></p>
-<h4 id="332-피드백-from-똑똑한-놈들-and-google">3.3.2. 피드백 from 똑똑한 놈들 and Google</h4>
+<h4 id="332-피드백-from-똑똑한-놈들-and-google">3.3.2 피드백 from 똑똑한 놈들 and Google</h4>
 <p>네이버/카카오 기타 등등에 다른 회사 지인들에게는 어떻게 쓰는지가 궁금해서 내가 생각했던거를 공유하고 피드백을 받아보았다.
 <div class="details admonition failure open">
         <div class="details-summary admonition-title">
@@ -414,9 +415,13 @@
     </a><figcaption class="image-caption">AWS에서 조합 로그시스템 구성</figcaption>
     </figure></p>
 <p>로그 데이터 전송에 경우는 어플리케이션과 분리하여 의존성을 줄이는 방법으로 파일로 로그를 쓰고, filebeat/Amazon CloudWatch/FluentBit를 사용한다. (나라면) 로그 공통 룰을 가지고 개발이 되었다면, filebeat/fluentBit를 둘중 하나 사용할 것이고, 예외적인 모듈이 한개라도 있다면 마음편히 cloudwatch를 사용할 것이다. 위의 s3를 선택한 그려놓은 이유는 필요에 따라 ES가 아닌 다른 모듈에서 로그 정보를 활용할 수 있기 때문에 확장 개념으로 보면 된다.</p>
-<h3 id="34-review">3.4 Review</h3>
+<h2 id="4-review">4 Review</h2>
 <p>고민은 엄청 많이 한거에 비해 내가 생각했던 거와 달리 결론적으로는 하나도 반영되지 않았다. 우선 여러 기업에서 클라우드에 Managed Service를 많이 사용하고 있음에도 불구하고 나의 경험부족으로 인해 신뢰성을 갖지 못했고 그로 인해 결과도출하는데 빙빙 돌아온 경향이 있었다. 또한 비용만 생각하다보니 on-premise 기반의 아키텍처로 생각이 bias되었던 부분들에 대해 부족한 점을 느낀다.
-<strong>지식이 부족함을 반성하고 열심히 경험쌓고 배워야겠다.</strong></p></div><div class="post-footer" id="post-footer">
+<strong>지식이 부족함을 반성하고 열심히 경험쌓고 배워야겠다.</strong></p>
+<h2 id="5-reference">5 Reference</h2>
+<ul>
+<li><a href="https://findmypiece.tistory.com/96" target="_blank" rel="noopener noreffer ">https://findmypiece.tistory.com/96</a></li>
+</ul></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
