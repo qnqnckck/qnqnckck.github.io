@@ -4,9 +4,17 @@
         <link>http://qnqnckck.github.io/</link>
         <description>This is My New Hugo Site</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>qnqnckck@gmail.com (KIM YONG SUNG)</managingEditor>
-            <webMaster>qnqnckck@gmail.com (KIM YONG SUNG)</webMaster><lastBuildDate>Thu, 14 Jul 2022 14:24:37 &#43;0900</lastBuildDate>
+            <webMaster>qnqnckck@gmail.com (KIM YONG SUNG)</webMaster><lastBuildDate>Thu, 21 Jul 2022 09:39:55 &#43;0900</lastBuildDate>
             <atom:link href="http://qnqnckck.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Class_naming_rule</title>
+    <link>http://qnqnckck.github.io/class_naming_rule/</link>
+    <pubDate>Thu, 21 Jul 2022 09:39:55 &#43;0900</pubDate>
+    <author>KIM YONG SUNG</author>
+    <guid>http://qnqnckck.github.io/class_naming_rule/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>AWS &#43; 쿠버네티스 환경에서의 로그 시스템 구축 전략</title>
     <link>http://qnqnckck.github.io/kubernetess_log_system_architecture_strategy/</link>
     <pubDate>Thu, 14 Jul 2022 14:24:37 &#43;0900</pubDate>
@@ -25,16 +33,6 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/cover/class_node_chapter1.png" referrerpolicy="no-referrer">
             </div><p><strong>Node+React 1강</strong></p>]]></description>
-</item>
-<item>
-    <title>[AWS] Signed URL를 사용한 CloudFront</title>
-    <link>http://qnqnckck.github.io/aws_cloudfront_and_s3/</link>
-    <pubDate>Tue, 23 Feb 2021 22:54:03 &#43;0900</pubDate>
-    <author>KIM YONG SUNG</author>
-    <guid>http://qnqnckck.github.io/aws_cloudfront_and_s3/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/cover/aws_cloudfront_s3.png" referrerpolicy="no-referrer">
-            </div><p><strong>[AWS] CloudFront의 Signed URL 사용법 using JAVA</strong></p>]]></description>
 </item>
 <item>
     <title>Timeout에 대한 정리</title>
