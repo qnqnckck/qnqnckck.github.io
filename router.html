@@ -3,697 +3,735 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="LABHUB는 생활에 필요한 모바일 앱과 로컬 퍼스트 디지털 서비스를 만드는 앱 스튜디오입니다.">
-    <title>LABHUB - 생활형 앱 스튜디오</title>
+    <meta name="description" content="LABHUB는 생활에 필요한 모바일 앱을 만드는 독립 앱 스튜디오입니다.">
+    <title>LABHUB - Mobile App Studio</title>
     <style>
       :root {
         color-scheme: light;
-        --bg: #f4f1e9;
-        --panel: #fffdf7;
-        --ink: #1e211c;
-        --muted: #656b60;
-        --soft: #ebe6db;
-        --line: #ded8ca;
-        --green: #506a43;
-        --green-soft: #e8f0e2;
-        --charcoal: #141713;
-        --gold: #c89b45;
-        --brown: #8d5a2d;
-        --teal: #0f5c61;
-        --shadow: 0 22px 60px rgba(31, 34, 28, 0.1);
+        --black: #050505;
+        --paper: #fff8dc;
+        --pink: #ff4fb8;
+        --yellow: #ffe500;
+        --cyan: #28e7ff;
+        --green: #60ff7a;
+        --orange: #ff7b2c;
+        --blue: #2f5bff;
+        --white: #ffffff;
       }
 
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
       body {
         margin: 0;
-        min-height: 100vh;
         background:
-          radial-gradient(circle at 8% 8%, rgba(80, 106, 67, 0.16), transparent 30%),
-          radial-gradient(circle at 86% 4%, rgba(200, 155, 69, 0.12), transparent 28%),
-          linear-gradient(135deg, #efebe1 0%, #fbfaf5 46%, #f1eee5 100%);
-        color: var(--ink);
-        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-        line-height: 1.62;
-        word-break: keep-all;
+          linear-gradient(90deg, rgba(5, 5, 5, 0.08) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(5, 5, 5, 0.08) 1px, transparent 1px),
+          var(--yellow);
+        background-size: 28px 28px;
+        color: var(--black);
+        font-family: Impact, Arial Black, Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        line-height: 1.1;
+        letter-spacing: 0;
+        overflow-x: hidden;
       }
 
       a { color: inherit; text-decoration: none; }
+      img { display: block; }
 
-      .shell {
-        width: min(1180px, calc(100% - 36px));
-        margin: 0 auto;
-      }
-
-      header {
-        min-height: 72px;
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 50;
         display: flex;
-        align-items: center;
+        align-items: stretch;
         justify-content: space-between;
-        gap: 20px;
+        border-bottom: 4px solid var(--black);
+        background: var(--paper);
       }
 
       .brand {
-        display: inline-flex;
+        min-height: 70px;
+        display: flex;
         align-items: center;
-        gap: 12px;
-        font-size: 1.08rem;
+        gap: 14px;
+        padding: 0 22px;
+        border-right: 4px solid var(--black);
+        font-size: clamp(1.35rem, 2.2vw, 2.2rem);
         font-weight: 950;
-        letter-spacing: 0;
       }
 
       .brand-mark {
-        width: 42px;
-        height: 42px;
-        display: inline-grid;
+        width: 44px;
+        height: 44px;
+        display: grid;
         place-items: center;
-        border-radius: 14px;
-        background: var(--charcoal);
-        color: #fff;
-        box-shadow: var(--shadow);
+        border: 4px solid var(--black);
+        background: var(--green);
+        box-shadow: 6px 6px 0 var(--black);
+        transform: rotate(-6deg);
       }
 
       nav {
         display: flex;
-        align-items: center;
-        gap: 8px;
+        align-items: stretch;
         flex-wrap: wrap;
       }
 
       nav a {
-        min-height: 38px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 13px;
-        border-radius: 999px;
-        color: var(--muted);
-        font-size: 0.9rem;
-        font-weight: 850;
-      }
-
-      nav a.primary {
-        background: var(--charcoal);
-        color: #fff;
-      }
-
-      .hero {
-        min-height: calc(100vh - 72px);
-        display: grid;
-        grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
-        gap: 38px;
-        align-items: center;
-        padding: 34px 0 58px;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        min-height: 32px;
-        padding: 0 13px;
-        border-radius: 999px;
-        background: var(--green-soft);
-        color: var(--green);
-        font-size: 0.84rem;
-        font-weight: 950;
-      }
-
-      h1 {
-        margin: 20px 0 18px;
-        max-width: 720px;
-        font-size: clamp(2.75rem, 6vw, 5.8rem);
-        line-height: 0.98;
-        letter-spacing: 0;
-      }
-
-      .hero-lead {
-        max-width: 650px;
-        margin: 0;
-        color: var(--muted);
-        font-size: 1.16rem;
-        font-weight: 760;
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 34px;
-      }
-
-      .button {
-        min-height: 50px;
+        min-height: 70px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         padding: 0 18px;
-        border-radius: 16px;
-        background: var(--charcoal);
-        color: #fff;
+        border-left: 4px solid var(--black);
+        background: var(--paper);
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        font-size: 0.9rem;
         font-weight: 950;
       }
 
-      .button.secondary {
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.72);
-        color: var(--ink);
+      nav a:hover {
+        background: var(--cyan);
       }
 
-      .showcase {
-        position: relative;
-        min-height: 560px;
+      .ticker {
+        overflow: hidden;
+        border-bottom: 4px solid var(--black);
+        background: var(--black);
+        color: var(--green);
+        white-space: nowrap;
+      }
+
+      .ticker-track {
+        display: inline-flex;
+        gap: 28px;
+        padding: 10px 0;
+        font-size: 0.9rem;
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        font-weight: 950;
+        animation: slide 22s linear infinite;
+      }
+
+      .ticker:hover .ticker-track {
+        animation-play-state: paused;
+      }
+
+      @keyframes slide {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+
+      .hero {
+        min-height: calc(100vh - 116px);
         display: grid;
-        place-items: center;
+        grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+        border-bottom: 4px solid var(--black);
       }
 
-      .device {
-        width: min(360px, 84vw);
-        min-height: 520px;
-        padding: 18px;
-        border-radius: 38px;
-        background: #fdfbf4;
-        border: 1px solid var(--line);
-        box-shadow: 0 34px 90px rgba(27, 29, 24, 0.16);
-      }
-
-      .device-screen {
-        min-height: 484px;
-        padding: 22px;
-        border-radius: 28px;
+      .hero-copy {
+        padding: clamp(26px, 5vw, 72px);
+        border-right: 4px solid var(--black);
         background:
-          linear-gradient(180deg, rgba(80, 106, 67, 0.1), transparent 36%),
-          #fff;
-        border: 1px solid var(--soft);
+          radial-gradient(circle at 18% 26%, var(--cyan) 0 80px, transparent 82px),
+          radial-gradient(circle at 90% 12%, var(--pink) 0 100px, transparent 102px),
+          var(--paper);
       }
 
-      .screen-title {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 24px;
-      }
-
-      .screen-title strong {
-        font-size: 1.18rem;
-      }
-
-      .pill {
-        min-height: 28px;
+      .kicker {
         display: inline-flex;
         align-items: center;
-        justify-content: center;
-        padding: 0 10px;
-        border-radius: 999px;
-        background: var(--green-soft);
-        color: var(--green);
-        font-size: 0.72rem;
+        min-height: 38px;
+        padding: 0 13px;
+        border: 4px solid var(--black);
+        background: var(--green);
+        box-shadow: 8px 8px 0 var(--black);
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        font-size: 0.82rem;
         font-weight: 950;
+        transform: rotate(-2deg);
       }
 
-      .icon-stack {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
+      h1 {
+        max-width: 820px;
+        margin: 34px 0 22px;
+        font-size: clamp(4.2rem, 11vw, 11.2rem);
+        line-height: 0.82;
+        letter-spacing: 0;
+        text-transform: uppercase;
       }
 
-      .mini-app {
-        min-height: 124px;
-        padding: 16px;
-        border-radius: 22px;
-        border: 1px solid var(--soft);
-        background: rgba(255, 255, 255, 0.86);
+      .highlight {
+        display: inline-block;
+        padding: 0 10px 8px;
+        background: var(--pink);
+        color: var(--white);
+        text-shadow: 5px 5px 0 var(--black);
+        transform: rotate(1deg);
       }
 
-      .mini-app img {
-        width: 46px;
-        height: 46px;
-        border-radius: 15px;
-        box-shadow: 0 12px 28px rgba(31, 34, 28, 0.1);
-      }
-
-      .mini-app strong {
-        display: block;
-        margin-top: 12px;
-        font-size: 0.92rem;
-      }
-
-      .mini-app span {
-        display: block;
-        margin-top: 4px;
-        color: var(--muted);
-        font-size: 0.76rem;
-        font-weight: 760;
-      }
-
-      .metric-row {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        margin-top: 18px;
-      }
-
-      .metric {
-        padding: 14px;
-        border-radius: 18px;
-        background: var(--charcoal);
-        color: #fff;
-      }
-
-      .metric strong {
-        display: block;
-        font-size: 1.32rem;
-      }
-
-      .metric span {
-        color: rgba(255, 255, 255, 0.72);
-        font-size: 0.72rem;
+      .lead {
+        max-width: 680px;
+        margin: 0;
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        font-size: clamp(1.02rem, 1.8vw, 1.32rem);
+        line-height: 1.7;
         font-weight: 850;
       }
 
-      section {
-        padding: 62px 0;
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .btn {
+        min-height: 54px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        border: 4px solid var(--black);
+        background: var(--cyan);
+        box-shadow: 8px 8px 0 var(--black);
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        font-weight: 950;
+      }
+
+      .btn.alt {
+        background: var(--white);
+      }
+
+      .btn:hover {
+        transform: translate(3px, 3px);
+        box-shadow: 5px 5px 0 var(--black);
+      }
+
+      .stage {
+        position: relative;
+        min-height: 620px;
+        background:
+          radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.45), transparent 42%),
+          var(--cyan);
+        overflow: hidden;
+      }
+
+      .stamp {
+        position: absolute;
+        display: grid;
+        place-items: center;
+        border: 4px solid var(--black);
+        background: var(--white);
+        box-shadow: 10px 10px 0 var(--black);
+        animation: bob 4s ease-in-out infinite;
+      }
+
+      .stamp img {
+        width: 82px;
+        height: 82px;
+        border-radius: 24px;
+        border: 3px solid var(--black);
+      }
+
+      .stamp strong {
+        display: block;
+        margin-top: 10px;
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 950;
+        text-align: center;
+      }
+
+      .stamp span {
+        display: block;
+        margin-top: 4px;
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 850;
+        text-align: center;
+      }
+
+      .stamp:hover {
+        animation-play-state: paused;
+        background: var(--green);
+      }
+
+      .s1 { width: 190px; height: 190px; left: 7%; top: 7%; transform: rotate(-8deg); }
+      .s2 { width: 220px; height: 190px; right: 8%; top: 14%; transform: rotate(7deg); animation-delay: -1.3s; background: var(--pink); color: var(--white); }
+      .s3 { width: 190px; height: 188px; left: 16%; top: 44%; transform: rotate(5deg); animation-delay: -2.1s; background: var(--yellow); }
+      .s4 { width: 206px; height: 192px; right: 12%; top: 50%; transform: rotate(-5deg); animation-delay: -0.8s; background: var(--green); }
+      .s5 { width: 178px; height: 178px; left: 44%; top: 30%; transform: rotate(10deg); animation-delay: -2.8s; }
+
+      .count {
+        position: absolute;
+        left: 34px;
+        bottom: 34px;
+        right: 34px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .count div {
+        min-height: 90px;
+        padding: 14px;
+        border: 4px solid var(--black);
+        background: var(--black);
+        color: var(--white);
+      }
+
+      .count strong {
+        display: block;
+        font-size: 2.4rem;
+        line-height: 1;
+      }
+
+      .count span {
+        display: block;
+        margin-top: 6px;
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        font-size: 0.74rem;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      @keyframes bob {
+        0%, 100% { translate: 0 0; }
+        50% { translate: 0 -14px; }
+      }
+
+      .section {
+        padding: clamp(42px, 7vw, 86px) clamp(18px, 4vw, 54px);
+        border-bottom: 4px solid var(--black);
       }
 
       .section-head {
-        display: flex;
-        justify-content: space-between;
-        gap: 24px;
-        align-items: flex-end;
-        margin-bottom: 24px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+        gap: 28px;
+        align-items: end;
+        margin-bottom: 28px;
       }
 
       h2 {
         margin: 0;
-        font-size: clamp(2rem, 3.4vw, 3.25rem);
-        line-height: 1.08;
-        letter-spacing: 0;
+        font-size: clamp(3rem, 7vw, 7.8rem);
+        line-height: 0.86;
+        text-transform: uppercase;
       }
 
       .section-head p {
-        max-width: 430px;
         margin: 0;
-        color: var(--muted);
-        font-weight: 760;
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        font-size: 1rem;
+        line-height: 1.7;
+        font-weight: 850;
       }
 
-      .service-grid {
+      .rules {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
       }
 
-      .service-card, .app-card, .contact-card {
-        background: rgba(255, 255, 255, 0.88);
-        border: 1px solid var(--line);
-        border-radius: 24px;
-        box-shadow: var(--shadow);
+      .rule {
+        min-height: 230px;
+        padding: 20px;
+        border: 4px solid var(--black);
+        background: var(--white);
+        box-shadow: 8px 8px 0 var(--black);
       }
 
-      .service-card {
-        min-height: 210px;
-        padding: 24px;
-      }
+      .rule:nth-child(2) { background: var(--green); }
+      .rule:nth-child(3) { background: var(--pink); color: var(--white); }
 
-      .service-card mark {
-        width: 42px;
-        height: 42px;
-        display: inline-grid;
-        place-items: center;
-        border-radius: 15px;
-        background: var(--charcoal);
-        color: #fff;
-        font-weight: 950;
-      }
-
-      .service-card h3 {
-        margin: 20px 0 8px;
-        font-size: 1.24rem;
-      }
-
-      .service-card p {
-        margin: 0;
-        color: var(--muted);
-        font-weight: 740;
-      }
-
-      .app-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px;
-      }
-
-      .app-card {
-        padding: 24px;
-      }
-
-      .app-top {
-        display: grid;
-        grid-template-columns: 64px minmax(0, 1fr) auto;
-        gap: 16px;
-        align-items: start;
-      }
-
-      .app-icon {
-        width: 64px;
-        height: 64px;
-        border-radius: 20px;
-        box-shadow: 0 16px 34px rgba(31, 34, 28, 0.12);
-      }
-
-      .app-card h3 {
-        margin: 2px 0 7px;
-        font-size: 1.28rem;
-      }
-
-      .app-card p {
-        margin: 0;
-        color: var(--muted);
-        font-weight: 740;
-      }
-
-      .tag {
-        min-height: 30px;
+      .rule mark {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 0 11px;
-        border-radius: 999px;
-        background: var(--green-soft);
-        color: var(--green);
-        font-size: 0.74rem;
+        width: 48px;
+        height: 48px;
+        border: 4px solid var(--black);
+        background: var(--yellow);
         font-weight: 950;
-        white-space: nowrap;
       }
 
-      .app-links {
+      .rule h3 {
+        margin: 28px 0 10px;
+        font-size: 1.5rem;
+      }
+
+      .rule p {
+        margin: 0;
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        line-height: 1.55;
+        font-weight: 850;
+      }
+
+      .apps {
+        background: var(--paper);
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .product {
+        min-height: 360px;
         display: flex;
-        flex-wrap: wrap;
-        gap: 9px;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 18px;
+        border: 4px solid var(--black);
+        background: var(--white);
+        box-shadow: 8px 8px 0 var(--black);
+      }
+
+      .product:nth-child(2) { background: var(--pink); color: var(--white); }
+      .product:nth-child(3) { background: var(--green); }
+      .product:nth-child(4) { background: var(--cyan); }
+      .product:nth-child(5) { background: var(--yellow); }
+
+      .product img {
+        width: 76px;
+        height: 76px;
+        border: 4px solid var(--black);
+        border-radius: 22px;
+      }
+
+      .product h3 {
+        margin: 18px 0 10px;
+        font-size: 1.48rem;
+      }
+
+      .product p {
+        margin: 0;
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        line-height: 1.55;
+        font-size: 0.92rem;
+        font-weight: 850;
+      }
+
+      .links {
+        display: grid;
+        gap: 8px;
         margin-top: 20px;
       }
 
-      .app-links a {
+      .links a {
         min-height: 40px;
-        display: inline-flex;
+        display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0 13px;
-        border-radius: 13px;
-        background: var(--charcoal);
-        color: #fff;
-        font-size: 0.86rem;
+        border: 3px solid var(--black);
+        background: var(--black);
+        color: var(--white);
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        font-size: 0.84rem;
         font-weight: 950;
       }
 
-      .app-links a.secondary {
-        border: 1px solid var(--line);
-        background: #fff;
-        color: var(--ink);
+      .links a.secondary {
+        background: var(--white);
+        color: var(--black);
+      }
+
+      .contact {
+        background:
+          radial-gradient(circle at 82% 18%, var(--green) 0 130px, transparent 132px),
+          var(--black);
+        color: var(--white);
+      }
+
+      .contact-box {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+        gap: 24px;
+        align-items: end;
+      }
+
+      .contact h2 {
+        color: var(--yellow);
+        text-shadow: 7px 7px 0 var(--pink);
+      }
+
+      .contact p {
+        max-width: 720px;
+        margin: 20px 0 0;
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        line-height: 1.7;
+        font-weight: 850;
       }
 
       .contact-card {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: 28px;
-        align-items: center;
-        padding: 30px;
+        padding: 20px;
+        border: 4px solid var(--white);
+        background: var(--blue);
+        box-shadow: 8px 8px 0 var(--pink);
       }
 
-      .contact-card p {
-        margin: 8px 0 0;
-        color: var(--muted);
-        font-weight: 760;
-      }
-
-      .ad-note {
-        margin-top: 16px;
-        padding: 16px;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.72);
-        border: 1px solid var(--line);
-        color: var(--muted);
-        font-size: 0.9rem;
-        font-weight: 760;
+      .ad {
+        margin-top: 18px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.8rem;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
       }
 
       footer {
-        padding: 34px 0 54px;
-        color: var(--muted);
-        font-size: 0.9rem;
-        font-weight: 760;
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 18px 22px;
+        background: var(--paper);
+        border-top: 4px solid var(--black);
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        font-size: 0.88rem;
+        font-weight: 950;
       }
 
-      @media (max-width: 980px) {
-        .hero, .service-grid, .app-grid, .contact-card {
+      @media (max-width: 1060px) {
+        .hero,
+        .section-head,
+        .contact-box {
           grid-template-columns: 1fr;
         }
-        .hero { min-height: auto; padding-top: 22px; }
-        .showcase { min-height: auto; }
-        .section-head {
+        .hero-copy {
+          border-right: 0;
+          border-bottom: 4px solid var(--black);
+        }
+        .product-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .rules {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .topbar {
+          position: static;
           display: block;
         }
-        .section-head p {
+        .brand {
+          border-right: 0;
+          border-bottom: 4px solid var(--black);
+        }
+        nav a {
+          flex: 1 1 auto;
+          min-height: 52px;
+          border-top: 0;
+        }
+        .hero {
+          min-height: auto;
+        }
+        .stage {
+          min-height: auto;
+          padding: 18px;
+          display: grid;
+          gap: 12px;
+        }
+        .stamp {
+          position: static;
+          width: auto;
+          min-height: 150px;
+          transform: none;
+        }
+        .count {
+          position: static;
+          grid-template-columns: 1fr;
           margin-top: 12px;
         }
-      }
-
-      @media (max-width: 560px) {
-        .shell { width: min(100% - 28px, 520px); }
-        header {
-          align-items: flex-start;
-          flex-direction: column;
-          padding: 18px 0;
-        }
-        nav { width: 100%; }
-        nav a { flex: 1 1 auto; }
-        .device {
-          width: 100%;
-          min-height: auto;
-          border-radius: 28px;
-        }
-        .device-screen {
-          min-height: auto;
-          padding: 16px;
-          border-radius: 22px;
-        }
-        .icon-stack, .metric-row {
+        .product-grid {
           grid-template-columns: 1fr;
         }
-        .app-top {
-          grid-template-columns: 56px minmax(0, 1fr);
-        }
-        .app-icon {
-          width: 56px;
-          height: 56px;
-          border-radius: 18px;
-        }
-        .tag {
-          grid-column: 1 / -1;
-          justify-self: start;
+        footer {
+          flex-direction: column;
         }
       }
     </style>
   </head>
   <body>
-    <div class="shell">
-      <header>
-        <a class="brand" href="./router.html" aria-label="LABHUB 홈">
-          <span class="brand-mark">LH</span>
-          <span>LABHUB</span>
-        </a>
-        <nav aria-label="주요 메뉴">
-          <a href="#services">서비스</a>
-          <a href="#apps">앱</a>
-          <a href="#contact">문의</a>
-          <a class="primary" href="./app-ads.txt">app-ads.txt</a>
-        </nav>
-      </header>
+    <header class="topbar">
+      <a class="brand" href="./router.html" aria-label="LABHUB 홈">
+        <span class="brand-mark">LH</span>
+        <span>LABHUB</span>
+      </a>
+      <nav aria-label="주요 메뉴">
+        <a href="#studio">STUDIO</a>
+        <a href="#apps">APPS</a>
+        <a href="#contact">CONTACT</a>
+        <a href="./app-ads.txt">APP-ADS</a>
+      </nav>
+    </header>
 
-      <main>
-        <section class="hero" aria-label="LABHUB 소개">
-          <div>
-            <span class="eyebrow">Local-first app studio</span>
-            <h1>생활에 필요한 앱을 작고 단단하게 만듭니다.</h1>
-            <p class="hero-lead">LABHUB는 공모주 일정, 운세, 루틴, 교대근무, 성경처럼 일상 속 반복되는 문제를 모바일 앱으로 정리하는 개인 앱 스튜디오입니다. 빠르게 쓰이고, 기기 안에서 오래 남는 서비스를 지향합니다.</p>
-            <div class="hero-actions">
-              <a class="button" href="#apps">앱 둘러보기</a>
-              <a class="button secondary" href="mailto:qnqnckck@gmail.com">문의하기</a>
-            </div>
-          </div>
-
-          <div class="showcase" aria-label="LABHUB 앱 쇼케이스">
-            <div class="device">
-              <div class="device-screen">
-                <div class="screen-title">
-                  <strong>LABHUB Apps</strong>
-                  <span class="pill">Portfolio</span>
-                </div>
-                <div class="icon-stack">
-                  <div class="mini-app">
-                    <img src="./google-privacy/publicofferingshares/assets/app-icon.png" alt="공모주 비서 아이콘">
-                    <strong>공모주 비서</strong>
-                    <span>IPO 일정과 리포트</span>
-                  </div>
-                  <div class="mini-app">
-                    <img src="./google-privacy/fate/assets/app-icon.png" alt="사주 앱 아이콘">
-                    <strong>사주</strong>
-                    <span>다국어 운세 해석</span>
-                  </div>
-                  <div class="mini-app">
-                    <img src="./google-privacy/shiftcanvas/assets/app-icon.png" alt="시프트 캔버스 아이콘">
-                    <strong>시프트 캔버스</strong>
-                    <span>교대근무 캘린더</span>
-                  </div>
-                  <div class="mini-app">
-                    <img src="./google-privacy/bible/assets/app-icon.png" alt="성경 앱 아이콘">
-                    <strong>성경</strong>
-                    <span>읽기, 듣기, 공부</span>
-                  </div>
-                </div>
-                <div class="metric-row">
-                  <div class="metric"><strong>5</strong><span>public apps</span></div>
-                  <div class="metric"><strong>3</strong><span>platform pages</span></div>
-                  <div class="metric"><strong>1</strong><span>studio</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="services" aria-label="LABHUB 서비스 방향">
-          <div class="section-head">
-            <h2>무엇을 만들고 있나</h2>
-            <p>큰 플랫폼보다 매일 쓰는 작은 도구에 집중합니다. 사용자의 일정, 기록, 선택, 알림이 앱 안에서 분명하게 정리되는 경험을 우선합니다.</p>
-          </div>
-          <div class="service-grid">
-            <article class="service-card">
-              <mark>01</mark>
-              <h3>생활형 유틸리티</h3>
-              <p>공모주, 교대근무, 루틴처럼 자주 확인하는 정보를 빠르게 볼 수 있는 앱을 만듭니다.</p>
-            </article>
-            <article class="service-card">
-              <mark>02</mark>
-              <h3>로컬 퍼스트 설계</h3>
-              <p>계정과 서버 의존을 줄이고, 설정과 기록은 가능한 한 사용자의 기기 중심으로 관리합니다.</p>
-            </article>
-            <article class="service-card">
-              <mark>03</mark>
-              <h3>다국어 출시 준비</h3>
-              <p>앱 이름, 스토어 페이지, 개인정보처리방침, 지원 페이지까지 출시 흐름에 맞춰 정리합니다.</p>
-            </article>
-          </div>
-        </section>
-
-        <section id="apps" aria-label="LABHUB 앱 포트폴리오">
-          <div class="section-head">
-            <h2>서비스와 앱</h2>
-            <p>각 앱의 공식 소개, 지원, 개인정보처리방침 페이지를 함께 제공합니다.</p>
-          </div>
-          <div class="app-grid">
-            <article class="app-card">
-              <div class="app-top">
-                <img class="app-icon" src="./google-privacy/publicofferingshares/assets/app-icon.png" alt="공모주 비서 아이콘">
-                <div>
-                  <h3>공모주 비서</h3>
-                  <p>공모주 일정, 청약 리포트, 대시보드를 한눈에 확인하는 투자 일정 도우미입니다.</p>
-                </div>
-                <span class="tag">IPO</span>
-              </div>
-              <div class="app-links">
-                <a href="./google-privacy/publicofferingshares/">소개</a>
-                <a class="secondary" href="./google-privacy/publicofferingshares/support.html">지원</a>
-                <a class="secondary" href="./google-privacy/publicofferingshares/private-policy.html">개인정보</a>
-              </div>
-            </article>
-
-            <article class="app-card">
-              <div class="app-top">
-                <img class="app-icon" src="./google-privacy/fate/assets/app-icon.png" alt="사주 앱 아이콘">
-                <div>
-                  <h3>사주</h3>
-                  <p>다국어 운세와 사주 해석을 제공하는 모바일 운세 앱입니다.</p>
-                </div>
-                <span class="tag">Fate</span>
-              </div>
-              <div class="app-links">
-                <a href="./google-privacy/fate/">소개</a>
-                <a class="secondary" href="./google-privacy/fate/support.html">지원</a>
-                <a class="secondary" href="./google-privacy/fate/private-policy.html">개인정보</a>
-              </div>
-            </article>
-
-            <article class="app-card">
-              <div class="app-top">
-                <img class="app-icon" src="./google-privacy/loutine/assets/app-icon.png" alt="루틴 앱 아이콘">
-                <div>
-                  <h3>루틴</h3>
-                  <p>반복 습관과 하루의 루틴을 기기 안에서 정리하는 로컬 우선 앱입니다.</p>
-                </div>
-                <span class="tag">Routine</span>
-              </div>
-              <div class="app-links">
-                <a href="./google-privacy/loutine/">소개</a>
-                <a class="secondary" href="./google-privacy/loutine/support.html">지원</a>
-                <a class="secondary" href="./google-privacy/loutine/private-policy.html">개인정보</a>
-              </div>
-            </article>
-
-            <article class="app-card">
-              <div class="app-top">
-                <img class="app-icon" src="./google-privacy/shiftcanvas/assets/app-icon.png" alt="시프트 캔버스 아이콘">
-                <div>
-                  <h3>시프트 캔버스</h3>
-                  <p>교대근무 패턴과 캘린더를 관리하는 근무 일정 앱입니다.</p>
-                </div>
-                <span class="tag">Shift</span>
-              </div>
-              <div class="app-links">
-                <a href="./google-privacy/shiftcanvas/">소개</a>
-                <a class="secondary" href="./google-privacy/shiftcanvas/support.html">지원</a>
-                <a class="secondary" href="./google-privacy/shiftcanvas/private-policy.html">개인정보</a>
-              </div>
-            </article>
-
-            <article class="app-card">
-              <div class="app-top">
-                <img class="app-icon" src="./google-privacy/bible/assets/app-icon.png" alt="성경 앱 아이콘">
-                <div>
-                  <h3>성경</h3>
-                  <p>성경 읽기, 듣기, 성경공부, 기도, 위젯을 지원하는 다국어 성경 앱입니다.</p>
-                </div>
-                <span class="tag">Bible</span>
-              </div>
-              <div class="app-links">
-                <a href="./google-privacy/bible/">소개</a>
-                <a class="secondary" href="./google-privacy/bible/support.html">지원</a>
-                <a class="secondary" href="./google-privacy/bible/private-policy.html">개인정보</a>
-                <a class="secondary" href="./google-privacy/bible/private-policy-en.html">Privacy EN</a>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section id="contact" aria-label="LABHUB 문의">
-          <div class="contact-card">
-            <div>
-              <span class="eyebrow">Contact</span>
-              <h2>앱 지원과 제휴 문의</h2>
-              <p>앱 사용 문제, 스토어 등록 정보, 개인정보처리방침, 서비스 제안은 이메일로 문의할 수 있습니다.</p>
-              <div class="ad-note">AdMob 앱 인증용 app-ads.txt: google.com, pub-4069445075453135, DIRECT, f08c47fec0942fa0</div>
-            </div>
-            <div class="hero-actions">
-              <a class="button" href="mailto:qnqnckck@gmail.com">qnqnckck@gmail.com</a>
-              <a class="button secondary" href="./app-ads.txt">app-ads.txt</a>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer>
-        <div>LABHUB · Mobile app studio</div>
-        <div>Public homepage: https://qnqnckck.github.io/router.html</div>
-      </footer>
+    <div class="ticker" aria-label="LABHUB 앱 티커">
+      <div class="ticker-track">
+        <span>PUBLIC OFFERING SHARES</span><span>FATE</span><span>LOUTINE</span><span>SHIFT CANVAS</span><span>BIBLE</span>
+        <span>LOCAL-FIRST APPS</span><span>STORE PAGES</span><span>SUPPORT URLS</span><span>APP-ADS.TXT</span>
+        <span>PUBLIC OFFERING SHARES</span><span>FATE</span><span>LOUTINE</span><span>SHIFT CANVAS</span><span>BIBLE</span>
+      </div>
     </div>
+
+    <main>
+      <section class="hero" aria-label="LABHUB 소개">
+        <div class="hero-copy">
+          <span class="kicker">INDEPENDENT MOBILE APP STUDIO</span>
+          <h1>LAB<br><span class="highlight">HUB</span><br>APPS</h1>
+          <p class="lead">LABHUB는 공모주, 운세, 루틴, 교대근무, 성경처럼 매일 반복되는 순간을 앱으로 정리합니다. 크게 설명하지 않아도 바로 열고, 바로 쓰고, 다시 이어갈 수 있는 생활형 모바일 도구를 만듭니다.</p>
+          <div class="actions">
+            <a class="btn" href="#apps">앱 보기</a>
+            <a class="btn alt" href="mailto:qnqnckck@gmail.com">문의하기</a>
+          </div>
+        </div>
+
+        <div class="stage" aria-label="LABHUB 앱 아이콘 쇼케이스">
+          <a class="stamp s1" href="./google-privacy/publicofferingshares/">
+            <img src="./google-privacy/publicofferingshares/assets/app-icon.png" alt="공모주 비서 아이콘">
+            <div><strong>공모주 비서</strong><span>IPO SCHEDULE</span></div>
+          </a>
+          <a class="stamp s2" href="./google-privacy/fate/">
+            <img src="./google-privacy/fate/assets/app-icon.png" alt="사주 앱 아이콘">
+            <div><strong>사주</strong><span>MULTILINGUAL FATE</span></div>
+          </a>
+          <a class="stamp s3" href="./google-privacy/loutine/">
+            <img src="./google-privacy/loutine/assets/app-icon.png" alt="루틴 앱 아이콘">
+            <div><strong>루틴</strong><span>LOCAL ROUTINE</span></div>
+          </a>
+          <a class="stamp s4" href="./google-privacy/shiftcanvas/">
+            <img src="./google-privacy/shiftcanvas/assets/app-icon.png" alt="시프트 캔버스 아이콘">
+            <div><strong>시프트 캔버스</strong><span>SHIFT CALENDAR</span></div>
+          </a>
+          <a class="stamp s5" href="./google-privacy/bible/">
+            <img src="./google-privacy/bible/assets/app-icon.png" alt="성경 앱 아이콘">
+            <div><strong>성경</strong><span>READ LISTEN STUDY</span></div>
+          </a>
+          <div class="count">
+            <div><strong>5</strong><span>APP PAGES</span></div>
+            <div><strong>15+</strong><span>PUBLIC LINKS</span></div>
+            <div><strong>1</strong><span>STUDIO</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="studio" class="section" aria-label="LABHUB 스튜디오 원칙">
+        <div class="section-head">
+          <h2>SMALL TOOLS<br>LOUDLY SHIPPED</h2>
+          <p>깔끔한 척만 하는 홈페이지 대신, 앱 아이콘과 제품을 전면에 세웁니다. LABHUB는 생활형 앱을 빠르게 만들고, 소개 페이지와 지원, 개인정보처리방침까지 출시 가능한 상태로 정리합니다.</p>
+        </div>
+        <div class="rules">
+          <article class="rule">
+            <mark>01</mark>
+            <h3>바로 쓰는 앱</h3>
+            <p>계정 가입보다 사용 흐름을 먼저 봅니다. 열자마자 필요한 일정, 기록, 읽기 위치가 보이게 만듭니다.</p>
+          </article>
+          <article class="rule">
+            <mark>02</mark>
+            <h3>기기 중심</h3>
+            <p>가능한 설정과 기록은 사용자의 기기 안에서 관리합니다. 로컬 퍼스트 경험을 기본값으로 둡니다.</p>
+          </article>
+          <article class="rule">
+            <mark>03</mark>
+            <h3>출시까지</h3>
+            <p>앱만 만들지 않습니다. 스토어 제출에 필요한 마케팅, 지원, 개인정보 URL도 함께 관리합니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="apps" class="section apps" aria-label="LABHUB 앱 목록">
+        <div class="section-head">
+          <h2>APP<br>WALL</h2>
+          <p>각 카드에서 앱 소개 페이지, 지원 페이지, 개인정보처리방침으로 이동할 수 있습니다.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product">
+            <div>
+              <img src="./google-privacy/publicofferingshares/assets/app-icon.png" alt="공모주 비서 아이콘">
+              <h3>공모주 비서</h3>
+              <p>공모주 일정, 청약 리포트, 대시보드를 한눈에 확인하는 투자 일정 도우미입니다.</p>
+            </div>
+            <div class="links">
+              <a href="./google-privacy/publicofferingshares/">소개</a>
+              <a class="secondary" href="./google-privacy/publicofferingshares/support.html">지원</a>
+              <a class="secondary" href="./google-privacy/publicofferingshares/private-policy.html">개인정보</a>
+            </div>
+          </article>
+
+          <article class="product">
+            <div>
+              <img src="./google-privacy/fate/assets/app-icon.png" alt="사주 앱 아이콘">
+              <h3>사주</h3>
+              <p>다국어 운세와 사주 해석을 제공하는 모바일 운세 앱입니다.</p>
+            </div>
+            <div class="links">
+              <a href="./google-privacy/fate/">소개</a>
+              <a class="secondary" href="./google-privacy/fate/support.html">지원</a>
+              <a class="secondary" href="./google-privacy/fate/private-policy.html">개인정보</a>
+            </div>
+          </article>
+
+          <article class="product">
+            <div>
+              <img src="./google-privacy/loutine/assets/app-icon.png" alt="루틴 앱 아이콘">
+              <h3>루틴</h3>
+              <p>반복 습관과 하루의 루틴을 기기 안에서 정리하는 로컬 우선 앱입니다.</p>
+            </div>
+            <div class="links">
+              <a href="./google-privacy/loutine/">소개</a>
+              <a class="secondary" href="./google-privacy/loutine/support.html">지원</a>
+              <a class="secondary" href="./google-privacy/loutine/private-policy.html">개인정보</a>
+            </div>
+          </article>
+
+          <article class="product">
+            <div>
+              <img src="./google-privacy/shiftcanvas/assets/app-icon.png" alt="시프트 캔버스 아이콘">
+              <h3>시프트 캔버스</h3>
+              <p>교대근무 패턴과 캘린더를 관리하는 근무 일정 앱입니다.</p>
+            </div>
+            <div class="links">
+              <a href="./google-privacy/shiftcanvas/">소개</a>
+              <a class="secondary" href="./google-privacy/shiftcanvas/support.html">지원</a>
+              <a class="secondary" href="./google-privacy/shiftcanvas/private-policy.html">개인정보</a>
+            </div>
+          </article>
+
+          <article class="product">
+            <div>
+              <img src="./google-privacy/bible/assets/app-icon.png" alt="성경 앱 아이콘">
+              <h3>성경</h3>
+              <p>성경 읽기, 듣기, 성경공부, 기도, 위젯을 지원하는 다국어 성경 앱입니다.</p>
+            </div>
+            <div class="links">
+              <a href="./google-privacy/bible/">소개</a>
+              <a class="secondary" href="./google-privacy/bible/support.html">지원</a>
+              <a class="secondary" href="./google-privacy/bible/private-policy.html">개인정보</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact" aria-label="LABHUB 문의">
+        <div class="contact-box">
+          <div>
+            <span class="kicker">CONTACT</span>
+            <h2>MAIL<br>THE LAB</h2>
+            <p>앱 사용 문제, 스토어 등록 정보, 개인정보처리방침, 서비스 제안은 이메일로 문의할 수 있습니다.</p>
+          </div>
+          <div class="contact-card">
+            <a class="btn" href="mailto:qnqnckck@gmail.com">qnqnckck@gmail.com</a>
+            <a class="btn alt" href="./app-ads.txt">app-ads.txt</a>
+            <div class="ad">google.com, pub-4069445075453135, DIRECT, f08c47fec0942fa0</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>LABHUB MOBILE APP STUDIO</span>
+      <span>https://qnqnckck.github.io/router.html</span>
+    </footer>
   </body>
 </html>
