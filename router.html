@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="앱 마케팅, 지원, 개인정보처리방침 공개 링크 모음">
+    <title>앱 공개 링크 모음</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f5ef;
+        --panel: #ffffff;
+        --ink: #20231f;
+        --muted: #697067;
+        --line: #e3e0d6;
+        --accent: #536b45;
+        --accent-soft: #edf3e7;
+        --dark: #161916;
+        --gold: #c89b45;
+        --teal: #0f5c61;
+        --shadow: 0 18px 48px rgba(32, 35, 31, 0.08);
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 12% 10%, rgba(83, 107, 69, 0.12), transparent 32%),
+          linear-gradient(120deg, #efeee7 0%, #fbfaf6 48%, #f2f1ea 100%);
+        color: var(--ink);
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        line-height: 1.65;
+        word-break: keep-all;
+      }
+
+      main {
+        width: min(1180px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: 54px 0 76px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+        gap: 28px;
+        align-items: stretch;
+        margin-bottom: 28px;
+      }
+
+      .intro, .ad-card, .app-card {
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .intro {
+        padding: 36px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 12px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 900;
+      }
+
+      h1 {
+        margin: 18px 0 12px;
+        font-size: clamp(2rem, 4vw, 4.1rem);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        max-width: 660px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.08rem;
+        font-weight: 760;
+      }
+
+      .ad-card {
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 22px;
+      }
+
+      .ad-card strong {
+        display: block;
+        font-size: 1.18rem;
+      }
+
+      .ad-card p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-weight: 740;
+      }
+
+      .ad-code {
+        display: block;
+        padding: 14px;
+        border-radius: 16px;
+        background: var(--dark);
+        color: #fff;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.82rem;
+        white-space: normal;
+      }
+
+      .ad-card a {
+        min-height: 46px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 16px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 900;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .app-card {
+        padding: 24px;
+      }
+
+      .app-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: flex-start;
+        margin-bottom: 18px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 1.36rem;
+        line-height: 1.25;
+      }
+
+      .tag {
+        min-height: 30px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 11px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.76rem;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+
+      .desc {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-weight: 740;
+      }
+
+      .links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .links a {
+        min-height: 46px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 13px;
+        border-radius: 14px;
+        background: var(--dark);
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 900;
+      }
+
+      .links a.secondary {
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--ink);
+      }
+
+      .links a.store {
+        background: var(--accent);
+      }
+
+      .publicofferingshares .tag { background: #fff4cc; color: #7d6010; }
+      .publicofferingshares .links a.store { background: var(--gold); }
+      .fate .tag { background: #f3ece7; color: #7b4a21; }
+      .fate .links a.store { background: #8d5a2d; }
+      .loutine .tag { background: #e7f3ec; color: #2f6b55; }
+      .loutine .links a.store { background: #2f6b55; }
+      .shiftcanvas .tag { background: #e4f3f4; color: var(--teal); }
+      .shiftcanvas .links a.store { background: var(--teal); }
+      .bible .tag { background: var(--accent-soft); color: var(--accent); }
+
+      footer {
+        margin-top: 28px;
+        color: var(--muted);
+        font-size: 0.88rem;
+        font-weight: 740;
+      }
+
+      @media (max-width: 860px) {
+        main { width: min(100% - 28px, 620px); padding-top: 28px; }
+        .hero, .grid { grid-template-columns: 1fr; }
+        .intro, .ad-card, .app-card { border-radius: 20px; }
+        .intro { padding: 26px; }
+      }
+
+      @media (max-width: 430px) {
+        .links { grid-template-columns: 1fr; }
+        .app-top { flex-direction: column; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero" aria-label="앱 공개 링크 안내">
+        <div class="intro">
+          <span class="eyebrow">Public app links</span>
+          <h1>앱 공개 페이지<br>링크 모음</h1>
+          <p class="lead">App Store, Google Play, AdMob 설정에 사용하는 마케팅 페이지, 지원 페이지, 개인정보처리방침 URL을 한 곳에서 확인합니다.</p>
+        </div>
+        <aside class="ad-card">
+          <div>
+            <strong>app-ads.txt</strong>
+            <p>AdMob 앱 인증용 루트 파일입니다.</p>
+          </div>
+          <code class="ad-code">google.com, pub-4069445075453135, DIRECT, f08c47fec0942fa0</code>
+          <a href="./app-ads.txt">app-ads.txt 열기</a>
+        </aside>
+      </section>
+
+      <section class="grid" aria-label="앱별 공개 링크">
+        <article class="app-card publicofferingshares">
+          <div class="app-top">
+            <div>
+              <h2>공모주 비서</h2>
+              <p class="desc">공모주 일정, 청약 리포트, 대시보드 안내 페이지</p>
+            </div>
+            <span class="tag">IPO</span>
+          </div>
+          <div class="links">
+            <a class="store" href="./google-privacy/publicofferingshares/">마케팅</a>
+            <a class="secondary" href="./google-privacy/publicofferingshares/support.html">지원</a>
+            <a class="secondary" href="./google-privacy/publicofferingshares/private-policy.html">개인정보</a>
+          </div>
+        </article>
+
+        <article class="app-card fate">
+          <div class="app-top">
+            <div>
+              <h2>사주</h2>
+              <p class="desc">다국어 운세, 해석, 화면 안내 페이지</p>
+            </div>
+            <span class="tag">Fate</span>
+          </div>
+          <div class="links">
+            <a class="store" href="./google-privacy/fate/">마케팅</a>
+            <a class="secondary" href="./google-privacy/fate/support.html">지원</a>
+            <a class="secondary" href="./google-privacy/fate/private-policy.html">개인정보</a>
+          </div>
+        </article>
+
+        <article class="app-card loutine">
+          <div class="app-top">
+            <div>
+              <h2>루틴</h2>
+              <p class="desc">습관, 반복 일정, 로컬 우선 사용 안내 페이지</p>
+            </div>
+            <span class="tag">Routine</span>
+          </div>
+          <div class="links">
+            <a class="store" href="./google-privacy/loutine/">마케팅</a>
+            <a class="secondary" href="./google-privacy/loutine/support.html">지원</a>
+            <a class="secondary" href="./google-privacy/loutine/private-policy.html">개인정보</a>
+          </div>
+        </article>
+
+        <article class="app-card shiftcanvas">
+          <div class="app-top">
+            <div>
+              <h2>시프트 캔버스</h2>
+              <p class="desc">교대근무 일정, 캘린더, 지원 안내 페이지</p>
+            </div>
+            <span class="tag">Shift</span>
+          </div>
+          <div class="links">
+            <a class="store" href="./google-privacy/shiftcanvas/">마케팅</a>
+            <a class="secondary" href="./google-privacy/shiftcanvas/support.html">지원</a>
+            <a class="secondary" href="./google-privacy/shiftcanvas/private-policy.html">개인정보</a>
+          </div>
+        </article>
+
+        <article class="app-card bible">
+          <div class="app-top">
+            <div>
+              <h2>성경</h2>
+              <p class="desc">읽기, 듣기, 성경공부, 기도, 위젯 안내 페이지</p>
+            </div>
+            <span class="tag">Bible</span>
+          </div>
+          <div class="links">
+            <a class="store" href="./google-privacy/bible/">마케팅</a>
+            <a class="secondary" href="./google-privacy/bible/support.html">지원</a>
+            <a class="secondary" href="./google-privacy/bible/private-policy.html">개인정보</a>
+            <a class="secondary" href="./google-privacy/bible/private-policy-en.html">Privacy EN</a>
+          </div>
+        </article>
+      </section>
+
+      <footer>
+        <p>공개 URL 기준: https://qnqnckck.github.io/router.html</p>
+      </footer>
+    </main>
+  </body>
+</html>
