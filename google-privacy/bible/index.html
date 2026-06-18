@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="성경/Bible - 읽기, 듣기, 성경공부, 기도, 위젯을 지원하는 다국어 성경 앱">
+    <title>성경 - 읽고 듣고 공부하는 다국어 성경 앱</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5f4ef;
+        --paper: #ffffff;
+        --ink: #1f211d;
+        --muted: #6d716a;
+        --line: #e8e5da;
+        --olive: #536b45;
+        --olive-soft: #edf3e7;
+        --gold: #d3aa58;
+        --night: #171a16;
+        --shadow: 0 22px 54px rgba(33, 31, 24, 0.08);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(90deg, #f0f0ea 0, #fbfaf6 48%, #f3f3ec 100%);
+        color: var(--ink);
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        word-break: keep-all;
+      }
+      a { color: inherit; text-decoration: none; }
+      .layout { min-height: 100vh; }
+      .aside, .rail { display: none; }
+      .app-page { width: 100%; min-width: 320px; max-width: 520px; min-height: 100vh; margin: 0 auto; background: var(--paper); overflow: hidden; }
+      .app-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        min-height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 24px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(255,255,255,0.92);
+        backdrop-filter: blur(12px);
+      }
+      .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; }
+      .brand img { width: 38px; height: 38px; border-radius: 13px; box-shadow: var(--shadow); }
+      .header-action {
+        min-height: 36px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 14px;
+        border-radius: 999px;
+        background: var(--night);
+        color: #fff;
+        font-size: 0.84rem;
+        font-weight: 900;
+      }
+      .content { padding: 28px 24px 76px; }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 11px;
+        border-radius: 999px;
+        background: var(--olive-soft);
+        color: var(--olive);
+        font-size: 0.82rem;
+        font-weight: 900;
+      }
+      h1 { margin: 16px 0 10px; font-size: 2.15rem; line-height: 1.18; letter-spacing: 0; }
+      .lead { max-width: 370px; margin: 0; color: var(--muted); font-weight: 750; line-height: 1.65; }
+      .verse-card { margin-top: 22px; padding: 18px; border-radius: 20px; background: var(--night); color: #fff; }
+      .verse-card span { color: rgba(255,255,255,0.66); font-size: 0.8rem; font-weight: 850; }
+      .verse-card strong { display: block; margin-top: 8px; font-size: 1.15rem; line-height: 1.38; }
+      .quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; }
+      .quick-tile { min-height: 76px; padding: 13px 11px; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+      .quick-tile span { display: block; color: var(--muted); font-size: 0.72rem; font-weight: 800; }
+      .quick-tile strong { display: block; margin-top: 7px; font-size: 0.96rem; line-height: 1.25; }
+      .section { margin-top: 42px; }
+      .section-title { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+      .section-title h2 { margin: 0; font-size: 1.54rem; line-height: 1.25; }
+      .section-title span { color: var(--muted); font-size: 0.82rem; font-weight: 850; white-space: nowrap; }
+      .screen-card + .screen-card { margin-top: 30px; }
+      .screen-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+      .screen-head strong { display: block; font-size: 1.16rem; }
+      .screen-head span { display: block; margin-top: 4px; color: var(--muted); font-size: 0.78rem; font-weight: 750; }
+      .badge {
+        min-width: 76px;
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        padding: 0 12px;
+        border-radius: 999px;
+        background: var(--olive-soft);
+        color: var(--olive);
+        font-size: 0.78rem;
+        font-weight: 900;
+        line-height: 1;
+      }
+      .phone-shot { border: 1px solid var(--line); border-radius: 20px; background: #fff; overflow: hidden; box-shadow: 0 18px 48px rgba(33,31,24,0.08); }
+      .phone-shot img { width: 100%; display: block; }
+      .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .feature-card { min-height: 136px; padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+      .feature-card mark { width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--night); color: #fff; font-weight: 900; }
+      .feature-card h3 { margin: 14px 0 8px; font-size: 1.02rem; }
+      .feature-card p { margin: 0; color: var(--muted); font-size: 0.88rem; font-weight: 720; line-height: 1.5; }
+      .notice-card { padding: 22px; border-radius: 22px; background: var(--olive); color: #fff; }
+      .notice-card h2 { margin: 0 0 10px; font-size: 1.38rem; }
+      .notice-card p { margin: 0; color: rgba(255,255,255,0.82); font-weight: 720; line-height: 1.65; }
+      .link-card { margin-top: 12px; padding: 4px 16px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+      .link-card a { min-height: 50px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); font-weight: 900; }
+      .link-card a:last-child { border-bottom: 0; }
+      .link-card a::after { content: ">"; color: var(--muted); }
+      footer { margin-top: 34px; color: var(--muted); font-size: 0.78rem; font-weight: 700; line-height: 1.5; }
+      @media (min-width: 960px) {
+        .layout { display: grid; grid-template-columns: minmax(420px, 620px) 520px 220px; column-gap: 46px; justify-content: center; }
+        .aside { grid-column: 1; position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 56px 0; }
+        .aside-logo { width: 74px; height: 74px; border-radius: 24px; box-shadow: var(--shadow); }
+        .aside-intro { margin: 44px 0 16px; color: var(--muted); font-size: 1.28rem; font-weight: 760; }
+        .aside h2 { max-width: 560px; margin: 0; font-size: 3.46rem; line-height: 1.14; letter-spacing: 0; }
+        .aside h2 mark { background: linear-gradient(var(--olive-soft), var(--olive-soft)); background-repeat: no-repeat; background-size: 100% 38%; background-position: 0 86%; color: inherit; }
+        .aside-actions { display: flex; gap: 10px; margin-top: 34px; }
+        .aside-actions a { min-height: 50px; display: inline-flex; align-items: center; justify-content: center; padding: 0 18px; border-radius: 16px; background: #fff; color: #555a52; font-weight: 900; }
+        .aside-actions a:first-child { background: var(--night); color: #fff; }
+        .aside-note { max-width: 540px; margin-top: 52px; padding: 22px 24px; border-radius: 18px; border: 1px solid var(--line); border-left: 4px solid var(--olive); background: #fff; }
+        .aside-note strong { display: block; margin-bottom: 7px; font-size: 1.08rem; }
+        .aside-note span { color: var(--muted); font-size: 0.92rem; font-weight: 800; line-height: 1.5; }
+        .app-page { grid-column: 2; margin: 0; box-shadow: 0 0 0 1px var(--line); }
+        .rail { grid-column: 3; position: sticky; top: calc(100vh - 260px); align-self: start; width: 200px; display: flex; flex-direction: column; align-items: center; gap: 14px; margin-top: calc(100vh - 260px); }
+        .rail a { width: 100%; min-height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: var(--night); color: #fff; font-weight: 900; }
+        .rail a.secondary { border: 1px solid var(--line); background: #fff; color: #555a52; }
+      }
+      @media (max-width: 390px) {
+        .content, .app-header { padding-left: 18px; padding-right: 18px; }
+        .quick-grid, .feature-grid { grid-template-columns: 1fr; }
+        h1 { font-size: 1.78rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="layout">
+      <aside class="aside" aria-label="성경 앱 소개">
+        <img class="aside-logo" src="./assets/app-icon.png" alt="성경 앱 아이콘">
+        <p class="aside-intro">읽고 듣고 공부하는 다국어 성경 앱</p>
+        <h2>말씀 읽기와<br>오디오, 공부를<br><mark>성경</mark> 안에서</h2>
+        <div class="aside-actions">
+          <a href="./support.html">지원 페이지</a>
+          <a href="./private-policy.html">개인정보처리방침</a>
+        </div>
+        <div class="aside-note">
+          <strong>공식 소개 페이지</strong>
+          <span>Listen, Read, Study, Settings 흐름과 다국어 성경 읽기·오디오·기도·위젯 기능을 확인할 수 있습니다.</span>
+        </div>
+      </aside>
+
+      <section class="app-page" aria-label="성경 마케팅 페이지">
+        <header class="app-header">
+          <a class="brand" href="./">
+            <img src="./assets/app-icon.png" alt="성경 앱 아이콘">
+            <span>성경</span>
+          </a>
+          <a class="header-action" href="./support.html">지원</a>
+        </header>
+
+        <div class="content">
+          <section>
+            <span class="eyebrow">Bible reading companion</span>
+            <h1>읽기, 듣기, 성경공부를 한 곳에서.</h1>
+            <p class="lead">성경은 여러 언어의 성경 읽기, 장별 오디오, 인물·주제 공부, 기도와 위젯을 기기 중심으로 정리하는 성경 앱입니다.</p>
+            <div class="verse-card">
+              <span>오늘의 말씀 흐름</span>
+              <strong>읽던 장, 듣던 오디오, 공부하던 주제를 다시 이어갈 수 있습니다.</strong>
+            </div>
+          </section>
+
+          <nav class="quick-grid" aria-label="핵심 섹션 바로 보기">
+            <a class="quick-tile" href="#screens"><span>화면</span><strong>앱 미리보기</strong></a>
+            <a class="quick-tile" href="#features"><span>기능</span><strong>읽기/듣기</strong></a>
+            <a class="quick-tile" href="#links"><span>안내</span><strong>정책/지원</strong></a>
+          </nav>
+
+          <section id="screens" class="section">
+            <div class="section-title"><h2>앱 미리보기</h2><span>실제 앱 화면</span></div>
+            <article class="screen-card">
+              <div class="screen-head"><div><strong>홈과 말씀 흐름</strong><span>읽기, 듣기, 공부, 설정으로 바로 이동합니다.</span></div><span class="badge">Home</span></div>
+              <div class="phone-shot"><img src="./assets/screen-home.png" alt="성경 앱 홈 화면"></div>
+            </article>
+            <article class="screen-card">
+              <div class="screen-head"><div><strong>성경 읽기</strong><span>번역본과 장을 선택하고 본문을 이어 읽습니다.</span></div><span class="badge">Read</span></div>
+              <div class="phone-shot"><img src="./assets/screen-read.png" alt="성경 앱 읽기 화면"></div>
+            </article>
+            <article class="screen-card">
+              <div class="screen-head"><div><strong>성경 오디오</strong><span>장별 오디오와 재생 흐름을 한 화면에서 다룹니다.</span></div><span class="badge">Listen</span></div>
+              <div class="phone-shot"><img src="./assets/screen-listen.png" alt="성경 앱 듣기 화면"></div>
+            </article>
+            <article class="screen-card">
+              <div class="screen-head"><div><strong>성경공부</strong><span>인물, 주제, 질문과 답변으로 말씀을 더 깊게 봅니다.</span></div><span class="badge">Study</span></div>
+              <div class="phone-shot"><img src="./assets/screen-study.png" alt="성경 앱 공부 화면"></div>
+            </article>
+          </section>
+
+          <section id="features" class="section">
+            <div class="section-title"><h2>핵심 기능</h2><span>Multilingual</span></div>
+            <div class="feature-grid">
+              <article class="feature-card"><mark>읽</mark><h3>다국어 성경 읽기</h3><p>언어와 번역본을 선택하고 최근 읽던 위치를 이어갑니다.</p></article>
+              <article class="feature-card"><mark>듣</mark><h3>장별 오디오</h3><p>오디오 재생과 이어 듣기 흐름을 앱 안에서 관리합니다.</p></article>
+              <article class="feature-card"><mark>공</mark><h3>인물·주제 공부</h3><p>성경 인물, 주제, 질문과 답변을 공부 흐름으로 정리합니다.</p></article>
+              <article class="feature-card"><mark>위</mark><h3>기도와 위젯</h3><p>기도 안내, 알림, 위젯으로 말씀을 생활 흐름 가까이에 둡니다.</p></article>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="notice-card">
+              <h2>개인 설정은 기기 중심으로.</h2>
+              <p>언어, 번역본, 최근 읽기·듣기 위치, 북마크, 알림 설정은 기본적으로 사용자의 기기 안에서 관리됩니다.</p>
+            </div>
+          </section>
+
+          <section id="links" class="section">
+            <div class="section-title"><h2>공식 안내</h2><span>Policy & Support</span></div>
+            <div class="link-card">
+              <a href="./private-policy.html">개인정보처리방침</a>
+              <a href="./private-policy-en.html">Privacy Policy</a>
+              <a href="./support.html">지원 페이지</a>
+              <a href="mailto:qnqnckck@gmail.com">개발자에게 문의</a>
+            </div>
+          </section>
+
+          <footer><p>성경/Bible 공식 소개 및 앱 지원 안내용 정적 페이지입니다.</p></footer>
+        </div>
+      </section>
+
+      <aside class="rail" aria-label="성경 공식 링크">
+        <a href="./support.html">Support</a>
+        <a class="secondary" href="./private-policy.html">Privacy Policy</a>
+      </aside>
+    </main>
+  </body>
+</html>

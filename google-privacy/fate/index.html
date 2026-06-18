@@ -1,0 +1,1459 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="운명/Fate - 사주, 타로, 손금, 궁합, 별자리, 주역, 전생, 팬심까지 나를 위한 운세를 한 곳에서 확인하는 로컬 우선 운세 앱">
+    <title data-i18n="pageTitle">운명 - 나를 위한 모든 운세를 한 곳에서</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5f5f2;
+        --paper: #ffffff;
+        --paper-strong: #ffffff;
+        --ink: #171614;
+        --navy: #1e2d5a;
+        --brown: #966630;
+        --rose: #95515a;
+        --green: #346f55;
+        --muted: #6f6b65;
+        --line: #e8e7e2;
+        --accent: #b79a62;
+        --accent-soft: #f3f0e8;
+        --shadow: 0 22px 54px rgba(27, 25, 21, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        background:
+          linear-gradient(90deg, #f2f2ef 0, #fafaf8 42%, #f4f4f1 100%);
+        color: var(--ink);
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        word-break: keep-all;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .layout {
+        min-height: 100vh;
+      }
+
+      .aside,
+      .qr-panel {
+        display: none;
+      }
+
+      .app-page {
+        width: 100%;
+        min-width: 320px;
+        max-width: 480px;
+        min-height: 100vh;
+        margin: 0 auto;
+        background: var(--paper);
+        overflow: hidden;
+      }
+
+      .app-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        min-height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 24px;
+        background: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(12px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 900;
+      }
+
+      .brand img {
+        width: 38px;
+        height: 38px;
+        border-radius: 13px;
+        box-shadow: var(--shadow);
+      }
+
+      .header-tools {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .language-select {
+        height: 34px;
+        max-width: 104px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--paper-strong);
+        color: var(--ink);
+        font: inherit;
+        font-size: 0.78rem;
+        font-weight: 900;
+        padding: 0 8px;
+      }
+
+      .header-action {
+        min-height: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 13px;
+        border-radius: 999px;
+        background: #171614;
+        color: #fff;
+        font-size: 0.82rem;
+        font-weight: 900;
+      }
+
+      .store-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .content {
+        padding: 28px 24px 76px;
+      }
+
+      .hero-card,
+      .screen-card,
+      .mode-card,
+      .notice-card,
+      .link-card {
+        border: 1px solid var(--line);
+        background: var(--paper-strong);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-card {
+        position: relative;
+        padding: 8px 0 16px;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        overflow: hidden;
+      }
+
+      .hero-card::after {
+        content: none;
+      }
+
+      .eyebrow,
+      .badge {
+        display: inline-grid;
+        place-items: center;
+        border-radius: 999px;
+        font-weight: 900;
+        white-space: nowrap;
+        line-height: 1;
+        text-align: center;
+      }
+
+      .eyebrow {
+        position: relative;
+        z-index: 1;
+        min-height: 30px;
+        padding: 0 11px;
+        background: #f1f0eb;
+        color: #59534b;
+        font-size: 0.82rem;
+      }
+
+      h1 {
+        position: relative;
+        z-index: 1;
+        margin: 16px 0 10px;
+        font-size: 2.16rem;
+        line-height: 1.22;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        position: relative;
+        z-index: 1;
+        max-width: 340px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.96rem;
+        font-weight: 700;
+        line-height: 1.66;
+      }
+
+      .hero-proof {
+        position: relative;
+        z-index: 1;
+        margin-top: 22px;
+      }
+
+      .proof-note {
+        padding: 16px;
+        border-radius: 18px;
+        background: #171614;
+        color: #fff;
+      }
+
+      .proof-note span {
+        display: block;
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+
+      .proof-note strong {
+        display: block;
+        margin-top: 8px;
+        font-size: 1.16rem;
+        line-height: 1.3;
+      }
+
+      .quick-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .quick-tile {
+        min-height: 76px;
+        padding: 13px 11px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--paper-strong);
+        box-shadow: none;
+      }
+
+      .quick-tile span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 800;
+      }
+
+      .quick-tile strong {
+        display: block;
+        margin-top: 7px;
+        font-size: 0.96rem;
+        line-height: 1.25;
+      }
+
+      .section {
+        margin-top: 42px;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+
+      .section-title h2 {
+        margin: 0;
+        font-size: 1.55rem;
+        line-height: 1.25;
+        letter-spacing: 0;
+      }
+
+      .section-title span {
+        color: var(--muted);
+        font-size: 0.84rem;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .screen-card {
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .screen-card + .screen-card {
+        margin-top: 30px;
+      }
+
+      .screen-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+
+      .screen-head strong {
+        display: block;
+        font-size: 1.18rem;
+      }
+
+      .screen-head span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .badge {
+        height: 34px;
+        min-width: 64px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        flex: 0 0 auto;
+        margin-top: 0;
+        padding: 0 12px;
+        border: 1px solid #ded9cf;
+        background: #f2f1ed;
+        color: #4e4a43;
+        font-size: 0.78rem;
+        line-height: 1;
+        transform: none;
+      }
+
+      .screen-head .badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0;
+        color: #4e4a43;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .phone-shot {
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: #fff;
+        overflow: hidden;
+        box-shadow: 0 18px 48px rgba(27, 25, 21, 0.08);
+      }
+
+      .phone-shot img {
+        width: 100%;
+        display: block;
+      }
+
+      .store-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .store-shot {
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: #fff;
+        overflow: hidden;
+        box-shadow: 0 18px 48px rgba(27, 25, 21, 0.07);
+      }
+
+      .store-shot img {
+        width: 100%;
+        display: block;
+      }
+
+      .mode-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .mode-card {
+        min-height: 142px;
+        padding: 17px;
+        border-radius: 16px;
+        box-shadow: none;
+      }
+
+      .mode-card mark {
+        width: 34px;
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #171614;
+        color: #fff;
+        font-weight: 900;
+      }
+
+      .mode-card h3 {
+        margin: 14px 0 8px;
+        font-size: 1.02rem;
+      }
+
+      .mode-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      .mode-card:nth-child(2) mark {
+        background: var(--brown);
+      }
+
+      .mode-card:nth-child(3) mark {
+        background: var(--rose);
+      }
+
+      .mode-card:nth-child(4) mark {
+        background: var(--green);
+      }
+
+      .notice-card {
+        padding: 22px;
+        border-radius: 22px;
+        background: var(--navy);
+        color: #fff;
+      }
+
+      .language-card {
+        padding: 18px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: var(--paper-strong);
+        box-shadow: none;
+      }
+
+      .language-card p {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 800;
+        line-height: 1.5;
+      }
+
+      .language-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .language-pills button {
+        min-height: 34px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--ink);
+        font: inherit;
+        font-size: 0.78rem;
+        font-weight: 900;
+        padding: 0 11px;
+      }
+
+      .language-pills button.active {
+        border-color: rgba(151, 102, 48, 0.26);
+        background: #171614;
+        color: #fff;
+      }
+
+      .notice-card h2 {
+        margin: 0 0 10px;
+        font-size: 1.42rem;
+        line-height: 1.28;
+      }
+
+      .notice-card p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.78);
+        font-weight: 700;
+        line-height: 1.65;
+      }
+
+      .link-card {
+        margin-top: 12px;
+        padding: 4px 16px;
+        border-radius: 18px;
+        box-shadow: none;
+      }
+
+      .link-card a {
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+        font-weight: 900;
+      }
+
+      .link-card a:last-child {
+        border-bottom: 0;
+      }
+
+      .link-card a::after {
+        content: ">";
+        color: var(--muted);
+      }
+
+      .link-card a.store-link-row {
+        color: #111;
+      }
+
+      footer {
+        margin-top: 34px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      @media (min-width: 960px) {
+        .layout {
+          display: grid;
+          grid-template-columns: minmax(440px, 620px) 520px 220px;
+          column-gap: 46px;
+          align-items: stretch;
+          justify-content: center;
+        }
+
+        .aside {
+          grid-column: 1;
+          position: sticky;
+          top: 0;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 56px 0;
+        }
+
+        .aside-logo {
+          width: 74px;
+          height: 74px;
+          border-radius: 24px;
+          box-shadow: var(--shadow);
+        }
+
+        .aside-intro {
+          margin: 44px 0 16px;
+          color: var(--muted);
+          font-size: 1.35rem;
+          font-weight: 700;
+        }
+
+        .aside h2 {
+          max-width: 560px;
+          margin: 0;
+          font-size: 3.55rem;
+          line-height: 1.16;
+          letter-spacing: 0;
+        }
+
+        .aside h2 mark {
+          background: linear-gradient(var(--accent-soft), var(--accent-soft));
+          background-repeat: no-repeat;
+          background-size: 100% 38%;
+          background-position: 0 86%;
+          color: inherit;
+        }
+
+        .aside-actions {
+          display: flex;
+          gap: 10px;
+          margin-top: 34px;
+        }
+
+        .aside-actions a {
+          min-height: 50px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0 18px;
+          border-radius: 16px;
+          background: var(--paper-strong);
+          box-shadow: none;
+          color: #51483f;
+          font-weight: 900;
+        }
+
+        .aside-actions a:first-child {
+          background: #171614;
+          color: #fff;
+        }
+
+        .aside-note {
+          max-width: 540px;
+          margin-top: 52px;
+          padding: 22px 24px;
+          border-radius: 18px;
+          background: #fff;
+          color: #171614;
+          box-shadow: none;
+          border: 1px solid var(--line);
+          border-left: 4px solid var(--accent);
+        }
+
+        .aside-note strong {
+          display: block;
+          margin-bottom: 7px;
+          font-size: 1.08rem;
+        }
+
+        .aside-note span {
+          color: rgba(32, 23, 13, 0.76);
+          font-size: 0.92rem;
+          font-weight: 800;
+          line-height: 1.5;
+        }
+
+        .qr-panel {
+          grid-column: 3;
+          position: sticky;
+          top: calc(100vh - 340px);
+          align-self: start;
+          width: 200px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 14px;
+          margin-top: calc(100vh - 340px);
+        }
+
+        .qr-card {
+          width: 200px;
+          height: 200px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 24px;
+          border-radius: 14px;
+          background: #fff;
+          border: 1px solid var(--line);
+          box-shadow: none;
+        }
+
+        .qr-card img {
+          width: 148px;
+          height: 148px;
+          display: block;
+        }
+
+        .qr-panel span {
+          color: #a79e93;
+          font-size: 0.78rem;
+          font-weight: 900;
+          text-align: center;
+          line-height: 1.45;
+        }
+
+        .qr-store-links {
+          width: 100%;
+          display: grid;
+          gap: 8px;
+        }
+
+        .qr-store-links a {
+          min-height: 42px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 12px;
+          background: #171614;
+          color: #fff;
+          font-size: 0.84rem;
+          font-weight: 900;
+        }
+
+        .qr-store-links a.secondary {
+          border: 1px solid var(--line);
+          background: #fff;
+          color: #4f463d;
+        }
+
+        .app-page {
+          grid-column: 2;
+          margin: 0;
+          max-width: 520px;
+          box-shadow: 0 0 0 1px var(--line);
+        }
+      }
+
+      @media (min-width: 960px) and (max-width: 1320px) {
+        .layout {
+          grid-template-columns: minmax(360px, 1fr) 500px 176px;
+          column-gap: 24px;
+          padding: 0 18px;
+        }
+
+        .qr-panel {
+          width: 176px;
+          top: calc(100vh - 316px);
+          margin-top: calc(100vh - 316px);
+        }
+
+        .qr-card {
+          width: 176px;
+          height: 176px;
+          padding: 22px;
+        }
+
+        .qr-card img {
+          width: 132px;
+          height: 132px;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .content,
+        .app-header {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+
+        .hero-proof,
+        .quick-grid,
+        .mode-grid,
+        .store-grid {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 1.76rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="layout">
+      <aside class="aside" aria-label="운명 앱 소개">
+        <img class="aside-logo" src="./assets/app-icon.png" alt="운명 앱 아이콘">
+        <p class="aside-intro" data-i18n="asideIntro">나를 위한 운세를 한 곳에서 확인하는 앱</p>
+        <h2>
+          <span data-i18n="asideLine1">사주부터 팬심까지</span><br>
+          <span data-i18n="asideLine2">매일의 운세를</span><br>
+          <mark data-i18n="brandMark">운명</mark><span data-i18n="asideLine3">에서</span>
+        </h2>
+        <div class="aside-actions">
+          <a href="./support.html" data-i18n="supportPage">지원 페이지</a>
+          <a href="./private-policy.html" data-i18n="privacyPolicy">개인정보처리방침</a>
+        </div>
+        <div class="aside-note">
+          <strong data-i18n="asideNoteTitle">공식 소개 페이지</strong>
+          <span data-i18n="asideNoteBody">사주, 타로, 손금, 궁합, 별자리, 주역, 전생, 팬심과 홈 위젯 흐름을 실제 스토어 화면 기준으로 확인할 수 있습니다.</span>
+        </div>
+      </aside>
+
+      <section class="app-page" aria-label="운명 마케팅 페이지">
+        <header class="app-header">
+          <a class="brand" href="./">
+            <img src="./assets/app-icon.png" alt="운명 앱 아이콘">
+            <span data-i18n="appName">운명</span>
+          </a>
+          <div class="header-tools">
+            <select class="language-select" id="languageSelect" aria-label="언어 선택">
+              <option value="ko">한국어</option>
+              <option value="en">English</option>
+              <option value="ja">日本語</option>
+              <option value="zh">中文</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="de">Deutsch</option>
+              <option value="pt">Português</option>
+            </select>
+            <a class="header-action store-link" href="https://play.google.com/store/apps/details?id=com.labhub.fate" data-i18n="installShort">설치</a>
+          </div>
+        </header>
+
+        <div class="content">
+          <section class="hero-card">
+            <span class="eyebrow" data-i18n="eyebrow">All-in-one fortune folio</span>
+            <h1 data-i18n="heroTitle">나를 위한 모든 운세를 한 곳에서.</h1>
+            <p class="lead" data-i18n="heroLead">운명은 사주, 타로, 손금, 궁합, 별자리, 주역, 전생, 팬심과 오늘의 운세를 나에게 맞춰 확인하는 로컬 우선 운세 앱입니다.</p>
+            <div class="hero-proof">
+              <div class="proof-note">
+                <span data-i18n="proofLabel">오늘의 운세</span>
+                <strong data-i18n="proofText">매일의 흐름을 확인하고 필요한 리딩을 다시 열어보세요.</strong>
+              </div>
+            </div>
+          </section>
+
+          <nav class="quick-grid" aria-label="핵심 섹션 바로 보기">
+            <a class="quick-tile" href="#screens">
+              <span data-i18n="quickScreenLabel">화면</span>
+              <strong data-i18n="quickScreen">앱 미리보기</strong>
+            </a>
+            <a class="quick-tile" href="#modes">
+              <span data-i18n="quickModeLabel">리딩</span>
+              <strong data-i18n="quickMode">주요 모드</strong>
+            </a>
+            <a class="quick-tile" href="#links">
+              <span data-i18n="quickInfoLabel">안내</span>
+              <strong data-i18n="quickInfo">정책/지원</strong>
+            </a>
+          </nav>
+
+          <section id="screens" class="section">
+            <div class="section-title">
+              <h2 data-i18n="screensTitle">앱 미리보기</h2>
+              <span data-i18n="screensMeta">실제 스토어 화면</span>
+            </div>
+
+            <article class="screen-card">
+              <div class="screen-head">
+                <div>
+                  <strong data-i18n="homeShotTitle">홈과 전체 운세</strong>
+                  <span data-i18n="homeShotText">오늘 운세와 주요 운세 모드를 한 화면에서 확인</span>
+                </div>
+                <span class="badge" data-i18n="homeBadge">Home</span>
+              </div>
+              <div class="phone-shot">
+                <img src="./assets/screens/ko/1.png" alt="운명 앱 홈 화면과 주요 운세 기능" data-screen-index="1">
+              </div>
+            </article>
+
+            <article class="screen-card">
+              <div class="screen-head">
+                <div>
+                  <strong data-i18n="storeShotTitle">스토어 화면 미리보기</strong>
+                  <span data-i18n="storeShotText">팬심, 오늘 운세, 주역, 궁합, 전생, 위젯 화면</span>
+                </div>
+                <span class="badge" data-i18n="screensBadge">Screens</span>
+              </div>
+              <div class="store-grid">
+                <div class="store-shot">
+                  <img src="./assets/screens/ko/2.png" alt="운명 앱 팬심과 출석 체크 화면" data-screen-index="2">
+                </div>
+                <div class="store-shot">
+                  <img src="./assets/screens/ko/3.png" alt="운명 앱 오늘의 운세 화면" data-screen-index="3">
+                </div>
+                <div class="store-shot">
+                  <img src="./assets/screens/ko/4.png" alt="운명 앱 주역과 별자리 화면" data-screen-index="4">
+                </div>
+                <div class="store-shot">
+                  <img src="./assets/screens/ko/5.png" alt="운명 앱 궁합 화면" data-screen-index="5">
+                </div>
+                <div class="store-shot">
+                  <img src="./assets/screens/ko/6.png" alt="운명 앱 전생 화면" data-screen-index="6">
+                </div>
+                <div class="store-shot">
+                  <img src="./assets/screens/ko/7.png" alt="운명 앱 홈화면 위젯 화면" data-screen-index="7">
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="section" aria-label="지원 언어">
+            <div class="language-card">
+              <p data-i18n="languageNote">앱과 소개 페이지는 한국어, 영어, 일본어, 중국어, 스페인어, 프랑스어, 독일어, 포르투갈어 표시를 지원합니다.</p>
+              <div class="language-pills" aria-label="언어 바로 변경">
+                <button type="button" data-lang-button="ko">한국어</button>
+                <button type="button" data-lang-button="en">English</button>
+                <button type="button" data-lang-button="ja">日本語</button>
+                <button type="button" data-lang-button="zh">中文</button>
+                <button type="button" data-lang-button="es">Español</button>
+                <button type="button" data-lang-button="fr">Français</button>
+                <button type="button" data-lang-button="de">Deutsch</button>
+                <button type="button" data-lang-button="pt">Português</button>
+              </div>
+            </div>
+          </section>
+
+          <section id="modes" class="section">
+            <div class="section-title">
+              <h2 data-i18n="modesTitle">주요 리딩</h2>
+              <span data-i18n="modesMeta">Local-first</span>
+            </div>
+            <div class="mode-grid">
+              <article class="mode-card">
+                <mark data-i18n="mode1Mark">사</mark>
+                <h3 data-i18n="mode1Title">사주와 오늘 운세</h3>
+                <p data-i18n="mode1Text">출생 프로필을 바탕으로 오늘의 흐름과 리듬 점수를 확인합니다.</p>
+              </article>
+              <article class="mode-card">
+                <mark data-i18n="mode2Mark">손</mark>
+                <h3 data-i18n="mode2Title">손금과 별자리</h3>
+                <p data-i18n="mode2Text">손금, 별자리, 주역처럼 상황에 맞는 리딩을 골라 봅니다.</p>
+              </article>
+              <article class="mode-card">
+                <mark data-i18n="mode3Mark">궁</mark>
+                <h3 data-i18n="mode3Title">궁합과 관계</h3>
+                <p data-i18n="mode3Text">두 프로필의 관계 흐름을 비교하고 중요한 포인트를 정리합니다.</p>
+              </article>
+              <article class="mode-card">
+                <mark data-i18n="mode4Mark">팬</mark>
+                <h3 data-i18n="mode4Title">팬심과 전생</h3>
+                <p data-i18n="mode4Text">팬심 컨디션과 출석 체크, 전생 리딩까지 가볍게 탐색합니다.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="notice-card">
+              <h2 data-i18n="privacyTitle">기기 중심으로 설계했습니다.</h2>
+              <p data-i18n="privacyText">프로필, 리딩 기록, 앱 설정은 기본적으로 사용자의 기기 안에 저장됩니다. 손금 등 사진 기반 기능은 사용자가 선택한 경우에만 앱 기능에 사용됩니다.</p>
+            </div>
+          </section>
+
+          <section id="links" class="section">
+            <div class="section-title">
+              <h2 data-i18n="linksTitle">공식 안내</h2>
+              <span data-i18n="linksMeta">Policy & Support</span>
+            </div>
+            <div class="link-card">
+              <a href="./private-policy.html" data-i18n="privacyPolicy">개인정보처리방침</a>
+              <a class="store-link-row" href="https://play.google.com/store/apps/details?id=com.labhub.fate" data-i18n="googlePlay">Google Play</a>
+              <a href="./support.html" data-i18n="supportPage">지원 페이지</a>
+              <a href="mailto:qnqnqnckck@gmail.com" data-i18n="contactDeveloper">개발자에게 문의</a>
+            </div>
+          </section>
+
+          <footer>
+            <p data-i18n="footerText">운명/Fate 공식 소개 및 앱 지원 안내용 정적 페이지입니다.</p>
+          </footer>
+        </div>
+      </section>
+
+      <aside class="qr-panel" aria-label="운명 마케팅 URL QR">
+        <a class="qr-card" href="https://play.google.com/store/apps/details?id=com.labhub.fate" aria-label="운명 Google Play 열기">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=148x148&amp;margin=8&amp;data=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.labhub.fate" alt="운명 Google Play QR 코드">
+        </a>
+        <div class="qr-store-links" aria-label="스토어 및 페이지 링크">
+          <a href="https://play.google.com/store/apps/details?id=com.labhub.fate" data-i18n="googlePlay">Google Play</a>
+          <a class="secondary" href="./" data-i18n="marketingUrl">Marketing URL</a>
+        </div>
+        <span data-i18n="qrHelp">QR scan · Google Play로 바로 이동</span>
+      </aside>
+    </main>
+    <script>
+      const translations = {
+        ko: {
+          pageTitle: "운명 - 나를 위한 모든 운세를 한 곳에서",
+          appName: "운명",
+          supportShort: "지원",
+          installShort: "설치",
+          supportPage: "지원 페이지",
+          privacyPolicy: "개인정보처리방침",
+          contactDeveloper: "개발자에게 문의",
+          googlePlay: "Google Play",
+          marketingUrl: "소개 페이지",
+          asideIntro: "나를 위한 운세를 한 곳에서 확인하는 앱",
+          asideLine1: "사주부터 팬심까지",
+          asideLine2: "매일의 운세를",
+          asideLine3: "에서",
+          brandMark: "운명",
+          asideNoteTitle: "공식 소개 페이지",
+          asideNoteBody: "사주, 타로, 손금, 궁합, 별자리, 주역, 전생, 팬심과 홈 위젯 흐름을 실제 스토어 화면 기준으로 확인할 수 있습니다.",
+          eyebrow: "All-in-one fortune folio",
+          heroTitle: "나를 위한 모든 운세를 한 곳에서.",
+          heroLead: "운명은 사주, 타로, 손금, 궁합, 별자리, 주역, 전생, 팬심과 오늘의 운세를 나에게 맞춰 확인하는 로컬 우선 운세 앱입니다.",
+          proofLabel: "오늘의 운세",
+          proofText: "매일의 흐름을 확인하고 필요한 리딩을 다시 열어보세요.",
+          quickScreenLabel: "화면",
+          quickScreen: "앱 미리보기",
+          quickModeLabel: "리딩",
+          quickMode: "주요 모드",
+          quickInfoLabel: "안내",
+          quickInfo: "정책/지원",
+          screensTitle: "앱 미리보기",
+          screensMeta: "실제 스토어 화면",
+          homeBadge: "홈",
+          homeShotTitle: "홈과 전체 운세",
+          homeShotText: "오늘 운세와 주요 운세 모드를 한 화면에서 확인",
+          screensBadge: "화면",
+          storeShotTitle: "스토어 화면 미리보기",
+          storeShotText: "팬심, 오늘 운세, 주역, 궁합, 전생, 위젯 화면",
+          languageNote: "앱과 소개 페이지는 한국어, 영어, 일본어, 중국어, 스페인어, 프랑스어, 독일어, 포르투갈어 표시를 지원합니다.",
+          modesTitle: "주요 리딩",
+          modesMeta: "기기 중심",
+          mode1Mark: "사",
+          mode1Title: "사주와 오늘 운세",
+          mode1Text: "출생 프로필을 바탕으로 오늘의 흐름과 리듬 점수를 확인합니다.",
+          mode2Mark: "손",
+          mode2Title: "손금과 별자리",
+          mode2Text: "손금, 별자리, 주역처럼 상황에 맞는 리딩을 골라 봅니다.",
+          mode3Mark: "궁",
+          mode3Title: "궁합과 관계",
+          mode3Text: "두 프로필의 관계 흐름을 비교하고 중요한 포인트를 정리합니다.",
+          mode4Mark: "팬",
+          mode4Title: "팬심과 전생",
+          mode4Text: "팬심 컨디션과 출석 체크, 전생 리딩까지 가볍게 탐색합니다.",
+          privacyTitle: "기기 중심으로 설계했습니다.",
+          privacyText: "프로필, 리딩 기록, 앱 설정은 기본적으로 사용자의 기기 안에 저장됩니다. 손금 등 사진 기반 기능은 사용자가 선택한 경우에만 앱 기능에 사용됩니다.",
+          linksTitle: "공식 안내",
+          linksMeta: "정책 및 지원",
+          qrHelp: "QR 스캔 · Google Play로 바로 이동",
+          footerText: "운명/Fate 공식 소개 및 앱 지원 안내용 정적 페이지입니다."
+        },
+        en: {
+          pageTitle: "Fate - All your fortune readings in one place",
+          appName: "Fate",
+          supportShort: "Support",
+          installShort: "Install",
+          supportPage: "Support",
+          privacyPolicy: "Privacy Policy",
+          contactDeveloper: "Contact Developer",
+          googlePlay: "Google Play",
+          marketingUrl: "Intro Page",
+          asideIntro: "All your personal fortune readings in one app",
+          asideLine1: "From saju to fandom",
+          asideLine2: "check your daily flow",
+          asideLine3: "",
+          brandMark: "with Fate",
+          asideNoteTitle: "Official introduction page",
+          asideNoteBody: "Preview saju, tarot, palm, compatibility, zodiac, I Ching, past-life, fandom, and home widget flows from the current store screenshots.",
+          eyebrow: "All-in-one fortune folio",
+          heroTitle: "All your fortune readings in one place.",
+          heroLead: "Fate is a local-first fortune app for saju, tarot, palm reading, compatibility, zodiac, I Ching, past life, fandom, and daily fortune.",
+          proofLabel: "Daily fortune",
+          proofText: "Check today’s flow and revisit the readings that matter.",
+          quickScreenLabel: "Screens",
+          quickScreen: "App Preview",
+          quickModeLabel: "Readings",
+          quickMode: "Main Modes",
+          quickInfoLabel: "Info",
+          quickInfo: "Policy/Support",
+          screensTitle: "App Preview",
+          screensMeta: "Current store screens",
+          homeBadge: "Home",
+          homeShotTitle: "Home and fortune hub",
+          homeShotText: "Daily fortune and key reading modes in one screen",
+          screensBadge: "Screens",
+          storeShotTitle: "Store screen preview",
+          storeShotText: "Fandom, daily fortune, I Ching, compatibility, past life, and widgets",
+          languageNote: "The app and this page support Korean, English, Japanese, Chinese, Spanish, French, German, and Portuguese.",
+          modesTitle: "Main Readings",
+          modesMeta: "Local-first",
+          mode1Mark: "S",
+          mode1Title: "Saju and daily fortune",
+          mode1Text: "Check daily flow and rhythm scores based on a birth profile.",
+          mode2Mark: "P",
+          mode2Title: "Palm and zodiac",
+          mode2Text: "Choose readings such as palm, zodiac, and I Ching for each situation.",
+          mode3Mark: "C",
+          mode3Title: "Compatibility",
+          mode3Text: "Compare two profiles and review key relationship points.",
+          mode4Mark: "F",
+          mode4Title: "Fandom and past life",
+          mode4Text: "Explore fandom condition, attendance, and playful past-life readings.",
+          privacyTitle: "Designed around your device.",
+          privacyText: "Profiles, reading history, and settings are stored primarily on your device. Photo-based features such as palm reading use photos only when you choose them.",
+          linksTitle: "Official Info",
+          linksMeta: "Policy & Support",
+          qrHelp: "QR scan · Open Google Play",
+          footerText: "Fate official introduction and app support page."
+        }
+      };
+
+      translations.ja = {
+        ...translations.en,
+        pageTitle: "運命 - 自分のための運勢を一か所で",
+        appName: "運命",
+        supportShort: "サポート",
+        installShort: "インストール",
+        supportPage: "サポート",
+        privacyPolicy: "プライバシーポリシー",
+        contactDeveloper: "開発者に連絡",
+        marketingUrl: "紹介ページ",
+        asideIntro: "自分のための占いを一つのアプリで",
+        asideLine1: "四柱推命から推し活まで",
+        asideLine2: "毎日の運勢を",
+        brandMark: "運命",
+        asideLine3: "で",
+        asideNoteTitle: "公式紹介ページ",
+        asideNoteBody: "四柱推命、タロット、手相、相性、星座、易、前世、推し活、ホームウィジェットの流れを現在のストア画面で確認できます。",
+        eyebrow: "占いをまとめて確認",
+        heroTitle: "自分のための運勢を一か所で。",
+        heroLead: "運命は四柱推命、タロット、手相、相性、星座、易、前世、推し活、今日の運勢を確認できるローカル優先の占いアプリです。",
+        proofLabel: "今日の運勢",
+        proofText: "毎日の流れを確認し、必要なリーディングをもう一度開けます。",
+        quickScreenLabel: "画面",
+        quickScreen: "アプリプレビュー",
+        quickModeLabel: "鑑定",
+        quickMode: "主なモード",
+        quickInfoLabel: "案内",
+        quickInfo: "ポリシー/サポート",
+        screensTitle: "アプリプレビュー",
+        screensMeta: "現在のストア画面",
+        homeBadge: "ホーム",
+        homeShotTitle: "ホームと運勢ハブ",
+        homeShotText: "今日の運勢と主な鑑定モードを一画面で確認",
+        screensBadge: "画面",
+        storeShotTitle: "ストア画面プレビュー",
+        storeShotText: "推し活、今日の運勢、易、相性、前世、ウィジェット画面",
+        languageNote: "アプリとこのページは韓国語、英語、日本語、中国語、スペイン語、フランス語、ドイツ語、ポルトガル語に対応しています.",
+        modesTitle: "主なリーディング",
+        modesMeta: "端末中心",
+        mode1Mark: "四",
+        mode1Title: "四柱推命と今日の運勢",
+        mode1Text: "出生プロフィールをもとに今日の流れとリズムを確認します。",
+        mode2Mark: "手",
+        mode2Title: "手相と星座",
+        mode2Text: "手相、星座、易など状況に合わせた鑑定を選べます。",
+        mode3Mark: "相",
+        mode3Title: "相性と関係",
+        mode3Text: "二人のプロフィールを比較し、関係のポイントを整理します。",
+        mode4Mark: "推",
+        mode4Title: "推し活と前世",
+        mode4Text: "推し活コンディション、出席チェック、前世リーディングを気軽に楽しめます。",
+        privacyTitle: "端末中心に設計されています。",
+        privacyText: "プロフィール、鑑定履歴、設定は基本的に端末内に保存されます。手相など写真を使う機能は、ユーザーが選択した場合のみ使用されます。",
+        linksTitle: "公式案内",
+        linksMeta: "ポリシーとサポート",
+        qrHelp: "QRスキャン · Google Playを開く",
+        footerText: "運命/Fateの公式紹介とアプリサポート案内ページです。"
+      };
+      translations.zh = {
+        ...translations.en,
+        pageTitle: "命运 - 属于你的所有运势",
+        appName: "命运",
+        supportShort: "支持",
+        installShort: "安装",
+        supportPage: "支持页面",
+        privacyPolicy: "隐私政策",
+        contactDeveloper: "联系开发者",
+        marketingUrl: "介绍页面",
+        asideIntro: "在一个应用中查看属于你的运势",
+        asideLine1: "从四柱到粉丝心情",
+        asideLine2: "每天的运势",
+        brandMark: "命运",
+        asideLine3: "",
+        asideNoteTitle: "官方介绍页面",
+        asideNoteBody: "可通过当前商店截图查看四柱、塔罗、手相、合盘、星座、易经、前世、粉丝心情和首页小组件流程。",
+        eyebrow: "一站式运势工具",
+        heroTitle: "属于你的所有运势，都在一处。",
+        heroLead: "命运是一款本地优先的运势应用，支持四柱、塔罗、手相、合盘、星座、易经、前世、粉丝心情和今日运势。",
+        proofLabel: "今日运势",
+        proofText: "查看每天的节奏，并重新打开重要的解读。",
+        quickScreenLabel: "画面",
+        quickScreen: "应用预览",
+        quickModeLabel: "解读",
+        quickMode: "主要模式",
+        quickInfoLabel: "信息",
+        quickInfo: "政策/支持",
+        screensTitle: "应用预览",
+        screensMeta: "当前商店画面",
+        homeBadge: "首页",
+        homeShotTitle: "首页和运势中心",
+        homeShotText: "在一个画面中查看今日运势和主要解读模式",
+        screensBadge: "画面",
+        storeShotTitle: "商店截图预览",
+        storeShotText: "粉丝心情、今日运势、易经、合盘、前世和小组件画面",
+        languageNote: "应用和本页面支持韩语、英语、日语、中文、西班牙语、法语、德语和葡萄牙语。",
+        modesTitle: "主要解读",
+        modesMeta: "设备优先",
+        mode1Mark: "四",
+        mode1Title: "四柱和今日运势",
+        mode1Text: "基于出生资料查看今天的节奏和运势走向。",
+        mode2Mark: "掌",
+        mode2Title: "手相和星座",
+        mode2Text: "根据情况选择手相、星座、易经等解读。",
+        mode3Mark: "合",
+        mode3Title: "合盘和关系",
+        mode3Text: "比较两个资料，整理关系中的重点。",
+        mode4Mark: "粉",
+        mode4Title: "粉丝心情和前世",
+        mode4Text: "轻松探索粉丝状态、签到和前世解读。",
+        privacyTitle: "以设备为中心设计。",
+        privacyText: "资料、解读记录和设置主要保存在你的设备上。手相等照片功能仅在你选择时使用照片。",
+        linksTitle: "官方信息",
+        linksMeta: "政策与支持",
+        qrHelp: "扫码 · 打开 Google Play",
+        footerText: "命运/Fate 官方介绍和应用支持页面。"
+      };
+      translations.es = {
+        ...translations.en,
+        pageTitle: "Destino - Todas tus lecturas en un solo lugar",
+        appName: "Destino",
+        supportShort: "Soporte",
+        installShort: "Instalar",
+        supportPage: "Soporte",
+        privacyPolicy: "Privacidad",
+        contactDeveloper: "Contactar",
+        marketingUrl: "Página de intro",
+        asideIntro: "Tus lecturas de fortuna en una sola app",
+        asideLine1: "De saju a fandom",
+        asideLine2: "consulta tu flujo diario",
+        brandMark: "con Destino",
+        asideLine3: "",
+        asideNoteTitle: "Página oficial de presentación",
+        asideNoteBody: "Consulta las pantallas actuales de la tienda para saju, tarot, palma, compatibilidad, zodiaco, I Ching, vidas pasadas, fandom y widgets.",
+        eyebrow: "Lecturas de fortuna en una app",
+        heroTitle: "Todas tus lecturas en un solo lugar.",
+        heroLead: "Destino es una app local-first para saju, tarot, palma, compatibilidad, zodiaco, I Ching, vidas pasadas, fandom y fortuna diaria.",
+        proofLabel: "Fortuna diaria",
+        proofText: "Consulta el flujo del día y vuelve a abrir tus lecturas importantes.",
+        quickScreenLabel: "Pantallas",
+        quickScreen: "Vista previa",
+        quickModeLabel: "Lecturas",
+        quickMode: "Modos",
+        quickInfoLabel: "Información",
+        quickInfo: "Política/soporte",
+        screensTitle: "Vista previa",
+        screensMeta: "Pantallas actuales",
+        homeBadge: "Inicio",
+        homeShotTitle: "Inicio y centro de fortuna",
+        homeShotText: "Fortuna diaria y modos principales en una pantalla",
+        screensBadge: "Pantallas",
+        storeShotTitle: "Pantallas de tienda",
+        storeShotText: "Fandom, fortuna diaria, I Ching, compatibilidad, vidas pasadas y widgets",
+        languageNote: "La app y esta página admiten coreano, inglés, japonés, chino, español, francés, alemán y portugués.",
+        modesTitle: "Lecturas principales",
+        modesMeta: "Local primero",
+        mode1Mark: "N",
+        mode1Title: "Saju y fortuna diaria",
+        mode1Text: "Consulta el flujo diario a partir de un perfil de nacimiento.",
+        mode2Mark: "M",
+        mode2Title: "Palma y zodiaco",
+        mode2Text: "Elige lecturas de palma, zodiaco e I Ching según la situación.",
+        mode3Mark: "R",
+        mode3Title: "Compatibilidad",
+        mode3Text: "Compara dos perfiles y revisa puntos clave de la relación.",
+        mode4Mark: "A",
+        mode4Title: "Fandom y vidas pasadas",
+        mode4Text: "Explora estado de fandom, asistencia y lecturas de vidas pasadas.",
+        privacyTitle: "Diseñada alrededor de tu dispositivo.",
+        privacyText: "Los perfiles, el historial y los ajustes se guardan principalmente en tu dispositivo. Las funciones con fotos, como palma, usan fotos solo cuando tú las eliges.",
+        linksTitle: "Información oficial",
+        linksMeta: "Política y soporte",
+        qrHelp: "Escanea QR · Abre Google Play",
+        footerText: "Página oficial de presentación y soporte de Fate."
+      };
+      translations.fr = {
+        ...translations.en,
+        pageTitle: "Destin - Toutes vos lectures au même endroit",
+        appName: "Destin",
+        supportShort: "Aide",
+        installShort: "Installer",
+        supportPage: "Aide",
+        privacyPolicy: "Confidentialité",
+        contactDeveloper: "Contacter",
+        marketingUrl: "Page d’intro",
+        asideIntro: "Vos lectures de destin dans une seule app",
+        asideLine1: "Du saju au fandom",
+        asideLine2: "suivez votre rythme quotidien",
+        brandMark: "avec Destin",
+        asideLine3: "",
+        asideNoteTitle: "Page officielle de présentation",
+        asideNoteBody: "Découvrez les écrans actuels de la boutique pour le saju, le tarot, la chiromancie, la compatibilité, le zodiaque, le Yi Jing, les vies passées, le fandom et les widgets.",
+        eyebrow: "Lectures de destin en une app",
+        heroTitle: "Toutes vos lectures au même endroit.",
+        heroLead: "Destin est une app locale pour le saju, le tarot, la chiromancie, la compatibilité, le zodiaque, le Yi Jing, les vies passées, le fandom et la fortune quotidienne.",
+        proofLabel: "Fortune du jour",
+        proofText: "Consultez le rythme du jour et retrouvez vos lectures importantes.",
+        quickScreenLabel: "Écrans",
+        quickScreen: "Aperçu",
+        quickModeLabel: "Lectures",
+        quickMode: "Modes",
+        quickInfoLabel: "Infos",
+        quickInfo: "Politique/aide",
+        screensTitle: "Aperçu de l’app",
+        screensMeta: "Écrans actuels",
+        homeBadge: "Accueil",
+        homeShotTitle: "Accueil et hub de fortune",
+        homeShotText: "Fortune du jour et modes principaux sur un seul écran",
+        screensBadge: "Écrans",
+        storeShotTitle: "Aperçu des écrans",
+        storeShotText: "Fandom, fortune du jour, Yi Jing, compatibilité, vies passées et widgets",
+        languageNote: "L’app et cette page prennent en charge le coréen, l’anglais, le japonais, le chinois, l’espagnol, le français, l’allemand et le portugais.",
+        modesTitle: "Lectures principales",
+        modesMeta: "Local d’abord",
+        mode1Mark: "J",
+        mode1Title: "Saju et fortune du jour",
+        mode1Text: "Consultez le rythme du jour à partir d’un profil de naissance.",
+        mode2Mark: "M",
+        mode2Title: "Main et zodiaque",
+        mode2Text: "Choisissez la chiromancie, le zodiaque ou le Yi Jing selon la situation.",
+        mode3Mark: "R",
+        mode3Title: "Compatibilité",
+        mode3Text: "Comparez deux profils et repérez les points importants.",
+        mode4Mark: "V",
+        mode4Title: "Fandom et vies passées",
+        mode4Text: "Explorez le statut fandom, les présences et les lectures de vies passées.",
+        privacyTitle: "Conçue autour de votre appareil.",
+        privacyText: "Les profils, l’historique et les réglages sont principalement stockés sur votre appareil. Les fonctions avec photo n’utilisent vos photos que lorsque vous les choisissez.",
+        linksTitle: "Infos officielles",
+        linksMeta: "Politique et aide",
+        qrHelp: "Scan QR · Ouvrir Google Play",
+        footerText: "Page officielle de présentation et d’aide de Fate."
+      };
+      translations.de = {
+        ...translations.en,
+        pageTitle: "Schicksal - Alle Deutungen an einem Ort",
+        appName: "Schicksal",
+        supportShort: "Hilfe",
+        installShort: "Installieren",
+        supportPage: "Hilfe",
+        privacyPolicy: "Datenschutz",
+        contactDeveloper: "Kontakt",
+        marketingUrl: "Infoseite",
+        asideIntro: "Deine Deutungen in einer App",
+        asideLine1: "Von Saju bis Fandom",
+        asideLine2: "prüfe deinen Tagesfluss",
+        brandMark: "mit Schicksal",
+        asideLine3: "",
+        asideNoteTitle: "Offizielle Vorstellungsseite",
+        asideNoteBody: "Sieh dir aktuelle Store-Screens zu Saju, Tarot, Handlesen, Kompatibilität, Sternzeichen, I Ging, früheren Leben, Fandom und Widgets an.",
+        eyebrow: "Alle Deutungen in einer App",
+        heroTitle: "Alle Deutungen an einem Ort.",
+        heroLead: "Schicksal ist eine lokale App für Saju, Tarot, Handlesen, Kompatibilität, Sternzeichen, I Ging, frühere Leben, Fandom und Tagesfortune.",
+        proofLabel: "Tagesfortune",
+        proofText: "Prüfe den Tagesfluss und öffne wichtige Deutungen erneut.",
+        quickScreenLabel: "Bilder",
+        quickScreen: "Vorschau",
+        quickModeLabel: "Deutungen",
+        quickMode: "Modi",
+        quickInfoLabel: "Infos",
+        quickInfo: "Datenschutz/Hilfe",
+        screensTitle: "App-Vorschau",
+        screensMeta: "Aktuelle Store-Screens",
+        homeBadge: "Start",
+        homeShotTitle: "Home und Fortune-Hub",
+        homeShotText: "Tagesfortune und Hauptmodi auf einem Bildschirm",
+        screensBadge: "Bilder",
+        storeShotTitle: "Store-Screens",
+        storeShotText: "Fandom, Tagesfortune, I Ging, Kompatibilität, frühere Leben und Widgets",
+        languageNote: "App und Seite unterstützen Koreanisch, Englisch, Japanisch, Chinesisch, Spanisch, Französisch, Deutsch und Portugiesisch.",
+        modesTitle: "Hauptdeutungen",
+        modesMeta: "Lokal zuerst",
+        mode1Mark: "G",
+        mode1Title: "Saju und Tagesfortune",
+        mode1Text: "Prüfe den Tagesfluss anhand eines Geburtsprofils.",
+        mode2Mark: "H",
+        mode2Title: "Handlesen und Sternzeichen",
+        mode2Text: "Wähle Handlesen, Sternzeichen oder I Ging passend zur Situation.",
+        mode3Mark: "K",
+        mode3Title: "Kompatibilität",
+        mode3Text: "Vergleiche zwei Profile und prüfe wichtige Beziehungspunkte.",
+        mode4Mark: "L",
+        mode4Title: "Fandom und frühere Leben",
+        mode4Text: "Erkunde Fandom-Status, Anwesenheit und frühere-Leben-Lesungen.",
+        privacyTitle: "Für dein Gerät konzipiert.",
+        privacyText: "Profile, Verlauf und Einstellungen werden hauptsächlich auf deinem Gerät gespeichert. Fotofunktionen nutzen Fotos nur, wenn du sie auswählst.",
+        linksTitle: "Offizielle Infos",
+        linksMeta: "Datenschutz & Hilfe",
+        qrHelp: "QR scannen · Google Play öffnen",
+        footerText: "Offizielle Vorstellungs- und Supportseite von Fate."
+      };
+      translations.pt = {
+        ...translations.en,
+        pageTitle: "Destino - Todas as leituras em um só lugar",
+        appName: "Destino",
+        supportShort: "Suporte",
+        installShort: "Instalar",
+        supportPage: "Suporte",
+        privacyPolicy: "Privacidade",
+        contactDeveloper: "Contato",
+        marketingUrl: "Página de introdução",
+        asideIntro: "Suas leituras em um só app",
+        asideLine1: "De saju a fandom",
+        asideLine2: "acompanhe seu fluxo diário",
+        brandMark: "com Destino",
+        asideLine3: "",
+        asideNoteTitle: "Página oficial de apresentação",
+        asideNoteBody: "Veja as telas atuais da loja para saju, tarô, leitura da mão, compatibilidade, zodíaco, I Ching, vidas passadas, fandom e widgets.",
+        eyebrow: "Leituras em um só app",
+        heroTitle: "Todas as leituras em um só lugar.",
+        heroLead: "Destino é um app local-first para saju, tarô, leitura da mão, compatibilidade, zodíaco, I Ching, vidas passadas, fandom e fortuna diária.",
+        proofLabel: "Fortuna diária",
+        proofText: "Veja o fluxo do dia e reabra leituras importantes.",
+        quickScreenLabel: "Telas",
+        quickScreen: "Prévia",
+        quickModeLabel: "Leituras",
+        quickMode: "Modos",
+        quickInfoLabel: "Info.",
+        quickInfo: "Política/suporte",
+        screensTitle: "Prévia do app",
+        screensMeta: "Telas atuais da loja",
+        homeBadge: "Início",
+        homeShotTitle: "Início e central de fortuna",
+        homeShotText: "Fortuna diária e modos principais em uma tela",
+        screensBadge: "Telas",
+        storeShotTitle: "Telas da loja",
+        storeShotText: "Fandom, fortuna diária, I Ching, compatibilidade, vidas passadas e widgets",
+        languageNote: "O app e esta página oferecem coreano, inglês, japonês, chinês, espanhol, francês, alemão e português.",
+        modesTitle: "Leituras principais",
+        modesMeta: "Local primeiro",
+        mode1Mark: "D",
+        mode1Title: "Saju e fortuna diária",
+        mode1Text: "Veja o fluxo do dia com base em um perfil de nascimento.",
+        mode2Mark: "M",
+        mode2Title: "Mão e zodíaco",
+        mode2Text: "Escolha leituras de mão, zodíaco e I Ching conforme a situação.",
+        mode3Mark: "R",
+        mode3Title: "Compatibilidade",
+        mode3Text: "Compare dois perfis e revise pontos importantes da relação.",
+        mode4Mark: "V",
+        mode4Title: "Fandom e vidas passadas",
+        mode4Text: "Explore condição de fandom, presença e leituras de vidas passadas.",
+        privacyTitle: "Projetado em torno do seu dispositivo.",
+        privacyText: "Perfis, histórico e configurações são salvos principalmente no seu dispositivo. Recursos com foto usam imagens apenas quando você escolhe.",
+        linksTitle: "Informações oficiais",
+        linksMeta: "Política e suporte",
+        qrHelp: "Ler QR · Abrir Google Play",
+        footerText: "Página oficial de apresentação e suporte do Fate."
+      };
+
+      const select = document.getElementById("languageSelect");
+      const buttons = [...document.querySelectorAll("[data-lang-button]")];
+      const localizedScreenLangs = new Set(["ko", "en", "ja", "zh", "es", "fr", "de", "pt"]);
+      const screenImages = [...document.querySelectorAll("[data-screen-index]")];
+
+      function applyLanguage(lang) {
+        const copy = translations[lang] || translations.ko;
+        const screenLang = localizedScreenLangs.has(lang) ? lang : "ko";
+        document.documentElement.lang = lang;
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          const key = node.dataset.i18n;
+          if (copy[key]) {
+            node.textContent = copy[key];
+          }
+        });
+        screenImages.forEach((image) => {
+          image.src = `./assets/screens/${screenLang}/${image.dataset.screenIndex}.png`;
+        });
+        if (copy.pageTitle) {
+          document.title = copy.pageTitle;
+        }
+        if (select) {
+          select.value = lang;
+        }
+        buttons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.langButton === lang);
+        });
+        localStorage.setItem("fateMarketingLanguage", lang);
+      }
+
+      const initialLanguage =
+        localStorage.getItem("fateMarketingLanguage") ||
+        (navigator.language || "ko").slice(0, 2);
+      applyLanguage(translations[initialLanguage] ? initialLanguage : "ko");
+
+      select?.addEventListener("change", (event) => {
+        applyLanguage(event.target.value);
+      });
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          applyLanguage(button.dataset.langButton);
+        });
+      });
+    </script>
+  </body>
+</html>
