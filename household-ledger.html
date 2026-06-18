@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="가계부 - 기록, 검토, 계획, 마감을 기기 안에서 정리하는 로컬 우선 가계부 앱">
+    <title>가계부 - 기록부터 검토까지 끊기지 않는 생활 장부</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7fbf6;
+        --paper: #ffffff;
+        --ink: #1d2522;
+        --muted: #6b7570;
+        --line: #dfe9e4;
+        --mint: #55cdb7;
+        --leaf: #27786b;
+        --lime: #eaf7c9;
+        --sky: #e8f4ff;
+        --rose: #fff0ef;
+        --shadow: 0 22px 54px rgba(28, 61, 53, 0.10);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          linear-gradient(135deg, rgba(85,205,183,0.12), transparent 34%),
+          linear-gradient(315deg, rgba(234,247,201,0.72), transparent 42%),
+          var(--bg);
+        color: var(--ink);
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        word-break: keep-all;
+      }
+      a { color: inherit; text-decoration: none; }
+      .layout { min-height: 100vh; }
+      .app-page {
+        width: 100%;
+        min-width: 320px;
+        max-width: 540px;
+        min-height: 100vh;
+        margin: 0 auto;
+        background: rgba(255,255,255,0.92);
+        overflow: hidden;
+      }
+      .app-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 22px;
+        background: rgba(255,255,255,0.9);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+      .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; }
+      .brand img { width: 38px; height: 38px; border-radius: 13px; box-shadow: var(--shadow); }
+      .header-action, .primary-action {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 38px;
+        padding: 0 15px;
+        border-radius: 999px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 900;
+        font-size: 0.86rem;
+      }
+      .content { padding: 28px 24px 76px; }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 11px;
+        border-radius: 999px;
+        background: var(--lime);
+        color: var(--leaf);
+        font-size: 0.82rem;
+        font-weight: 900;
+      }
+      h1 { margin: 16px 0 10px; font-size: 2.25rem; line-height: 1.16; letter-spacing: 0; }
+      .lead { max-width: 390px; margin: 0; color: var(--muted); font-weight: 760; line-height: 1.65; }
+      .proof-card {
+        margin-top: 22px;
+        padding: 18px;
+        border-radius: 20px;
+        background: var(--ink);
+        color: #fff;
+      }
+      .proof-card span { display: block; color: rgba(255,255,255,0.68); font-size: 0.8rem; font-weight: 850; }
+      .proof-card strong { display: block; margin-top: 8px; font-size: 1.14rem; line-height: 1.38; }
+      .quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; }
+      .quick-tile { min-height: 78px; padding: 13px 11px; border: 1px solid var(--line); border-radius: 17px; background: #fff; }
+      .quick-tile span { display: block; color: var(--muted); font-size: 0.72rem; font-weight: 800; }
+      .quick-tile strong { display: block; margin-top: 7px; font-size: 0.94rem; line-height: 1.25; }
+      .section { margin-top: 42px; }
+      .section-title { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+      .section-title h2 { margin: 0; font-size: 1.52rem; line-height: 1.25; }
+      .section-title span { color: var(--muted); font-size: 0.82rem; font-weight: 850; white-space: nowrap; }
+      .screen-card + .screen-card { margin-top: 30px; }
+      .screen-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+      .screen-head strong { display: block; font-size: 1.13rem; }
+      .screen-head span { display: block; margin-top: 4px; color: var(--muted); font-size: 0.78rem; font-weight: 760; }
+      .badge {
+        min-width: 78px;
+        min-height: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        padding: 0 12px;
+        border-radius: 999px;
+        background: var(--sky);
+        color: #23628c;
+        font-size: 0.78rem;
+        font-weight: 900;
+      }
+      .phone-shot {
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: #fff;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+      .phone-shot img { width: 100%; display: block; }
+      .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .feature-card {
+        min-height: 138px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: #fff;
+      }
+      .feature-card mark {
+        width: 34px;
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--leaf);
+        color: #fff;
+        font-weight: 900;
+      }
+      .feature-card h3 { margin: 14px 0 8px; font-size: 1.02rem; }
+      .feature-card p { margin: 0; color: var(--muted); font-size: 0.88rem; font-weight: 720; line-height: 1.5; }
+      .notice-card { padding: 22px; border-radius: 22px; background: var(--leaf); color: #fff; }
+      .notice-card h2 { margin: 0 0 10px; font-size: 1.36rem; }
+      .notice-card p { margin: 0; color: rgba(255,255,255,0.84); font-weight: 730; line-height: 1.65; }
+      .link-card { margin-top: 12px; padding: 4px 16px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+      .link-card a { min-height: 50px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); font-weight: 900; }
+      .link-card a:last-child { border-bottom: 0; }
+      .link-card a::after { content: ">"; color: var(--muted); }
+      footer { margin-top: 34px; color: var(--muted); font-size: 0.78rem; font-weight: 700; line-height: 1.5; }
+      .aside, .qr-panel { display: none; }
+      @media (min-width: 980px) {
+        .layout {
+          display: grid;
+          grid-template-columns: minmax(420px, 620px) 540px 220px;
+          column-gap: 46px;
+          justify-content: center;
+        }
+        .aside {
+          grid-column: 1;
+          position: sticky;
+          top: 0;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 56px 0;
+        }
+        .aside-logo { width: 78px; height: 78px; border-radius: 24px; box-shadow: var(--shadow); }
+        .aside-intro { margin: 44px 0 16px; color: var(--muted); font-size: 1.22rem; font-weight: 760; }
+        .aside h2 { max-width: 570px; margin: 0; font-size: 3.46rem; line-height: 1.14; letter-spacing: 0; }
+        .aside h2 mark {
+          background: linear-gradient(var(--lime), var(--lime));
+          background-repeat: no-repeat;
+          background-size: 100% 38%;
+          background-position: 0 86%;
+          color: inherit;
+        }
+        .aside-actions { display: flex; gap: 10px; margin-top: 34px; }
+        .aside-actions a { min-height: 50px; display: inline-flex; align-items: center; justify-content: center; padding: 0 18px; border-radius: 999px; background: var(--ink); color: #fff; font-weight: 900; }
+        .aside-actions a.secondary { background: #fff; color: var(--leaf); border: 1px solid var(--line); }
+        .app-page { grid-column: 2; box-shadow: 0 0 0 1px var(--line), var(--shadow); }
+        .qr-panel { grid-column: 3; position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; color: var(--muted); font-size: 0.86rem; font-weight: 760; line-height: 1.55; }
+        .qr-panel strong { color: var(--ink); font-size: 1rem; }
+      }
+      @media (max-width: 430px) {
+        .content { padding-left: 18px; padding-right: 18px; }
+        .quick-grid, .feature-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="aside" aria-label="가계부 소개">
+        <img class="aside-logo" src="https://raw.githubusercontent.com/qnqnckck/qnqnckck.github.io/master/google-privacy/household-ledger/assets/app-icon.png" alt="가계부 앱 아이콘">
+        <p class="aside-intro">Household Ledger</p>
+        <h2>기록은 빠르게,<br><mark>검토는 확실하게</mark>,<br>마감은 가볍게.</h2>
+        <div class="aside-actions">
+          <a href="#screens">화면 보기</a>
+          <a class="secondary" href="./private-policy.html">개인정보</a>
+        </div>
+      </aside>
+
+      <main class="app-page">
+        <header class="app-header">
+          <a class="brand" href="../../router.html">
+            <img src="https://raw.githubusercontent.com/qnqnckck/qnqnckck.github.io/master/google-privacy/household-ledger/assets/app-icon.png" alt="가계부 아이콘">
+            <span>가계부</span>
+          </a>
+          <a class="header-action" href="./support.html">지원</a>
+        </header>
+
+        <div class="content">
+          <span class="eyebrow">LOCAL-FIRST HOUSEHOLD LEDGER</span>
+          <h1>가계부 기록이 끊기지 않도록 설계한 생활 장부</h1>
+          <p class="lead">지출을 입력하고, 의심되는 기록을 검토하고, 다음 결제와 월 마감을 준비합니다. 핵심 흐름은 계정 가입이나 서버 없이 기기 안에서 먼저 동작합니다.</p>
+
+          <section class="proof-card" aria-label="앱 요약">
+            <span>핵심 흐름</span>
+            <strong>Home -> Composer -> Review -> Planning -> Closeout</strong>
+          </section>
+
+          <div class="quick-grid" aria-label="주요 장점">
+            <div class="quick-tile"><span>입력</span><strong>지출, 수입, 이체</strong></div>
+            <div class="quick-tile"><span>검토</span><strong>중복, 누락, 반복</strong></div>
+            <div class="quick-tile"><span>설정</span><strong>언어, 테마, 위젯</strong></div>
+          </div>
+
+          <section id="screens" class="section" aria-label="앱 화면">
+            <div class="section-title">
+              <h2>화면 흐름</h2>
+              <span>실제 앱 스모크 화면</span>
+            </div>
+
+            <article class="screen-card">
+              <div class="screen-head">
+                <div><strong>홈</strong><span>이번 달 흐름, 확인 필요, 최근 기록</span></div>
+                <span class="badge">Overview</span>
+              </div>
+              <div class="phone-shot"><img src="https://raw.githubusercontent.com/qnqnckck/qnqnckck.github.io/master/google-privacy/household-ledger/assets/screen-home.png" alt="가계부 홈 화면"></div>
+            </article>
+
+            <article class="screen-card">
+              <div class="screen-head">
+                <div><strong>기록</strong><span>계정, 날짜, 상점, 카테고리를 한 장에서 정리</span></div>
+                <span class="badge">Composer</span>
+              </div>
+              <div class="phone-shot"><img src="https://raw.githubusercontent.com/qnqnckck/qnqnckck.github.io/master/google-privacy/household-ledger/assets/screen-composer.png" alt="가계부 기록 입력 화면"></div>
+            </article>
+
+            <article class="screen-card">
+              <div class="screen-head">
+                <div><strong>검토</strong><span>중복 병합과 반복 규칙 처리 후 완료 상태 확인</span></div>
+                <span class="badge">Review</span>
+              </div>
+              <div class="phone-shot"><img src="https://raw.githubusercontent.com/qnqnckck/qnqnckck.github.io/master/google-privacy/household-ledger/assets/screen-review.png" alt="가계부 검토 완료 화면"></div>
+            </article>
+
+            <article class="screen-card">
+              <div class="screen-head">
+                <div><strong>계획</strong><span>다가오는 지출과 결제 준비를 미리 확인</span></div>
+                <span class="badge">Planning</span>
+              </div>
+              <div class="phone-shot"><img src="https://raw.githubusercontent.com/qnqnckck/qnqnckck.github.io/master/google-privacy/household-ledger/assets/screen-planning.png" alt="가계부 계획 화면"></div>
+            </article>
+          </section>
+
+          <section class="section" aria-label="기능">
+            <div class="section-title">
+              <h2>무엇을 하나요</h2>
+              <span>offline-first</span>
+            </div>
+            <div class="feature-grid">
+              <article class="feature-card"><mark>1</mark><h3>빠른 기록</h3><p>지출, 수입, 이체를 분리하고 계정과 카테고리를 함께 정리합니다.</p></article>
+              <article class="feature-card"><mark>2</mark><h3>검토 큐</h3><p>중복 의심, 카테고리 누락, 반복 지출 변화를 한곳에서 처리합니다.</p></article>
+              <article class="feature-card"><mark>3</mark><h3>마감 준비</h3><p>주간/월간 마감 전 확인할 항목을 분리해 부담을 줄입니다.</p></article>
+              <article class="feature-card"><mark>4</mark><h3>로컬 우선</h3><p>핵심 기록과 설정은 사용자의 기기 안에서 먼저 동작하도록 설계했습니다.</p></article>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="notice-card">
+              <h2>민감한 생활 기록을 조심스럽게 다룹니다</h2>
+              <p>가계부는 은행 동기화나 서버 계정을 전제로 하지 않습니다. 광고가 표시되는 경우에도 거래 금액, 상점명, 계정명, 메모, 영수증 내용은 광고 타겟팅 문맥으로 전달하지 않는 정책을 기준으로 설계합니다.</p>
+            </div>
+            <div class="link-card">
+              <a href="./support.html">지원 페이지</a>
+              <a href="./private-policy.html">개인정보처리방침</a>
+              <a href="../../router.html">LABHUB 앱 목록</a>
+            </div>
+          </section>
+
+          <footer>
+            LABHUB · Household Ledger public page<br>
+            문의: qnqnckck@gmail.com
+          </footer>
+        </div>
+      </main>
+
+      <aside class="qr-panel">
+        <strong>Store support URL</strong>
+        <p>이 페이지는 Google Play 등록용 앱 소개, 지원, 개인정보 URL의 진입점으로 사용할 수 있습니다.</p>
+      </aside>
+    </div>
+  </body>
+</html>
+
+
