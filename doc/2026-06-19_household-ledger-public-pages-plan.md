@@ -14,6 +14,7 @@ Must-have flows:
 3. Marketing page shows the app identity, offline/local-first positioning, and real UI screenshots.
 4. Support page provides contact and troubleshooting.
 5. Privacy page clearly states local storage behavior, optional permissions, ads, and deletion.
+6. Public pages provide a language picker for Korean, English, Japanese, Chinese, Spanish, French, German, and Portuguese, with the selection retained across pages.
 
 Out-of-scope items:
 1. Store download buttons with live Play Store IDs.
@@ -25,6 +26,7 @@ Success criteria:
 2. `google-privacy/household-ledger/index.html`, `support.html`, and `private-policy.html` exist.
 3. Required assets are local and referenced with relative paths.
 4. Static HTML opens without missing local assets for the new Household Ledger pages.
+5. Language selection updates core marketing, support, and privacy copy without changing the public URL.
 
 ## Feature Specification
 
@@ -48,6 +50,13 @@ Support and privacy pages:
 - Data/state changes: none.
 - Error states: missing contact or vague privacy handling is failure.
 - Acceptance criteria: includes local storage, optional permissions, ads, deletion, children policy, and contact.
+
+Localization:
+- Purpose: make the public store/support pages understandable to a wider international audience.
+- User interaction flow: user opens any Household Ledger public page, chooses a language from the selector, and the selection persists while moving between introduction, support, and privacy pages.
+- Data/state changes: selected language is stored in browser `localStorage`.
+- Error states: unsupported browser language should fall back to English; missing translation keys should not block page rendering.
+- Acceptance criteria: Korean, English, Japanese, Chinese, Spanish, French, German, and Portuguese are available.
 
 ## Wireframe
 
