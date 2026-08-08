@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Drawing Playground - 아이와 가족을 위한 오프라인 그림 그리기와 색칠 놀이 앱">
+    <title>Drawing Playground - 손끝으로 여는 스티커 미술책</title>
+    <style>
+      :root { --ink:#242038; --paper:#fffdf5; --pink:#ff6fb1; --yellow:#ffd95a; --mint:#80dfc3; --blue:#73c7ff; --line:#312b49; }
+      * { box-sizing:border-box; }
+      body { margin:0; color:var(--ink); background:linear-gradient(135deg,#fff4ca,#ffe4f2 55%,#dff8ff); font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif; line-height:1.65; word-break:keep-all; }
+      a { color:inherit; text-decoration:none; }
+      header { position:sticky; top:0; z-index:5; display:flex; justify-content:space-between; align-items:center; min-height:64px; padding:10px 22px; border-bottom:3px solid var(--line); background:rgba(255,253,245,.94); }
+      .brand { display:flex; align-items:center; gap:10px; font-weight:900; } .brand img { width:42px; height:42px; border-radius:13px; }
+      .pill { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 16px; border:3px solid var(--line); border-radius:999px; background:var(--yellow); font-weight:900; box-shadow:4px 4px 0 var(--line); }
+      main { max-width:1100px; margin:0 auto; padding:52px 20px 80px; }
+      .hero { display:grid; grid-template-columns:1.05fr .95fr; gap:28px; align-items:center; }
+      .eyebrow { display:inline-block; padding:7px 12px; border:2px solid var(--line); border-radius:999px; background:var(--mint); font-weight:900; font-size:.82rem; }
+      h1 { margin:18px 0 14px; font-size:clamp(2.8rem,7vw,6rem); line-height:.98; letter-spacing:-.04em; }
+      .lead { max-width:660px; font-size:1.1rem; font-weight:750; }
+      .hero-card { padding:22px; border:3px solid var(--line); border-radius:30px; background:var(--paper); box-shadow:10px 10px 0 var(--line); transform:rotate(1deg); }
+      .hero-card img { width:100%; border-radius:18px; }
+      .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+      section { margin-top:64px; } h2 { margin:0 0 18px; font-size:2rem; }
+      .features { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+      .feature { min-height:170px; padding:18px; border:3px solid var(--line); border-radius:22px; background:var(--paper); box-shadow:5px 5px 0 var(--line); }
+      .feature:nth-child(2) { background:#e6f8ff; } .feature:nth-child(3) { background:#fff0f7; } .feature:nth-child(4) { background:#efffe9; }
+      .feature strong { display:block; margin-bottom:8px; font-size:1.08rem; }
+      .screens { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+      .screen { padding:10px; border:3px solid var(--line); border-radius:22px; background:var(--paper); box-shadow:5px 5px 0 var(--line); }
+      .screen img { width:100%; display:block; border-radius:14px; }
+      .notice { padding:24px; border:3px solid var(--line); border-radius:24px; background:var(--mint); box-shadow:7px 7px 0 var(--line); }
+      footer { margin-top:58px; padding-top:20px; border-top:2px solid rgba(49,43,73,.35); font-size:.86rem; font-weight:700; }
+      @media(max-width:820px){ .hero{grid-template-columns:1fr}.features{grid-template-columns:repeat(2,1fr)}.screens{grid-template-columns:repeat(2,1fr)} }
+      @media(max-width:520px){ .features,.screens{grid-template-columns:1fr} h1{font-size:3.2rem} }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="../../router.html"><img src="./assets/app-icon.png" alt="Drawing Playground 아이콘"><span>Drawing Playground</span></a>
+      <a class="pill" href="./support.html">지원</a>
+    </header>
+    <main>
+      <div class="hero">
+        <div>
+          <span class="eyebrow">OFFLINE STICKER ART BOOK</span>
+          <h1>그리고,<br>색칠하고,<br>반짝여요.</h1>
+          <p class="lead">Drawing Playground는 아이들이 글을 많이 읽지 않아도 아이콘과 손끝으로 즐길 수 있는 오프라인 미술 놀이터입니다. 작품과 진행 상태는 기기 안에 간직됩니다.</p>
+          <div class="actions"><a class="pill" href="#screens">화면 보기</a><a class="pill" href="./private-policy.html" style="background:var(--paper)">개인정보처리방침</a></div>
+        </div>
+        <div class="hero-card"><img src="./assets/screen-1.png" alt="Drawing Playground 활동 선택 화면"></div>
+      </div>
+      <section><h2>한 권에 담긴 그림 놀이</h2><div class="features">
+        <article class="feature"><strong>자유롭게 그리기</strong><span>연필, 마커, 크레용과 무지개 색으로 빈 도화지를 채워요.</span></article>
+        <article class="feature"><strong>색칠 도안</strong><span>동물, 공룡, 바다와 동화 속 도안을 고르고 이어서 완성해요.</span></article>
+        <article class="feature"><strong>특별한 캔버스</strong><span>대칭 그림, 픽셀 색칠, 숫자 색칠과 반짝이는 야광 그림을 만나요.</span></article>
+        <article class="feature"><strong>기기 안에 보관</strong><span>가입, 광고, 분석 도구, 클라우드 업로드 없이 로컬에서 동작해요.</span></article>
+      </div></section>
+      <section id="screens"><h2>실제 앱 화면</h2><div class="screens">
+        <div class="screen"><img src="./assets/screen-1.png" alt="활동 선택 화면"></div><div class="screen"><img src="./assets/screen-2.png" alt="자유 그리기 화면"></div><div class="screen"><img src="./assets/screen-3.png" alt="색칠 도안 선택 화면"></div><div class="screen"><img src="./assets/screen-4.png" alt="색칠 놀이 화면"></div><div class="screen"><img src="./assets/screen-5.png" alt="작품 보관함 화면"></div><div class="screen"><img src="./assets/screen-6.png" alt="설정 화면"></div>
+      </div></section>
+      <section class="notice"><h2>아이와 가족을 위한 안심 설계</h2><p>계정과 로그인이 없고 광고를 표시하지 않습니다. 사용자가 고른 사진은 그림 위에 덧그리는 기능을 위해 기기 안에서만 처리되며 개발자나 제3자 서버로 전송되지 않습니다.</p></section>
+      <footer>LABHUB · Drawing Playground · <a href="./support.html">지원</a> · <a href="./private-policy.html">개인정보</a> · 문의: qnqnckck@gmail.com</footer>
+    </main>
+  </body>
+</html>
+
