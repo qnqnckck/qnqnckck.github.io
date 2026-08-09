@@ -4,6 +4,14 @@
 
 Add Household Ledger to the LABHUB `router.html` app wall and create public store-support pages for marketing, support, and privacy policy.
 
+### Visual direction update (2026-08-09)
+
+- Source: `router.html`, the live LABHUB app directory.
+- Standout qualities: 4px black outlines, offset hard shadows, high-chroma blocks, oversized condensed display type, and visible utilitarian navigation.
+- Mapping: retain Household Ledger's mint ledger/workbench identity, but use the router's structural frame on marketing, support, and privacy surfaces.
+- Reusable primitives: LABHUB return bar, outlined paper panel, neon section label, hard-shadow action button, ruled content section, and footer link rail.
+- Risk: copying every router color would overpower long policy text. Use mint/lime as the product color, reserve pink/yellow for small emphasis, and keep reading surfaces cream/white.
+
 ## MVP Scope
 
 Core user problem: store review and users need stable public URLs that explain the app, provide support contact information, and disclose privacy behavior.
