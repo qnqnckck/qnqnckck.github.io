@@ -60,3 +60,9 @@ Description / usage hint
 Mobile:
 < [01 CARD ~85vw] [02 CARD] ... >
 ```
+
+## Hero showcase correction
+
+- Keep the hero count and visible app stamps sourced from the same eight-app catalog.
+- Add Today Margin as the eighth stamp, balanced against Drawing Playground along the lower edge of the collage.
+- Preserve the single-column mobile fallback where every stamp participates in normal document flow.
