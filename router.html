@@ -374,14 +374,67 @@
         background: var(--paper);
       }
 
+      .wall-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 18px;
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        font-size: 0.86rem;
+        font-weight: 900;
+      }
+
+      .wall-toolbar p { margin: 0; }
+
+      .wall-toggle {
+        flex: 0 0 auto;
+        min-height: 48px;
+        padding: 0 16px;
+        border: 3px solid var(--black);
+        background: var(--yellow);
+        color: var(--black);
+        font: inherit;
+        font-weight: 950;
+        cursor: pointer;
+        box-shadow: 4px 4px 0 var(--black);
+      }
+
+      .wall-toggle:active {
+        transform: translate(4px, 4px);
+        box-shadow: none;
+      }
+
+      .product-wall {
+        position: relative;
+        overflow-x: auto;
+        padding: 4px 8px 18px 4px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--black) transparent;
+        overscroll-behavior-inline: contain;
+      }
+
+      .product-wall:focus-visible {
+        outline: 4px solid var(--blue);
+        outline-offset: 4px;
+      }
+
+      .product-track {
+        display: flex;
+        align-items: stretch;
+        gap: 14px;
+        width: max-content;
+      }
+
       .product-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        display: flex;
+        align-items: stretch;
         gap: 14px;
       }
 
       .product {
-        min-height: 360px;
+        width: clamp(238px, 24vw, 292px);
+        min-height: 382px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -389,6 +442,7 @@
         border: 4px solid var(--black);
         background: var(--white);
         box-shadow: 8px 8px 0 var(--black);
+        scroll-snap-align: start;
       }
 
       .product:nth-child(2) { background: var(--pink); color: var(--white); }
@@ -405,12 +459,26 @@
         border-radius: 22px;
       }
 
+      .product-index {
+        display: block;
+        margin-top: 16px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.72rem;
+        font-weight: 950;
+        letter-spacing: 0.12em;
+      }
+
       .product h3 {
-        margin: 18px 0 10px;
+        min-height: 3.25rem;
+        margin: 5px 0 8px;
+        display: flex;
+        align-items: flex-start;
         font-size: 1.48rem;
+        line-height: 1.1;
       }
 
       .product p {
+        min-height: 4.45rem;
         margin: 0;
         font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
         line-height: 1.55;
@@ -506,9 +574,6 @@
           border-right: 0;
           border-bottom: 4px solid var(--black);
         }
-        .product-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
         .rules {
           grid-template-columns: 1fr;
         }
@@ -548,12 +613,23 @@
           grid-template-columns: 1fr;
           margin-top: 12px;
         }
-        .product-grid {
-          grid-template-columns: 1fr;
+        .wall-toolbar {
+          align-items: stretch;
+          flex-direction: column;
+        }
+        .wall-toggle {
+          align-self: flex-start;
+        }
+        .product {
+          width: min(82vw, 290px);
         }
         footer {
           flex-direction: column;
         }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .product-wall { scroll-snap-type: x proximity; }
       }
     </style>
   </head>
@@ -573,9 +649,9 @@
 
     <div class="ticker" aria-label="LABHUB 앱 티커">
       <div class="ticker-track">
-        <span>PUBLIC OFFERING SHARES</span><span>FATE</span><span>LOUTINE</span><span>WORKLOG</span><span>BIBLE</span><span>HOUSEHOLD LEDGER</span><span>DRAWING PLAYGROUND</span>
+        <span>PUBLIC OFFERING SHARES</span><span>FATE</span><span>LOUTINE</span><span>WORKLOG</span><span>BIBLE</span><span>HOUSEHOLD LEDGER</span><span>DRAWING PLAYGROUND</span><span>TODAY MARGIN</span>
         <span>LOCAL-FIRST APPS</span><span>STORE PAGES</span><span>SUPPORT URLS</span><span>APP-ADS.TXT</span>
-        <span>PUBLIC OFFERING SHARES</span><span>FATE</span><span>LOUTINE</span><span>WORKLOG</span><span>BIBLE</span><span>HOUSEHOLD LEDGER</span><span>DRAWING PLAYGROUND</span>
+        <span>PUBLIC OFFERING SHARES</span><span>FATE</span><span>LOUTINE</span><span>WORKLOG</span><span>BIBLE</span><span>HOUSEHOLD LEDGER</span><span>DRAWING PLAYGROUND</span><span>TODAY MARGIN</span>
       </div>
     </div>
 
@@ -613,7 +689,7 @@
             <div><strong>성경</strong><span>READ LISTEN STUDY</span></div>
           </a>
           <a class="stamp s6" href="./household-ledger.html">
-            <img src="https://raw.githubusercontent.com/qnqnckck/qnqnckck.github.io/master/google-privacy/household-ledger/assets/app-icon.png" alt="가계부 앱 아이콘">
+            <img src="./google-privacy/household-ledger/assets/app-icon.png" alt="가계부 앱 아이콘">
             <div><strong>가계부</strong><span>LOCAL LEDGER</span></div>
           </a>
           <a class="stamp s7" href="./google-privacy/drawing-playground/">
@@ -621,8 +697,8 @@
             <div><strong>Drawing Playground</strong><span>OFFLINE ART BOOK</span></div>
           </a>
           <div class="count">
-            <div><strong>7</strong><span>APP PAGES</span></div>
-            <div><strong>21+</strong><span>PUBLIC LINKS</span></div>
+            <div><strong>8</strong><span>APP PAGES</span></div>
+            <div><strong>24+</strong><span>PUBLIC LINKS</span></div>
             <div><strong>1</strong><span>STUDIO</span></div>
           </div>
         </div>
@@ -657,10 +733,17 @@
           <h2>APP<br>WALL</h2>
           <p>각 카드에서 앱 소개 페이지, 지원 페이지, 개인정보처리방침으로 이동할 수 있습니다.</p>
         </div>
-        <div class="product-grid">
+        <div class="wall-toolbar">
+          <p>옆으로 움직이는 앱 카드를 살펴보세요. 카드에 마우스를 올리거나 키보드로 선택하면 자동 이동이 멈춥니다.</p>
+          <button class="wall-toggle" type="button" aria-pressed="false">자동 스크롤 멈춤</button>
+        </div>
+        <div class="product-wall" tabindex="0" aria-label="LABHUB 앱 카드. 좌우로 스크롤할 수 있습니다.">
+          <div class="product-track">
+            <div class="product-grid">
           <article class="product">
             <div>
               <img src="./google-privacy/publicofferingshares/assets/app-icon.png" alt="공모주 비서 아이콘">
+              <span class="product-index">APP 01</span>
               <h3>공모주 비서</h3>
               <p>공모주 일정, 청약 리포트, 대시보드를 한눈에 확인하는 투자 일정 도우미입니다.</p>
             </div>
@@ -674,6 +757,7 @@
           <article class="product">
             <div>
               <img src="./google-privacy/fate/assets/app-icon.png" alt="사주 앱 아이콘">
+              <span class="product-index">APP 02</span>
               <h3>사주</h3>
               <p>다국어 운세와 사주 해석을 제공하는 모바일 운세 앱입니다.</p>
             </div>
@@ -687,6 +771,7 @@
           <article class="product">
             <div>
               <img src="./google-privacy/loutine/assets/app-icon.png" alt="루틴 앱 아이콘">
+              <span class="product-index">APP 03</span>
               <h3>루틴</h3>
               <p>반복 습관과 하루의 루틴을 기기 안에서 정리하는 로컬 우선 앱입니다.</p>
             </div>
@@ -700,6 +785,7 @@
           <article class="product">
             <div>
               <img src="./google-privacy/worklog/assets/app-icon.png" alt="근무로그 아이콘">
+              <span class="product-index">APP 04</span>
               <h3>근무로그</h3>
               <p>교대근무 패턴과 캘린더를 관리하는 근무 일정 앱입니다.</p>
             </div>
@@ -713,6 +799,7 @@
           <article class="product">
             <div>
               <img src="./google-privacy/bible/assets/app-icon.png" alt="성경 앱 아이콘">
+              <span class="product-index">APP 05</span>
               <h3>성경</h3>
               <p>성경 읽기, 듣기, 성경공부, 기도, 위젯을 지원하는 다국어 성경 앱입니다.</p>
             </div>
@@ -725,7 +812,8 @@
 
           <article class="product">
             <div>
-              <img src="https://raw.githubusercontent.com/qnqnckck/qnqnckck.github.io/master/google-privacy/household-ledger/assets/app-icon.png" alt="가계부 앱 아이콘">
+              <img src="./google-privacy/household-ledger/assets/app-icon.png" alt="가계부 앱 아이콘">
+              <span class="product-index">APP 06</span>
               <h3>가계부</h3>
               <p>지출 기록, 검토, 계획, 마감을 기기 안에서 정리하는 로컬 우선 생활 장부 앱입니다.</p>
             </div>
@@ -739,6 +827,7 @@
           <article class="product">
             <div>
               <img src="./google-privacy/drawing-playground/assets/app-icon.png" alt="Drawing Playground 아이콘">
+              <span class="product-index">APP 07</span>
               <h3>Drawing Playground</h3>
               <p>그리기, 색칠, 대칭과 야광 놀이를 기기 안에서 즐기는 어린이용 오프라인 미술 놀이터입니다.</p>
             </div>
@@ -748,6 +837,22 @@
               <a class="secondary" href="./google-privacy/drawing-playground/private-policy.html">개인정보</a>
             </div>
           </article>
+
+          <article class="product">
+            <div>
+              <img src="./google-privacy/today-margin/assets/app-icon.png" alt="오늘남김 아이콘">
+              <span class="product-index">APP 08</span>
+              <h3>오늘남김</h3>
+              <p>매출과 비용을 입력해 오늘 실제로 남은 금액을 마감하고 월별 기록으로 쌓는 로컬 우선 장부입니다.</p>
+            </div>
+            <div class="links">
+              <a href="./google-privacy/today-margin/">소개</a>
+              <a class="secondary" href="./google-privacy/today-margin/support.html">지원</a>
+              <a class="secondary" href="./google-privacy/today-margin/private-policy.html">개인정보</a>
+            </div>
+          </article>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -771,5 +876,64 @@
       <span>LABHUB MOBILE APP STUDIO</span>
       <span>https://qnqnckck.github.io/router.html</span>
     </footer>
+    <script>
+      (() => {
+        const wall = document.querySelector(".product-wall");
+        const track = document.querySelector(".product-track");
+        const original = document.querySelector(".product-grid");
+        const toggle = document.querySelector(".wall-toggle");
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        if (!wall || !track || !original || !toggle) return;
+
+        const clone = original.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        clone.querySelectorAll("a").forEach((link) => link.setAttribute("tabindex", "-1"));
+        track.appendChild(clone);
+
+        let userPaused = false;
+        let interactionPaused = false;
+        let previousTime = 0;
+        let scrollPosition = wall.scrollLeft;
+        const speed = 28;
+
+        const updateControl = () => {
+          const paused = userPaused || reducedMotion.matches;
+          toggle.setAttribute("aria-pressed", String(userPaused));
+          toggle.textContent = paused ? "자동 스크롤 시작" : "자동 스크롤 멈춤";
+          toggle.disabled = reducedMotion.matches;
+          toggle.title = reducedMotion.matches ? "기기의 모션 줄이기 설정이 적용되었습니다." : "";
+        };
+
+        const animate = (time) => {
+          if (previousTime && !userPaused && !interactionPaused && !reducedMotion.matches) {
+            scrollPosition += ((time - previousTime) / 1000) * speed;
+            const loopWidth = original.offsetWidth + 14;
+            if (scrollPosition >= loopWidth) scrollPosition -= loopWidth;
+            wall.scrollLeft = scrollPosition;
+          } else {
+            scrollPosition = wall.scrollLeft;
+          }
+          previousTime = time;
+          window.requestAnimationFrame(animate);
+        };
+
+        toggle.addEventListener("click", () => {
+          userPaused = !userPaused;
+          updateControl();
+        });
+        wall.addEventListener("pointerenter", () => { interactionPaused = true; });
+        wall.addEventListener("pointerleave", () => { interactionPaused = false; });
+        wall.addEventListener("focusin", () => { interactionPaused = true; });
+        wall.addEventListener("focusout", (event) => {
+          if (!wall.contains(event.relatedTarget)) interactionPaused = false;
+        });
+        wall.addEventListener("touchstart", () => { interactionPaused = true; }, { passive: true });
+        wall.addEventListener("touchend", () => { interactionPaused = false; }, { passive: true });
+        reducedMotion.addEventListener("change", updateControl);
+
+        updateControl();
+        window.requestAnimationFrame(animate);
+      })();
+    </script>
   </body>
 </html>
