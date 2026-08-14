@@ -73,3 +73,4 @@ Support and privacy pages use the same header, language control, paper-card syst
 - Behavior: `?lang=` takes priority, then the saved website preference, then the browser locale, with Korean as the deterministic fallback.
 - Control: every QuoteCraft page exposes the same keyboard-accessible language selector and preserves the locale across landing, support, and privacy links.
 - QA: verify all six locale routes, mobile navigation, long-string wrapping, internal-link locale persistence, and browser console errors before publication.
+- Product proof images: each locale loads its matching five-image Google Play screenshot set; Korean screenshots must never appear as the fallback for a supported non-Korean locale.

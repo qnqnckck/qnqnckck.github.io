@@ -47,6 +47,12 @@
   }
   document.documentElement.lang = lang;
   localStorage.setItem('quoteCraftLanguage', lang);
+  if (lang !== 'ko') {
+    document.querySelectorAll('img[src*="quote-craft-screen-"]').forEach(image => {
+      const match = image.getAttribute('src').match(/quote-craft-screen-(\d)\.png$/);
+      if (match) image.setAttribute('src', `./quote-craft-screen-${lang}-${match[1]}.png`);
+    });
+  }
   document.querySelectorAll('a[href]').forEach(a => { const u=new URL(a.href,location.href); if(u.origin===location.origin && /quote-craft(?:-support|-privacy)?\.html$/.test(u.pathname)){u.searchParams.set('lang',lang);a.href=u.href;} });
   const nav=document.querySelector('.navlinks');
   if(nav){const wrap=document.createElement('label');wrap.className='language-picker';const select=document.createElement('select');select.setAttribute('aria-label',{ko:'언어 선택',en:'Select language',ja:'言語を選択',es:'Seleccionar idioma',fr:'Choisir la langue',de:'Sprache wählen'}[lang]);locales.forEach(code=>{const o=document.createElement('option');o.value=code;o.textContent=names[code];o.selected=code===lang;select.append(o)});select.addEventListener('change',()=>{localStorage.setItem('quoteCraftLanguage',select.value);const u=new URL(location.href);u.searchParams.set('lang',select.value);location.href=u.href});wrap.append(select);nav.prepend(wrap);}
