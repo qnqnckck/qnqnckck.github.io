@@ -1,0 +1,7 @@
+.hero-icon {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 28px;
+  box-shadow: 0 0 80px #54e6d333;
+}
