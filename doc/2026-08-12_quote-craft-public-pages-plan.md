@@ -50,6 +50,14 @@ Price it. Quote it. Get paid.
 
 Support and privacy pages use the same header, language control, paper-card system, and footer.
 
+## 2026-08-14 renewal mapping
+
+- Reference level: PublicOfferingShares' complete mobile/desktop product narrative, sticky navigation, product proof, feature explanation, support access, and legal linkage.
+- Original direction: retain QuoteCraft's quote-workshop metaphor, navy/coral/cream palette, receipt-like status language, and real product screenshots rather than copying the IPO product's visual trade dress.
+- Public root routes: `quote-craft.html`, `quote-craft-support.html`, and `quote-craft-privacy.html` avoid the unreliable nested Pages route and keep every central-directory link HTTPS-accessible.
+- Product proof: five Korean Google Play screenshots map the story from sustainable pricing through quote, invoice/payment, and real-profit analysis.
+- Monetization: the landing page explicitly states that there are no ads and that Pro is a one-time in-app purchase rather than a subscription.
+
 ## Visual direction
 
 - Metaphor: a professional quote workshop with paper sheets, stamped states, and a coral approval mark.
