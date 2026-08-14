@@ -65,3 +65,11 @@ Support and privacy pages use the same header, language control, paper-card syst
 - Reusable primitives: paper sheet, status stamp, ledger row, metric ticket, rounded action.
 - Accessibility: 48px targets, high contrast, visible focus states, responsive single-column fallback.
 - Brand continuity: use the shipped QuoteCraft icon and the same navy/coral/cream palette as the Flutter app.
+
+## 2026-08-14 global website localization
+
+- Launch locales: Korean, English, Japanese, Spanish, French, and German, aligned with QuoteCraft's global store positioning.
+- Coverage: product landing page, support FAQ, privacy policy, page titles, descriptions, navigation, accessibility labels, and internal QuoteCraft links.
+- Behavior: `?lang=` takes priority, then the saved website preference, then the browser locale, with Korean as the deterministic fallback.
+- Control: every QuoteCraft page exposes the same keyboard-accessible language selector and preserves the locale across landing, support, and privacy links.
+- QA: verify all six locale routes, mobile navigation, long-string wrapping, internal-link locale persistence, and browser console errors before publication.
