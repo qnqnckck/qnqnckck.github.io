@@ -1,33 +1,128 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Shape Escape: Puzzle Rescue — a 300-level spatial logic puzzle for iOS and Android.">
-  <title>Shape Escape: Puzzle Rescue · LABHUB</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <main class="wrap">
-    <header class="top">
-      <a class="brand" href="./"><span class="mark">◆</span><span>Shape Escape</span></a>
-      <nav class="nav" aria-label="Shape Escape links"><a href="../../router.html">LABHUB Apps</a><a href="./support.html">Support</a><a href="./private-policy.html">Privacy</a></nav>
-    </header>
-    <section class="hero">
-      <div class="panel">
-        <span class="eyebrow">Puzzle Rescue Arcade</span>
-        <h1>Think.<br>Move.<br>Escape.</h1>
-        <p class="lead">Guide every shape through a handcrafted 300-level spatial puzzle campaign. Select a piece, read the available arrows, and find the clean route to freedom.</p>
-        <div class="actions"><a class="btn" href="./support.html">How to play</a><a class="btn secondary" href="./private-policy.html">Privacy policy</a></div>
-      </div>
-      <div class="panel board" aria-label="Colorful geometric puzzle board"><div class="tile">◆</div><div class="tile">▲</div><div class="tile">●</div><div class="tile">■</div><div class="tile">→</div><div class="tile">★</div><div class="tile">↓</div><div class="tile">◇</div><div class="tile">●</div><div class="tile">←</div><div class="tile">■</div><div class="tile">↑</div></div>
-    </section>
-    <section class="grid" aria-label="Shape Escape highlights">
-      <article class="card"><strong>300 solvable levels</strong><span>The campaign starts gently, then introduces denser boards, blockers, and multi-step routes.</span></article>
-      <article class="card"><strong>Moves you can see</strong><span>Select a shape to reveal valid movement arrows, then tap an indicated destination cell.</span></article>
-      <article class="card"><strong>Play your way</strong><span>Core puzzles work offline. The free chapter includes 30 levels; one purchase unlocks all 300 and removes heart limits and rewarded ads.</span></article>
-    </section>
-    <p class="footer">LABHUB · <a href="mailto:qnqnckck@gmail.com">qnqnckck@gmail.com</a> · <a href="../../router.html">More apps</a></p>
-  </main>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Shape Escape: Puzzle Rescue — a handcrafted 300-level spatial logic puzzle for iOS and Android.">
+    <meta name="theme-color" content="#5d55ef">
+    <title>Shape Escape: Puzzle Rescue · LABHUB</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main class="layout">
+      <aside class="aside" aria-label="Shape Escape introduction">
+        <img class="aside-logo" src="./assets/app-icon.png" alt="Shape Escape app icon">
+        <p class="aside-intro">A calmer way to play spatial logic</p>
+        <h2>
+          Read the board.<br>
+          Make a clean<br>
+          <mark>escape.</mark>
+        </h2>
+        <div class="aside-actions">
+          <a href="./support.html">How to play</a>
+          <a href="./private-policy.html">Privacy</a>
+        </div>
+        <div class="aside-note">
+          <strong>Shape Escape · Puzzle Rescue</strong>
+          <span>A tactile, offline-first campaign where every arrow is a clue and every move has a purpose.</span>
+        </div>
+      </aside>
+
+      <section class="app-page" aria-label="Shape Escape marketing page">
+        <header class="top">
+          <a class="brand" href="./">
+            <img src="./assets/app-icon.png" alt="Shape Escape app icon">
+            <span>Shape Escape</span>
+          </a>
+          <a class="header-action" href="./support.html">Support</a>
+        </header>
+
+        <div class="content">
+          <section class="hero-card">
+            <span class="eyebrow">Spatial puzzle arcade</span>
+            <h1>Plan the path.<br>Free the shape.</h1>
+            <p class="lead">Guide every shape to its matching exit across 300 handcrafted boards. Select a piece, read the available arrows, and make the route feel inevitable.</p>
+            <div class="hero-summary">
+              <div class="summary-note">
+                <span>Campaign snapshot</span>
+                <strong>30 free levels, then a deeper 300-level journey.</strong>
+              </div>
+              <div class="icon-tile"><img src="./assets/app-icon.png" alt=""></div>
+            </div>
+          </section>
+
+          <nav class="quick-grid" aria-label="Explore Shape Escape">
+            <a class="quick-tile" href="#preview"><span>01 · See it</span><strong>Puzzle board</strong></a>
+            <a class="quick-tile" href="#progress"><span>02 · Follow it</span><strong>Level journey</strong></a>
+            <a class="quick-tile" href="#features"><span>03 · Keep it</span><strong>Core features</strong></a>
+          </nav>
+
+          <section id="preview" class="section">
+            <div class="section-title"><h2>Read the route</h2><span>Every move has a clue</span></div>
+            <article class="screen-card">
+              <div class="screen-head"><div><strong>A board that explains itself</strong><span>Select a piece to reveal valid destinations</span></div><span class="badge">Board</span></div>
+              <div class="board-preview" aria-label="Illustrated Shape Escape puzzle board">
+                <div class="board-topline"><strong>LEVEL 018</strong><span>Moves 09 · Hearts 4</span></div>
+                <div class="board-grid">
+                  <div class="cell"><div class="piece coral"></div></div><div class="cell"><span class="arrow">→</span></div><div class="cell blocked"></div><div class="cell"><div class="exit">●</div></div><div class="cell"><span class="arrow">↓</span></div>
+                  <div class="cell"><div class="piece cyan"></div></div><div class="cell blocked"></div><div class="cell"><span class="arrow">↓</span></div><div class="cell"><div class="piece lime"></div></div><div class="cell"><span class="arrow">←</span></div>
+                  <div class="cell"><span class="arrow">↑</span></div><div class="cell"><div class="exit">◆</div></div><div class="cell"><div class="piece coral"></div></div><div class="cell blocked"></div><div class="cell"><span class="arrow">→</span></div>
+                  <div class="cell"><div class="piece lime"></div></div><div class="cell"><span class="arrow">↑</span></div><div class="cell"><div class="exit">●</div></div><div class="cell"><div class="piece cyan"></div></div><div class="cell blocked"></div>
+                  <div class="cell"><span class="arrow">→</span></div><div class="cell"><div class="exit">■</div></div><div class="cell blocked"></div><div class="cell"><div class="piece coral"></div></div><div class="cell"><span class="arrow">↑</span></div>
+                </div>
+                <div class="board-legend"><span class="legend-item"><i class="legend-dot"></i>shape</span><span class="legend-item"><i class="legend-dot exit-dot"></i>matching exit</span><span class="legend-item">→ available move</span></div>
+              </div>
+            </article>
+          </section>
+
+          <section id="progress" class="section">
+            <div class="section-title"><h2>Feel the curve</h2><span>Simple to start · rich to master</span></div>
+            <article class="screen-card">
+              <div class="screen-head"><div><strong>A campaign with room to grow</strong><span>New constraints arrive before the board gets noisy</span></div><span class="badge">300 levels</span></div>
+              <div class="progress-card">
+                <header><strong>LEVEL 042 / 300</strong><span>Chapter 3 · Crossroads</span></header>
+                <div class="progress-track" aria-label="Campaign progress"><i class="stage done"></i><i class="stage done"></i><i class="stage current"></i><i class="stage"></i><i class="stage"></i><i class="stage"></i></div>
+                <div class="progress-caption"><span>Warm-up</span><span>Mastery</span></div>
+              </div>
+            </article>
+            <article class="screen-card">
+              <div class="screen-head"><div><strong>Challenge without clutter</strong><span>Difficulty comes from decisions, not decoration</span></div><span class="badge">Fair play</span></div>
+              <div class="meter"><div class="meter-head"><span>Route planning</span><span>48%</span></div><div class="bar"><span style="width:48%"></span></div></div>
+              <div class="meter"><div class="meter-head"><span>Board density</span><span>64%</span></div><div class="bar cyan"><span style="width:64%"></span></div></div>
+              <div class="meter"><div class="meter-head"><span>Multi-step thinking</span><span>78%</span></div><div class="bar coral"><span style="width:78%"></span></div></div>
+            </article>
+          </section>
+
+          <section id="features" class="section">
+            <div class="section-title"><h2>Made for repeat play</h2><span>Small sessions, real progress</span></div>
+            <div class="feature-grid">
+              <article class="feature-card"><mark>1</mark><h3>Visible moves</h3><p>Arrows appear on the board so the next step is always discoverable.</p></article>
+              <article class="feature-card"><mark>2</mark><h3>Fair difficulty</h3><p>Levels add one idea at a time, building toward satisfying multi-step routes.</p></article>
+              <article class="feature-card"><mark>3</mark><h3>Pick up anywhere</h3><p>Local progress, undo, and continue support short offline sessions.</p></article>
+              <article class="feature-card"><mark>4</mark><h3>Play your way</h3><p>Thirty levels are free. Unlimited Play unlocks the full campaign and removes heart limits and rewarded ads.</p></article>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="notice-card"><h2>Your board stays yours.</h2><p>Shape Escape is designed around local progress and a quiet core loop. Ads and the optional one-time purchase never stand between you and understanding the next puzzle.</p></div>
+            <div class="link-card" id="links">
+              <a href="./private-policy.html">Privacy policy</a>
+              <a href="./support.html">Support and gameplay guide</a>
+              <a href="mailto:qnqnqnckck@gmail.com">Contact the developer</a>
+            </div>
+            <div class="store-links" aria-label="Download Shape Escape"><a class="store-link" href="https://play.google.com/store/apps/details?id=com.labhub.shapeescape">Google Play</a><a class="store-link" href="https://apps.apple.com/app/id6801442775">App Store</a></div>
+          </section>
+
+          <p class="footer">Shape Escape: Puzzle Rescue · LABHUB · <a href="../../router.html">More apps</a> · <a href="mailto:qnqnqnckck@gmail.com">qnqnqnckck@gmail.com</a></p>
+        </div>
+      </section>
+
+      <aside class="download-panel" aria-label="Shape Escape download links">
+        <img class="aside-logo" src="./assets/app-icon.png" alt="Shape Escape app icon">
+        <h3>Ready for your next move?</h3>
+        <p>Download the puzzle rescue campaign on your phone.</p>
+        <div class="store-links"><a class="store-link" href="https://play.google.com/store/apps/details?id=com.labhub.shapeescape">Google Play</a><a class="store-link" href="https://apps.apple.com/app/id6801442775">App Store</a></div>
+      </aside>
+    </main>
+  </body>
 </html>
