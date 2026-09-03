@@ -32,12 +32,11 @@ Publish a clear LABHUB landing page for Shape Escape: Puzzle Rescue so the app i
 
 ## Visual direction update
 
-The reference public-offering page uses a centered mobile reading surface with a
-desktop three-column layout, a sticky brand rail, stacked feature cards, and a
-clear route to support/privacy. Shape Escape adopts that information hierarchy
-without copying its finance-specific copy or visual details. The puzzle version
-uses a midnight-indigo and electric-cyan palette, outlined arcade panels, a
-board-as-hero metaphor, and a compact download rail. The primary action is to
-understand the puzzle loop; secondary actions are support, privacy, and store
-links. The board preview remains CSS geometry so it stays crisp and accessible,
-while the app icon anchors brand continuity.
+The landing page intentionally uses the same structural template as the
+PublicOfferingShares reference: a centered mobile reading surface, a desktop
+three-column layout, a sticky brand rail, stacked feature cards, quick-link
+tiles, preview cards, and a compact download rail. Shape Escape replaces only
+the product copy, board previews, support links, and store destinations. Keeping
+the reference CSS and responsive breakpoints identical makes the two LABHUB
+pages feel like one reliable product family while the puzzle icon and board
+language provide the app-specific identity.

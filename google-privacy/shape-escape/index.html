@@ -3,33 +3,902 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Shape Escape: Puzzle Rescue — a handcrafted 300-level spatial logic puzzle for iOS and Android.">
-    <meta name="theme-color" content="#5d55ef">
-    <title>Shape Escape: Puzzle Rescue · LABHUB</title>
-    <link rel="stylesheet" href="./style.css">
+    <meta name="description" content="Shape Escape - a polished spatial puzzle campaign with 300 handcrafted rescue levels">
+    <title>Shape Escape · Puzzle Rescue</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4f7fe;
+        --surface: #ffffff;
+        --surface-soft: #f8fafc;
+        --ink: #1f2024;
+        --muted: #818c9a;
+        --line: #eaeef7;
+        --yellow: #fff854;
+        --yellow-deep: #f6ce38;
+        --blue: #669aff;
+        --blue-soft: #eaf2ff;
+        --green: #0f766e;
+        --green-soft: #dff4ed;
+        --red-soft: #ffe2e2;
+        --orange-soft: #fff0d0;
+        --shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        word-break: keep-all;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .layout {
+        width: 100%;
+        min-height: 100vh;
+      }
+
+      .aside {
+        display: none;
+      }
+
+      .download-panel {
+        display: none;
+      }
+
+      .app-page {
+        width: 100%;
+        min-width: 320px;
+        max-width: 480px;
+        min-height: 100vh;
+        margin: 0 auto;
+        background: var(--surface);
+        overflow: hidden;
+      }
+
+      .app-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        min-height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 24px;
+        background: rgba(255, 255, 255, 0.94);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(12px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 900;
+      }
+
+      .brand img {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+      }
+
+      .header-action {
+        min-height: 34px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 12px;
+        border-radius: 999px;
+        background: var(--yellow);
+        font-size: 0.82rem;
+        font-weight: 900;
+      }
+
+      .content {
+        padding: 24px 24px 64px;
+      }
+
+      .hero-card,
+      .screen-card,
+      .feature-card,
+      .notice-card,
+      .link-card {
+        border: 1px solid #f0f0f0;
+        border-radius: 12px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-card {
+        position: relative;
+        padding: 28px 22px 22px;
+        overflow: hidden;
+      }
+
+      .hero-card::after {
+        content: "";
+        position: absolute;
+        right: -38px;
+        top: -38px;
+        width: 132px;
+        height: 132px;
+        border-radius: 50%;
+        background: var(--yellow);
+      }
+
+      .eyebrow {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: var(--blue-soft);
+        color: var(--blue);
+        font-size: 0.82rem;
+        font-weight: 900;
+      }
+
+      h1 {
+        position: relative;
+        z-index: 1;
+        margin: 16px 0 10px;
+        font-size: 2.05rem;
+        line-height: 1.22;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        position: relative;
+        z-index: 1;
+        max-width: 330px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.96rem;
+        font-weight: 700;
+        line-height: 1.66;
+      }
+
+      .hero-summary {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 92px;
+        gap: 12px;
+        align-items: stretch;
+        margin-top: 22px;
+      }
+
+      .summary-note {
+        padding: 16px;
+        border-radius: 12px;
+        background: #1f2024;
+        color: #fff;
+      }
+
+      .summary-note span {
+        display: block;
+        color: #c6ceda;
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+
+      .summary-note strong {
+        display: block;
+        margin-top: 8px;
+        font-size: 1.18rem;
+        line-height: 1.28;
+      }
+
+      .icon-tile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        background: var(--yellow);
+      }
+
+      .icon-tile img {
+        width: 66px;
+        height: 66px;
+        border-radius: 19px;
+      }
+
+      .quick-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .quick-tile {
+        min-height: 76px;
+        padding: 13px 11px;
+        border-radius: 12px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .quick-tile span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 800;
+      }
+
+      .quick-tile strong {
+        display: block;
+        margin-top: 7px;
+        font-size: 0.96rem;
+        line-height: 1.25;
+      }
+
+      .section {
+        margin-top: 34px;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+
+      .section-title h2 {
+        margin: 0;
+        font-size: 1.55rem;
+        line-height: 1.25;
+        letter-spacing: 0;
+      }
+
+      .section-title span {
+        color: var(--muted);
+        font-size: 0.84rem;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .screen-card {
+        padding: 20px;
+        border-radius: 28px;
+        background: #f8fafc;
+      }
+
+      .screen-card + .screen-card {
+        margin-top: 14px;
+      }
+
+      .screen-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .screen-head strong {
+        display: block;
+        font-size: 1.22rem;
+        color: #111827;
+      }
+
+      .screen-head span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .badge {
+        height: 34px;
+        display: inline-grid;
+        place-items: center;
+        justify-content: center;
+        padding: 0 12px;
+        border-radius: 999px;
+        border: 1px solid #f6ce38;
+        background: #fff8dc;
+        color: var(--ink);
+        font-size: 0.78rem;
+        font-weight: 900;
+        line-height: 34px;
+        white-space: nowrap;
+        text-align: center;
+        transform: translateY(1px);
+      }
+
+      .real-screen {
+        border-radius: 28px;
+        overflow: hidden;
+        background: #f8fafc;
+        border: 1px solid #e5e7eb;
+      }
+
+      .real-screen img {
+        width: 100%;
+        display: block;
+      }
+
+      .dashboard-panel {
+        padding: 15px;
+        border-radius: 18px;
+        background: #1f2024;
+        color: #fff;
+      }
+
+      .dashboard-panel span {
+        display: block;
+        color: #cbd5e1;
+        font-size: 0.76rem;
+        font-weight: 800;
+      }
+
+      .dashboard-panel strong {
+        display: block;
+        margin-top: 6px;
+        font-size: 1.4rem;
+      }
+
+      .list {
+        display: grid;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .list-item {
+        display: grid;
+        grid-template-columns: 50px 1fr auto;
+        gap: 12px;
+        align-items: center;
+        min-height: 78px;
+        padding: 13px;
+        border-radius: 22px;
+        background: var(--surface);
+        border: 1px solid #e5e7eb;
+      }
+
+      .list-icon {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        background: #fff7c2;
+        border: 1px solid #ffe58b;
+        font-size: 0.82rem;
+        font-weight: 900;
+      }
+
+      .list-item strong {
+        display: block;
+        font-size: 0.92rem;
+      }
+
+      .list-item span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .value {
+        color: var(--green);
+        font-size: 0.84rem;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+
+      .calendar-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 42px;
+        margin-bottom: 0;
+        padding: 3px 4px 2px;
+        font-weight: 900;
+      }
+
+      .calendar-head button {
+        width: 34px;
+        height: 34px;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+        color: #4b5563;
+        font-size: 1.35rem;
+        font-weight: 700;
+      }
+
+      .calendar-head strong {
+        flex: 1;
+        text-align: center;
+      }
+
+      .calendar-preview {
+        overflow: hidden;
+        border: 1px solid #e5e7eb;
+        border-radius: 18px;
+        background: #fff;
+      }
+
+      .calendar-weekdays {
+        display: flex;
+      }
+
+      .calendar-weekdays span {
+        flex: 1;
+        min-height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #374151;
+        font-size: 0.66rem;
+        font-weight: 800;
+        border-top: 1px solid rgba(156, 163, 175, 0.28);
+        border-left: 1px solid rgba(156, 163, 175, 0.28);
+      }
+
+      .calendar-weekdays span:last-child {
+        border-right: 1px solid rgba(156, 163, 175, 0.28);
+      }
+
+      .calendar-week {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        min-height: 74px;
+      }
+
+      .calendar-day {
+        position: relative;
+        padding: 4px 3px;
+        border-top: 1px solid rgba(156, 163, 175, 0.26);
+        border-left: 1px solid rgba(156, 163, 175, 0.26);
+        color: #111827;
+        background: #fff;
+        font-size: 0.72rem;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .calendar-day:last-child {
+        border-right: 1px solid rgba(156, 163, 175, 0.26);
+      }
+
+      .calendar-day.out-month {
+        background: #f6f7f8;
+        color: #9ca3af;
+      }
+
+      .calendar-day.today {
+        background: #e8f8ef;
+        box-shadow: inset 0 0 0 1px #8ed6ae;
+      }
+
+      .calendar-lane {
+        position: absolute;
+        left: calc(var(--start) * 20%);
+        top: var(--top);
+        width: calc(var(--span) * 20%);
+        height: 12px;
+        padding: 0 5px;
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        overflow: hidden;
+        color: #fff;
+        font-size: 0.52rem;
+        font-weight: 900;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .calendar-lane::before {
+        content: attr(data-type);
+        width: 11px;
+        height: 11px;
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.92);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.18);
+        font-size: 0.42rem;
+        line-height: 1;
+      }
+
+      .demand { background: #4c6fff; }
+      .sub { background: #f28b9a; }
+      .refund { background: #06b6d4; }
+      .listing { background: #f59e0b; }
+
+      .bar-card {
+        padding: 16px;
+        border-radius: 20px;
+        background: var(--surface);
+        border: 1px solid #e5e7eb;
+      }
+
+      .bar-card + .bar-card {
+        margin-top: 10px;
+      }
+
+      .bar-card h3 {
+        margin: 0 0 10px;
+        font-size: 0.98rem;
+      }
+
+      .bar {
+        height: 9px;
+        border-radius: 999px;
+        background: #e8edf5;
+        overflow: hidden;
+      }
+
+      .bar span {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: var(--green);
+      }
+
+      .bar.orange span {
+        background: #f59e0b;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .feature-card {
+        min-height: 148px;
+        padding: 16px;
+      }
+
+      .feature-card mark {
+        width: 34px;
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--yellow);
+        color: var(--ink);
+        font-weight: 900;
+      }
+
+      .feature-card h3 {
+        margin: 14px 0 8px;
+        font-size: 1.02rem;
+      }
+
+      .feature-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      .notice-card {
+        padding: 22px;
+        background: #1f2024;
+        color: #fff;
+      }
+
+      .notice-card h2 {
+        margin: 0 0 10px;
+        font-size: 1.42rem;
+      }
+
+      .notice-card p {
+        margin: 0;
+        color: #d8dee8;
+        font-weight: 700;
+        line-height: 1.65;
+      }
+
+      .link-card {
+        margin-top: 12px;
+        padding: 4px 16px;
+      }
+
+      .link-card a {
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+        font-weight: 900;
+      }
+
+      .link-card a:last-child {
+        border-bottom: 0;
+      }
+
+      .link-card a::after {
+        content: ">";
+        color: var(--muted);
+      }
+
+      footer {
+        margin-top: 34px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      @media (min-width: 960px) {
+        .layout {
+          display: grid;
+          grid-template-columns: minmax(420px, 540px) 480px 220px;
+          column-gap: 40px;
+          align-items: stretch;
+          justify-content: center;
+        }
+
+        .aside {
+          grid-column: 1;
+          position: sticky;
+          top: 0;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 56px 0;
+        }
+
+        .aside-logo {
+          width: 72px;
+          height: 72px;
+          border-radius: 20px;
+        }
+
+        .aside-intro {
+          margin: 44px 0 16px;
+          color: #777;
+          font-size: 1.35rem;
+          font-weight: 700;
+        }
+
+        .aside h2 {
+          max-width: 560px;
+          margin: 0;
+          font-size: 3.35rem;
+          line-height: 1.16;
+          letter-spacing: 0;
+        }
+
+        .aside h2 mark {
+          background: linear-gradient(var(--yellow), var(--yellow));
+          background-repeat: no-repeat;
+          background-size: 100% 48%;
+          background-position: 0 88%;
+          color: inherit;
+        }
+
+        .aside-actions {
+          display: flex;
+          gap: 10px;
+          margin-top: 34px;
+        }
+
+        .aside-actions a {
+          min-height: 50px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0 18px;
+          border-radius: 12px;
+          background: var(--surface);
+          box-shadow: var(--shadow);
+          color: #535353;
+          font-weight: 900;
+        }
+
+        .aside-actions a:first-child {
+          background: var(--yellow);
+          color: var(--ink);
+        }
+
+        .download-panel {
+          grid-column: 3;
+          position: sticky;
+          top: calc(100vh - 312px);
+          align-self: start;
+          width: 200px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          margin-top: calc(100vh - 312px);
+          background: transparent;
+          box-shadow: none;
+        }
+
+        .qr-card {
+          width: 200px;
+          height: 200px;
+          flex: 0 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 24px;
+          border-radius: 12px;
+          background: #fff;
+          box-shadow: var(--shadow);
+        }
+
+        .qr-card img {
+          width: 148px;
+          height: 148px;
+          display: block;
+        }
+
+        .store-links {
+          display: flex;
+          justify-content: space-between;
+          gap: 16px;
+          width: 100%;
+        }
+
+        .store-button {
+          min-height: 24px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+          padding: 0;
+          background: transparent;
+          color: #b1b1b1;
+          filter: grayscale(100%);
+          font-size: 0.72rem;
+          font-weight: 900;
+        }
+
+        .store-button::before {
+          width: 16px;
+          height: 16px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 5px;
+          background: #d8d8d8;
+          color: #fff;
+          font-size: 0.62rem;
+          font-weight: 900;
+        }
+
+        .store-button.android::before {
+          content: "G";
+        }
+
+        .store-button.ios::before {
+          content: "A";
+        }
+
+        .aside-note {
+          max-width: 540px;
+          margin-top: 52px;
+          padding: 22px 24px;
+          border-radius: 16px;
+          background: var(--blue);
+          color: #fff;
+        }
+
+        .aside-note strong {
+          display: block;
+          margin-bottom: 7px;
+          font-size: 1.08rem;
+        }
+
+        .aside-note span {
+          color: rgba(255, 255, 255, 0.8);
+          font-size: 0.92rem;
+          font-weight: 700;
+          line-height: 1.5;
+        }
+
+        .app-page {
+          grid-column: 2;
+          margin: 0;
+          box-shadow: 0 0 0 1px #efefef;
+        }
+      }
+
+      @media (min-width: 960px) and (max-width: 1320px) {
+        .layout {
+          grid-template-columns: minmax(360px, 1fr) 480px 176px;
+          column-gap: 24px;
+          padding: 0 18px;
+        }
+
+        .download-panel {
+          width: 176px;
+          top: calc(100vh - 292px);
+          margin-top: calc(100vh - 292px);
+        }
+
+        .qr-card {
+          width: 176px;
+          height: 176px;
+          padding: 22px;
+        }
+
+        .qr-card img {
+          width: 132px;
+          height: 132px;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .content {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+
+        .app-header {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+
+        .hero-summary,
+        .quick-grid,
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
   <body>
     <main class="layout">
       <aside class="aside" aria-label="Shape Escape introduction">
         <img class="aside-logo" src="./assets/app-icon.png" alt="Shape Escape app icon">
-        <p class="aside-intro">A calmer way to play spatial logic</p>
+        <p class="aside-intro">A spatial puzzle built for satisfying clears</p>
         <h2>
-          Read the board.<br>
-          Make a clean<br>
-          <mark>escape.</mark>
+          Read the board<br>
+          rescue every shape<br>
+          with <mark>Shape Escape</mark>
         </h2>
         <div class="aside-actions">
-          <a href="./support.html">How to play</a>
+          <a href="./support.html">Support</a>
           <a href="./private-policy.html">Privacy</a>
         </div>
         <div class="aside-note">
-          <strong>Shape Escape · Puzzle Rescue</strong>
-          <span>A tactile, offline-first campaign where every arrow is a clue and every move has a purpose.</span>
+          <strong>Official game guide</strong>
+          <span>Discover a tactile campaign of 300 handcrafted boards, readable hints, and a difficulty curve that keeps every move meaningful.</span>
         </div>
       </aside>
 
       <section class="app-page" aria-label="Shape Escape marketing page">
-        <header class="top">
+        <header class="app-header">
           <a class="brand" href="./">
             <img src="./assets/app-icon.png" alt="Shape Escape app icon">
             <span>Shape Escape</span>
@@ -39,89 +908,214 @@
 
         <div class="content">
           <section class="hero-card">
-            <span class="eyebrow">Spatial puzzle arcade</span>
-            <h1>Plan the path.<br>Free the shape.</h1>
-            <p class="lead">Guide every shape to its matching exit across 300 handcrafted boards. Select a piece, read the available arrows, and make the route feel inevitable.</p>
+            <span class="eyebrow">SPATIAL PUZZLE · 300 LEVELS</span>
+            <h1>Every shape has a way out.</h1>
+            <p class="lead">
+              Slide, rotate, and sequence friendly pieces through tight boards. Shape Escape turns a few calm moves into a deeply satisfying rescue run.
+            </p>
             <div class="hero-summary">
               <div class="summary-note">
-                <span>Campaign snapshot</span>
-                <strong>30 free levels, then a deeper 300-level journey.</strong>
+                <span>Today's puzzle brief</span>
+                <strong>Plan the clear, then watch the board open one move at a time.</strong>
               </div>
-              <div class="icon-tile"><img src="./assets/app-icon.png" alt=""></div>
+              <div class="icon-tile">
+                <img src="./assets/app-icon.png" alt="">
+              </div>
             </div>
           </section>
 
-          <nav class="quick-grid" aria-label="Explore Shape Escape">
-            <a class="quick-tile" href="#preview"><span>01 · See it</span><strong>Puzzle board</strong></a>
-            <a class="quick-tile" href="#progress"><span>02 · Follow it</span><strong>Level journey</strong></a>
-            <a class="quick-tile" href="#features"><span>03 · Keep it</span><strong>Core features</strong></a>
+          <nav class="quick-grid" aria-label="Key sections">
+            <a class="quick-tile" href="#screens">
+              <span>SEE</span>
+              <strong>Board previews</strong>
+            </a>
+            <a class="quick-tile" href="#features">
+              <span>PLAY</span>
+              <strong>Core features</strong>
+            </a>
+            <a class="quick-tile" href="#links">
+              <span>HELP</span>
+              <strong>Support & privacy</strong>
+            </a>
           </nav>
 
-          <section id="preview" class="section">
-            <div class="section-title"><h2>Read the route</h2><span>Every move has a clue</span></div>
-            <article class="screen-card">
-              <div class="screen-head"><div><strong>A board that explains itself</strong><span>Select a piece to reveal valid destinations</span></div><span class="badge">Board</span></div>
-              <div class="board-preview" aria-label="Illustrated Shape Escape puzzle board">
-                <div class="board-topline"><strong>LEVEL 018</strong><span>Moves 09 · Hearts 4</span></div>
-                <div class="board-grid">
-                  <div class="cell"><div class="piece coral"></div></div><div class="cell"><span class="arrow">→</span></div><div class="cell blocked"></div><div class="cell"><div class="exit">●</div></div><div class="cell"><span class="arrow">↓</span></div>
-                  <div class="cell"><div class="piece cyan"></div></div><div class="cell blocked"></div><div class="cell"><span class="arrow">↓</span></div><div class="cell"><div class="piece lime"></div></div><div class="cell"><span class="arrow">←</span></div>
-                  <div class="cell"><span class="arrow">↑</span></div><div class="cell"><div class="exit">◆</div></div><div class="cell"><div class="piece coral"></div></div><div class="cell blocked"></div><div class="cell"><span class="arrow">→</span></div>
-                  <div class="cell"><div class="piece lime"></div></div><div class="cell"><span class="arrow">↑</span></div><div class="cell"><div class="exit">●</div></div><div class="cell"><div class="piece cyan"></div></div><div class="cell blocked"></div>
-                  <div class="cell"><span class="arrow">→</span></div><div class="cell"><div class="exit">■</div></div><div class="cell blocked"></div><div class="cell"><div class="piece coral"></div></div><div class="cell"><span class="arrow">↑</span></div>
-                </div>
-                <div class="board-legend"><span class="legend-item"><i class="legend-dot"></i>shape</span><span class="legend-item"><i class="legend-dot exit-dot"></i>matching exit</span><span class="legend-item">→ available move</span></div>
-              </div>
-            </article>
-          </section>
+          <section id="screens" class="section">
+            <div class="section-title">
+              <h2>Board previews</h2>
+              <span>One clear visual language</span>
+            </div>
 
-          <section id="progress" class="section">
-            <div class="section-title"><h2>Feel the curve</h2><span>Simple to start · rich to master</span></div>
             <article class="screen-card">
-              <div class="screen-head"><div><strong>A campaign with room to grow</strong><span>New constraints arrive before the board gets noisy</span></div><span class="badge">300 levels</span></div>
-              <div class="progress-card">
-                <header><strong>LEVEL 042 / 300</strong><span>Chapter 3 · Crossroads</span></header>
-                <div class="progress-track" aria-label="Campaign progress"><i class="stage done"></i><i class="stage done"></i><i class="stage current"></i><i class="stage"></i><i class="stage"></i><i class="stage"></i></div>
-                <div class="progress-caption"><span>Warm-up</span><span>Mastery</span></div>
+              <div class="screen-head">
+                <div>
+                  <strong>Readable puzzle board</strong>
+                  <span>Color-coded shapes, exits, and move lanes</span>
+                </div>
+                <span class="badge">Board</span>
+              </div>
+              <div class="real-screen" style="padding:18px;background:#f8fafc">
+                <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:7px;max-width:330px;margin:0 auto;padding:12px;border:1px solid #eaeef7;border-radius:14px;background:#fff;box-shadow:0 8px 22px rgba(31,32,36,.08)">
+                  <span style="height:38px;border-radius:9px;background:#dff4ed"></span><span style="height:38px;border-radius:9px;background:#eaf2ff"></span><span style="height:38px;border-radius:9px;background:#fff0d0"></span><span style="height:38px;border-radius:9px;background:#eaf2ff"></span><span style="height:38px;border-radius:9px;background:#ffe2e2"></span><span style="height:38px;border-radius:9px;background:#eaf2ff"></span>
+                  <span style="height:38px;border-radius:9px;background:#eaf2ff"></span><span style="height:38px;border-radius:9px;background:#669aff"></span><span style="height:38px;border-radius:9px;background:#669aff"></span><span style="height:38px;border-radius:9px;background:#fff"></span><span style="height:38px;border-radius:9px;background:#fff"></span><span style="height:38px;border-radius:9px;background:#fff0d0"></span>
+                  <span style="height:38px;border-radius:9px;background:#fff0d0"></span><span style="height:38px;border-radius:9px;background:#fff"></span><span style="height:38px;border-radius:9px;background:#f28b9a"></span><span style="height:38px;border-radius:9px;background:#f28b9a"></span><span style="height:38px;border-radius:9px;background:#fff"></span><span style="height:38px;border-radius:9px;background:#dff4ed"></span>
+                  <span style="height:38px;border-radius:9px;background:#fff"></span><span style="height:38px;border-radius:9px;background:#fff"></span><span style="height:38px;border-radius:9px;background:#fff0d0"></span><span style="height:38px;border-radius:9px;background:#fff0d0"></span><span style="height:38px;border-radius:9px;background:#4c6fff"></span><span style="height:38px;border-radius:9px;background:#4c6fff"></span>
+                </div>
               </div>
             </article>
+
             <article class="screen-card">
-              <div class="screen-head"><div><strong>Challenge without clutter</strong><span>Difficulty comes from decisions, not decoration</span></div><span class="badge">Fair play</span></div>
-              <div class="meter"><div class="meter-head"><span>Route planning</span><span>48%</span></div><div class="bar"><span style="width:48%"></span></div></div>
-              <div class="meter"><div class="meter-head"><span>Board density</span><span>64%</span></div><div class="bar cyan"><span style="width:64%"></span></div></div>
-              <div class="meter"><div class="meter-head"><span>Multi-step thinking</span><span>78%</span></div><div class="bar coral"><span style="width:78%"></span></div></div>
+              <div class="screen-head">
+                <div>
+                  <strong>Campaign map</strong>
+                  <span>Pick up where your last clear ended</span>
+                </div>
+                <span class="badge">Home</span>
+              </div>
+              <div class="dashboard-panel">
+                <span>Campaign progress</span>
+                <strong>Level 37 / 300</strong>
+              </div>
+              <div class="list">
+                <div class="list-item">
+                  <div class="list-icon">✓</div>
+                  <div>
+                    <strong>Neon Courtyard</strong>
+                    <span>Levels 1–20 · movement foundations</span>
+                  </div>
+                  <div class="value">CLEAR</div>
+                </div>
+                <div class="list-item">
+                  <div class="list-icon">→</div>
+                  <div>
+                    <strong>Glass Junction</strong>
+                    <span>Levels 21–60 · sequencing and blockers</span>
+                  </div>
+                  <div class="value">NEXT</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="screen-card">
+              <div class="screen-head">
+                <div>
+                  <strong>Move hints</strong>
+                  <span>See every legal move without guessing</span>
+                </div>
+                <span class="badge">Guide</span>
+              </div>
+              <div class="calendar-preview">
+                <div class="calendar-head" aria-label="Hint sequence">
+                  <button type="button" aria-label="Previous hint">&lsaquo;</button>
+                  <strong>LEVEL 37 · 18 MOVES</strong>
+                  <button type="button" aria-label="Next hint">&rsaquo;</button>
+                </div>
+                <div class="calendar-weekdays">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+                <div class="calendar-week">
+                  <div class="calendar-day today">A</div><div class="calendar-day">B</div><div class="calendar-day">C</div><div class="calendar-day">D</div><div class="calendar-day">E</div>
+                  <span class="calendar-lane demand" style="--start:0;--span:2;--top:16px" data-type="→">Slide</span>
+                  <span class="calendar-lane listing" style="--start:3;--span:2;--top:30px" data-type="↻">Rotate</span>
+                </div>
+                <div class="calendar-week">
+                  <div class="calendar-day">F</div><div class="calendar-day">G</div><div class="calendar-day">H</div><div class="calendar-day">I</div><div class="calendar-day">J</div>
+                  <span class="calendar-lane sub" style="--start:1;--span:2;--top:16px" data-type="→">Open lane</span>
+                  <span class="calendar-lane refund" style="--start:3;--span:1;--top:30px" data-type="×">Blocked</span>
+                </div>
+                <div class="calendar-week">
+                  <div class="calendar-day">K</div><div class="calendar-day">L</div><div class="calendar-day">M</div><div class="calendar-day">N</div><div class="calendar-day">O</div>
+                  <span class="calendar-lane demand" style="--start:0;--span:3;--top:16px" data-type="★">Best line</span>
+                  <span class="calendar-lane listing" style="--start:3;--span:2;--top:30px" data-type="→">Exit</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="screen-card">
+              <div class="screen-head">
+                <div>
+                  <strong>Difficulty curve</strong>
+                  <span>More shape variety, fewer obvious clears</span>
+                </div>
+                <span class="badge">Campaign</span>
+              </div>
+              <div class="bar-card">
+                <h3>Board complexity</h3>
+                <div class="bar"><span style="width:82%"></span></div>
+              </div>
+              <div class="bar-card">
+                <h3>Route variety</h3>
+                <div class="bar orange"><span style="width:68%"></span></div>
+              </div>
+              <div class="list">
+                <div class="list-item">
+                  <div class="list-icon">∞</div>
+                  <div>
+                    <strong>300 handcrafted levels</strong>
+                    <span>From quick warm-ups to multi-step rescue routes</span>
+                  </div>
+                  <div class="value">READY</div>
+                </div>
+              </div>
             </article>
           </section>
 
           <section id="features" class="section">
-            <div class="section-title"><h2>Made for repeat play</h2><span>Small sessions, real progress</span></div>
+            <div class="section-title">
+              <h2>Core features</h2>
+              <span>Everything you need to keep playing</span>
+            </div>
             <div class="feature-grid">
-              <article class="feature-card"><mark>1</mark><h3>Visible moves</h3><p>Arrows appear on the board so the next step is always discoverable.</p></article>
-              <article class="feature-card"><mark>2</mark><h3>Fair difficulty</h3><p>Levels add one idea at a time, building toward satisfying multi-step routes.</p></article>
-              <article class="feature-card"><mark>3</mark><h3>Pick up anywhere</h3><p>Local progress, undo, and continue support short offline sessions.</p></article>
-              <article class="feature-card"><mark>4</mark><h3>Play your way</h3><p>Thirty levels are free. Unlimited Play unlocks the full campaign and removes heart limits and rewarded ads.</p></article>
+              <article class="feature-card">
+                <mark>1</mark>
+                <h3>300-level campaign</h3>
+                <p>Hand-authored boards build from clean movement lessons into layered spatial puzzles.</p>
+              </article>
+              <article class="feature-card">
+                <mark>2</mark>
+                <h3>Smart move hints</h3>
+                <p>Tap a shape to reveal legal destinations and understand the next useful action.</p>
+              </article>
+              <article class="feature-card">
+                <mark>3</mark>
+                <h3>Resume anywhere</h3>
+                <p>Your campaign position, hearts, settings, and completed levels stay on your device.</p>
+              </article>
+              <article class="feature-card">
+                <mark>4</mark>
+                <h3>Fair challenge</h3>
+                <p>No forced timers or surprise fail states—just readable rules and satisfying mastery.</p>
+              </article>
             </div>
           </section>
 
           <section class="section">
-            <div class="notice-card"><h2>Your board stays yours.</h2><p>Shape Escape is designed around local progress and a quiet core loop. Ads and the optional one-time purchase never stand between you and understanding the next puzzle.</p></div>
-            <div class="link-card" id="links">
+            <div class="notice-card">
+              <h2>Local-first, calm by design.</h2>
+              <p>
+                Shape Escape works offline and keeps campaign progress on your device. Optional purchases and platform services are handled by Apple or Google; the core puzzle experience remains available without an account.
+              </p>
+            </div>
+            <div id="links" class="link-card">
               <a href="./private-policy.html">Privacy policy</a>
-              <a href="./support.html">Support and gameplay guide</a>
+              <a href="./support.html">Support guide</a>
               <a href="mailto:qnqnqnckck@gmail.com">Contact the developer</a>
             </div>
-            <div class="store-links" aria-label="Download Shape Escape"><a class="store-link" href="https://play.google.com/store/apps/details?id=com.labhub.shapeescape">Google Play</a><a class="store-link" href="https://apps.apple.com/app/id6801442775">App Store</a></div>
           </section>
 
-          <p class="footer">Shape Escape: Puzzle Rescue · LABHUB · <a href="../../router.html">More apps</a> · <a href="mailto:qnqnqnckck@gmail.com">qnqnqnckck@gmail.com</a></p>
+          <footer>
+            <p>Shape Escape official game guide and support page.</p>
+          </footer>
         </div>
       </section>
 
       <aside class="download-panel" aria-label="Shape Escape download links">
-        <img class="aside-logo" src="./assets/app-icon.png" alt="Shape Escape app icon">
-        <h3>Ready for your next move?</h3>
-        <p>Download the puzzle rescue campaign on your phone.</p>
-        <div class="store-links"><a class="store-link" href="https://play.google.com/store/apps/details?id=com.labhub.shapeescape">Google Play</a><a class="store-link" href="https://apps.apple.com/app/id6801442775">App Store</a></div>
+        <a class="qr-card" href="https://play.google.com/store/apps/details?id=com.labhub.shapeescape" aria-label="Shape Escape download page">
+          <img src="./assets/app-icon.png" alt="Shape Escape app icon">
+        </a>
+        <div class="store-links">
+          <a class="store-button android" href="https://play.google.com/store/apps/details?id=com.labhub.shapeescape">Google Play</a>
+          <a class="store-button ios" href="https://apps.apple.com/app/id6801442775">App Store</a>
+        </div>
       </aside>
     </main>
   </body>
