@@ -29,4 +29,6 @@ LABHUB router -> App introduction -> Google Play / App Store
 
 ## Verification
 
-Pending scoped content changes and public browser checks.
+- Commit 078a268 deployed successfully in Pages run 35472721368.
+- Found that /google-privacy/ is served by the separate qnqnckck/google-privacy project Pages site, taking precedence over this mirrored folder. Applied identical app-specific copy in packages/google-privacy-site (e7e51f2, successful run 35473081665).
+- Live router/product/support/privacy checked on desktop and 390x844 mobile; linked app images load, no document overflow in scoped pages or console errors. Public HTTPS links verified.
