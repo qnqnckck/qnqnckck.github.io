@@ -1,67 +1,111 @@
 <!doctype html>
-<html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Drawing Playground - 아이와 가족을 위한 오프라인 그림 그리기와 색칠 놀이 앱">
-    <title>Drawing Playground - 손끝으로 여는 스티커 미술책</title>
-    <style>
-      :root { --ink:#242038; --paper:#fffdf5; --pink:#ff6fb1; --yellow:#ffd95a; --mint:#80dfc3; --blue:#73c7ff; --line:#312b49; }
-      * { box-sizing:border-box; }
-      body { margin:0; color:var(--ink); background:linear-gradient(135deg,#fff4ca,#ffe4f2 55%,#dff8ff); font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif; line-height:1.65; word-break:keep-all; }
-      a { color:inherit; text-decoration:none; }
-      header { position:sticky; top:0; z-index:5; display:flex; justify-content:space-between; align-items:center; min-height:64px; padding:10px 22px; border-bottom:3px solid var(--line); background:rgba(255,253,245,.94); }
-      .brand { display:flex; align-items:center; gap:10px; font-weight:900; } .brand img { width:42px; height:42px; border-radius:13px; }
-      .pill { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 16px; border:3px solid var(--line); border-radius:999px; background:var(--yellow); font-weight:900; box-shadow:4px 4px 0 var(--line); }
-      main { max-width:1100px; margin:0 auto; padding:52px 20px 80px; }
-      .hero { display:grid; grid-template-columns:1.05fr .95fr; gap:28px; align-items:center; }
-      .eyebrow { display:inline-block; padding:7px 12px; border:2px solid var(--line); border-radius:999px; background:var(--mint); font-weight:900; font-size:.82rem; }
-      h1 { margin:18px 0 14px; font-size:clamp(2.8rem,7vw,6rem); line-height:.98; letter-spacing:-.04em; }
-      .lead { max-width:660px; font-size:1.1rem; font-weight:750; }
-      .hero-card { padding:22px; border:3px solid var(--line); border-radius:30px; background:var(--paper); box-shadow:10px 10px 0 var(--line); transform:rotate(1deg); }
-      .hero-card img { width:100%; border-radius:18px; }
-      .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
-      section { margin-top:64px; } h2 { margin:0 0 18px; font-size:2rem; }
-      .features { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
-      .feature { min-height:170px; padding:18px; border:3px solid var(--line); border-radius:22px; background:var(--paper); box-shadow:5px 5px 0 var(--line); }
-      .feature:nth-child(2) { background:#e6f8ff; } .feature:nth-child(3) { background:#fff0f7; } .feature:nth-child(4) { background:#efffe9; }
-      .feature strong { display:block; margin-bottom:8px; font-size:1.08rem; }
-      .screens { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-      .screen { padding:10px; border:3px solid var(--line); border-radius:22px; background:var(--paper); box-shadow:5px 5px 0 var(--line); }
-      .screen img { width:100%; display:block; border-radius:14px; }
-      .notice { padding:24px; border:3px solid var(--line); border-radius:24px; background:var(--mint); box-shadow:7px 7px 0 var(--line); }
-      footer { margin-top:58px; padding-top:20px; border-top:2px solid rgba(49,43,73,.35); font-size:.86rem; font-weight:700; }
-      @media(max-width:820px){ .hero{grid-template-columns:1fr}.features{grid-template-columns:repeat(2,1fr)}.screens{grid-template-columns:repeat(2,1fr)} }
-      @media(max-width:520px){ .features,.screens{grid-template-columns:1fr} h1{font-size:3.2rem} }
-    </style>
-  </head>
-  <body>
-    <header>
-      <a class="brand" href="../../router.html"><img src="./assets/app-icon.png" alt="Drawing Playground 아이콘"><span>Drawing Playground</span></a>
-      <a class="pill" href="./support.html">지원</a>
-    </header>
-    <main>
-      <div class="hero">
-        <div>
-          <span class="eyebrow">OFFLINE STICKER ART BOOK</span>
-          <h1>그리고,<br>색칠하고,<br>반짝여요.</h1>
-          <p class="lead">Drawing Playground는 아이들이 글을 많이 읽지 않아도 아이콘과 손끝으로 즐길 수 있는 오프라인 미술 놀이터입니다. 작품과 진행 상태는 기기 안에 간직됩니다.</p>
-          <div class="actions"><a class="pill" href="#screens">화면 보기</a><a class="pill" href="./privacy-policy.html" style="background:var(--paper)">개인정보처리방침</a></div>
-        </div>
-        <div class="hero-card"><img src="./assets/screen-1.png" alt="Drawing Playground 활동 선택 화면"></div>
-      </div>
-      <section><h2>한 권에 담긴 그림 놀이</h2><div class="features">
-        <article class="feature"><strong>자유롭게 그리기</strong><span>연필, 마커, 크레용과 무지개 색으로 빈 도화지를 채워요.</span></article>
-        <article class="feature"><strong>색칠 도안</strong><span>동물, 공룡, 바다와 동화 속 도안을 고르고 이어서 완성해요.</span></article>
-        <article class="feature"><strong>특별한 캔버스</strong><span>대칭 그림, 픽셀 색칠, 숫자 색칠과 반짝이는 야광 그림을 만나요.</span></article>
-        <article class="feature"><strong>기기 안에 보관</strong><span>계정이나 클라우드 업로드 없이 로컬에서 동작하고, 선택형 보상 광고와 Pro 잠금 해제를 지원해요.</span></article>
-      </div></section>
-      <section id="screens"><h2>실제 앱 화면</h2><div class="screens">
-        <div class="screen"><img src="./assets/screen-1.png" alt="활동 선택 화면"></div><div class="screen"><img src="./assets/screen-2.png" alt="자유 그리기 화면"></div><div class="screen"><img src="./assets/screen-3.png" alt="색칠 도안 선택 화면"></div><div class="screen"><img src="./assets/screen-4.png" alt="색칠 놀이 화면"></div><div class="screen"><img src="./assets/screen-5.png" alt="작품 보관함 화면"></div><div class="screen"><img src="./assets/screen-6.png" alt="설정 화면"></div>
-      </div></section>
-      <section class="notice"><h2>아이와 가족을 위한 안심 설계</h2><p>계정과 로그인이 없으며, 보상형 광고는 사용자가 잠긴 기능을 열기로 선택한 경우에만 아동용·비개인화 설정으로 표시됩니다. 사용자가 고른 사진은 기기 안에서만 처리되며 개발자 서버로 전송되지 않습니다.</p></section>
-      <footer>LABHUB · Drawing Playground · <a href="./support.html">지원</a> · <a href="./privacy-policy.html">개인정보</a> · 문의: qnqnckck@gmail.com</footer>
-    </main>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Turn a photo into a coloring page, add your favorite colors and keep it in your artbook. Drawing Playground converts photos, extracts colors and runs its core drawing tools on your device, without an app account or developer server.">
+  <meta name="content-version" content="1.9.5-2026-09-19">
+
+  <link rel="canonical" href="https://qnqnckck.github.io/google-privacy/drawing-playground/">
+  <title>Drawing Playground | LABHUB</title>
+  <link rel="stylesheet" href="./site.css">
+  <script src="./languages.js" defer></script>
+</head>
+<body>
+  <header><div class="header-inner"><a class="brand" href="../../router.html"><img src="./assets/app-icon.png" width="42" height="42" alt=""><span>Drawing Playground · LABHUB</span></a></div></header>
+  <nav class="languages" aria-label="Language · 언어 · 言語 · 语言 · Idioma"><a href="#ko" lang="ko" hreflang="ko">한국어</a><a href="#en" lang="en" hreflang="en">English</a><a href="#ja" lang="ja" hreflang="ja">日本語</a><a href="#zh-CN" lang="zh-CN" hreflang="zh-CN">简体中文</a><a href="#es" lang="es" hreflang="es">Español</a><a href="#pt-BR" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a></nav>
+  <main>
+    <article class="locale" id="ko" lang="ko" data-title="Drawing Playground | 앱 소개">
+<nav class="page-nav" aria-label="앱 소개"><a href="./#ko" aria-current="page">앱 소개</a><a href="./support.html#ko">지원</a><a href="./privacy-policy.html#ko">개인정보처리방침</a></nav>
+<p class="updated">이 기능 안내는 1.9.5 버전 기준입니다. 설치된 버전과 스토어의 출시 상태에 따라 이용 가능한 기능이 다를 수 있습니다.</p>
+<div class="hero"><div><span class="eyebrow">Drawing Playground</span><h1>내 사진이, 나만의 작품으로</h1><p>사진을 색칠 도안으로 바꾸고, 좋아하는 색을 입혀 작품집에 간직하세요. Drawing Playground의 도안 변환과 색 추출, 핵심 그리기는 계정이나 개발자 서버 없이 기기 안에서 동작합니다.</p></div>
+<div class="hero-card"><ol class="steps"><li>사진 고르기</li><li>도안 조절하기</li><li>색칠하고 저장하기</li></ol></div></div>
+<section class="content-section"><h2>사진 한 장에서 시작하는 그림 놀이</h2><div class="features"><section class="feature"><h3>도안은 직접 확인하고 조절</h3><p>예시로 체험하기도 실제 변환기를 엽니다. 원본과 결과를 비교하며 선의 디테일과 배경을 조절하세요. 복잡한 배경이나 대비가 낮은 사진에서는 결과가 달라질 수 있습니다.</p></section>
+<section class="feature"><h3>내가 고른 색으로 완성</h3><p>펜과 페인트통, 여섯 가지 추천 팔레트와 사진에서 추출한 색을 활용하세요. 사진이 아닌 준비된 도안도 색칠할 수 있습니다.</p></section>
+<section class="feature"><h3>다시 펼치는 나의 작품집</h3><p>작품의 제목과 날짜를 확인하고 저장한 작업을 다시 열어 이어서 그리세요. PNG 공유, 한 장짜리 PDF와 인쇄를 지원합니다.</p></section>
+<section class="feature"><h3>그리기의 다른 즐거움</h3><p>자유 그리기, 선그리기, 픽셀 색칠, 대칭 그리기와 도형 챌린지를 즐기세요. 주요 활동은 넓은 가로 화면을 사용합니다.</p></section></div></section>
+<section class="content-section notice"><h2>무료로 시작하고, 필요하면 Pro로</h2><p>무료 시작 도안과 예시 체험을 이용할 수 있으며, 내 사진으로 만든 첫 도안은 무료로 저장할 수 있습니다. 미리보기나 취소만으로 첫 사진 이용 기회가 소진되지는 않습니다.</p>
+<p>Pro는 구독이 아닌 1회성 구매로 전체 도안과 사진 도안 만들기를 잠금 해제합니다. 여러 작품을 A4 또는 Letter 크기의 PDF 작품집으로 묶는 기능도 포함됩니다. 가격은 앱 내 스토어 화면에서 확인하세요.</p></section>
+<section class="content-section"><h2>플랫폼에 따라 다른 선택 기능</h2><p>iOS에는 제3자 광고와 웹 이미지 검색이 없습니다. Android에서는 보호자 확인 후 선택형 보상 광고로 콘텐츠를 열거나 웹 이미지를 검색할 수 있으며 인터넷이 필요합니다. Pro는 Android의 보상 광고 없이 콘텐츠를 이용할 수 있게 합니다. 스토어나 광고가 연결되지 않아도 무료 시작 도안과 핵심 그리기를 사용할 수 있습니다.</p></section>
+<section class="content-section"><h2>내 작품의 다음 목적지도 내가 선택</h2><p>작품은 앱의 로컬 데이터에 보관됩니다. 공유·인쇄는 보호자 확인 후 시스템 화면에서 대상을 선택하며, 받는 앱이나 프린터가 네트워크를 사용할 수 있습니다. 앱 삭제로 잃은 작품은 개발자 서버에서 복구할 수 없으므로 필요한 결과는 미리 내보내세요.</p></section>
+<footer><a href="mailto:qnqnckck@gmail.com">qnqnckck@gmail.com</a> · <a href="../../router.html">LABHUB 앱 목록</a></footer>
+    </article>
+    <article class="locale" id="en" lang="en" data-title="Drawing Playground | About the app">
+<nav class="page-nav" aria-label="About the app"><a href="./#en" aria-current="page">About the app</a><a href="./support.html#en">Support</a><a href="./privacy-policy.html#en">Privacy policy</a></nav>
+<p class="updated">This feature guide describes version 1.9.5. Available features depend on the installed version and its release status in your app store.</p>
+<div class="hero"><div><span class="eyebrow">Drawing Playground</span><h1>Your photo. Your artwork.</h1><p>Turn a photo into a coloring page, add your favorite colors and keep it in your artbook. Drawing Playground converts photos, extracts colors and runs its core drawing tools on your device, without an app account or developer server.</p></div>
+<div class="hero-card"><ol class="steps"><li>Choose a photo</li><li>Adjust the outline</li><li>Color and save</li></ol></div></div>
+<section class="content-section"><h2>A drawing journey that starts with one photo</h2><div class="features"><section class="feature"><h3>Preview, compare and adjust</h3><p>Try an example opens the actual converter, too. Compare the original and result while adjusting detail and the background. Complex backgrounds or low-contrast photos can produce less clear results.</p></section>
+<section class="feature"><h3>Make the colors your own</h3><p>Use pens, the paint bucket, six curated palettes and colors extracted from your photo. You can also color the included ready-made pages.</p></section>
+<section class="feature"><h3>An artbook to return to</h3><p>View titles and dates, then reopen saved work to keep drawing. Share a PNG, export a single-page PDF or open the print dialog.</p></section>
+<section class="feature"><h3>More ways to enjoy drawing</h3><p>Explore free drawing, tracing, pixel coloring, symmetry drawing and the shape challenge. Main activities use a spacious landscape canvas.</p></section></div></section>
+<section class="content-section notice"><h2>Start free. Choose Pro when you need more.</h2><p>A starter selection and the example experience are free, as is the first coloring page you save from a personal photo. Previewing or canceling does not use up that first-photo allowance.</p>
+<p>Pro is a one-time purchase, not a subscription. It unlocks all coloring pages and photo-page creation, plus multi-page PDF artbooks in A4 or Letter format. See the in-app store screen for the price.</p></section>
+<section class="content-section"><h2>Optional features differ by platform</h2><p>iOS has no third-party ads or web image search. On Android, optional rewarded ads can unlock content and web image search is available after a caregiver check; these services need internet access. Pro gives access without rewarded ads on Android. The free starter pages and core drawing remain usable when stores or ads are unavailable.</p></section>
+<section class="content-section"><h2>You choose where your art goes</h2><p>Artwork is kept in the app’s local data. After a caregiver check, sharing and printing use the system destination picker; the receiving app or printer may use a network. The developer cannot recover artwork lost when local app data is deleted, so export the results you want to keep.</p></section>
+<footer><a href="mailto:qnqnckck@gmail.com">qnqnckck@gmail.com</a> · <a href="../../router.html">All LABHUB apps</a></footer>
+    </article>
+    <article class="locale" id="ja" lang="ja" data-title="Drawing Playground | アプリ紹介">
+<nav class="page-nav" aria-label="アプリ紹介"><a href="./#ja" aria-current="page">アプリ紹介</a><a href="./support.html#ja">サポート</a><a href="./privacy-policy.html#ja">プライバシーポリシー</a></nav>
+<p class="updated">この機能案内はバージョン1.9.5を対象としています。利用できる機能は、インストール済みのバージョンやストアでの公開状況によって異なります。</p>
+<div class="hero"><div><span class="eyebrow">Drawing Playground</span><h1>写真から、私だけの作品へ</h1><p>写真をぬりえに変え、好きな色で仕上げて作品集に残しましょう。Drawing Playgroundの写真変換、色の抽出、基本の描画は端末内で動作し、アプリのアカウントや開発者サーバーは不要です。</p></div>
+<div class="hero-card"><ol class="steps"><li>写真を選ぶ</li><li>線を調整する</li><li>色を塗って保存</li></ol></div></div>
+<section class="content-section"><h2>写真1枚から始まるお絵かき</h2><div class="features"><section class="feature"><h3>見比べながら線を調整</h3><p>「サンプルで体験」でも実際の変換機能を使います。原本と結果を比べ、線の細かさや背景を調整できます。複雑な背景やコントラストの低い写真では、線が見えにくくなることがあります。</p></section>
+<section class="feature"><h3>自分らしい色で仕上げる</h3><p>ペンや塗りつぶし、6種類のおすすめパレット、写真から抽出した色を使えます。アプリに入っているぬりえも楽しめます。</p></section>
+<section class="feature"><h3>また開きたくなる作品集</h3><p>タイトルや日付を確認し、保存した作品を開いて続きを描けます。PNGの共有、1ページのPDF書き出し、印刷に対応しています。</p></section>
+<section class="feature"><h3>いろいろな描き方を楽しむ</h3><p>自由描画、なぞり描き、ピクセルぬりえ、対称描画、図形チャレンジを楽しめます。主な活動は広い横向き画面で使います。</p></section></div></section>
+<section class="content-section notice"><h2>無料で始めて、必要に応じてProへ</h2><p>無料のぬりえとサンプル体験を用意しています。自分の写真から作ったぬりえは、最初に保存する1枚が無料です。プレビューやキャンセルだけでは、この無料枠は消費されません。</p>
+<p>Proは定期購読ではなく買い切りです。すべてのぬりえと写真からのぬりえ作成を開放し、複数の作品をA4またはLetterのPDF作品集にまとめられます。価格はアプリ内のストア画面で確認してください。</p></section>
+<section class="content-section"><h2>任意の機能はプラットフォームごとに異なります</h2><p>iOSには第三者広告やウェブ画像検索はありません。Androidでは保護者確認の後、任意のリワード広告による開放やウェブ画像検索を利用できます。これらにはインターネット接続が必要です。ProならAndroidでもリワード広告なしで利用できます。ストアや広告につながらなくても、無料のぬりえと基本の描画は使えます。</p></section>
+<section class="content-section"><h2>作品の送り先は自分で選択</h2><p>作品はアプリのローカルデータに保存します。共有や印刷は保護者確認の後、システム画面で宛先を選びます。受け取るアプリやプリンターがネットワークを使う場合があります。ローカルデータの削除で失った作品を開発者が復元することはできないため、残したい結果は事前に書き出してください。</p></section>
+<footer><a href="mailto:qnqnckck@gmail.com">qnqnckck@gmail.com</a> · <a href="../../router.html">LABHUBのアプリ一覧</a></footer>
+    </article>
+    <article class="locale" id="zh-CN" lang="zh-CN" data-title="Drawing Playground | 应用介绍">
+<nav class="page-nav" aria-label="应用介绍"><a href="./#zh-CN" aria-current="page">应用介绍</a><a href="./support.html#zh-CN">帮助</a><a href="./privacy-policy.html#zh-CN">隐私政策</a></nav>
+<p class="updated">本功能说明以 1.9.5 版本为准。可用功能取决于已安装版本及其在应用商店的发布状态。</p>
+<div class="hero"><div><span class="eyebrow">Drawing Playground</span><h1>你的照片，你的作品</h1><p>把照片变成涂色页，填上喜欢的颜色，再收藏到画册中。Drawing Playground 的照片转换、颜色提取和核心绘画功能都在本机运行，无需应用账号或开发者服务器。</p></div>
+<div class="hero-card"><ol class="steps"><li>选择照片</li><li>调整线稿</li><li>涂色并保存</li></ol></div></div>
+<section class="content-section"><h2>从一张照片开始创作</h2><div class="features"><section class="feature"><h3>先对比，再调整</h3><p>“试用示例”同样会打开实际转换工具。对比原图和结果，调整线条细节及背景。背景复杂或对比度较低的照片可能无法生成清晰的线稿。</p></section>
+<section class="feature"><h3>用喜欢的颜色完成作品</h3><p>使用画笔、油漆桶、六组推荐配色及从照片提取的颜色。也可以为应用内准备好的涂色页上色。</p></section>
+<section class="feature"><h3>随时翻开的个人画册</h3><p>查看作品标题和日期，重新打开保存的作品继续绘画。支持分享 PNG、导出单页 PDF 及打印。</p></section>
+<section class="feature"><h3>探索更多绘画玩法</h3><p>体验自由绘画、描线、像素涂色、对称绘画和图形挑战。主要活动采用宽敞的横屏画布。</p></section></div></section>
+<section class="content-section notice"><h2>免费开始，按需选择 Pro</h2><p>提供免费入门涂色页和示例体验。首次保存由自己的照片生成的涂色页也免费；仅预览或取消不会消耗首次免费机会。</p>
+<p>Pro 为一次性购买，而非订阅。它可解锁全部涂色页及照片转涂色页功能，还能把多幅作品合成 A4 或 Letter 尺寸的多页 PDF 画册。价格请以应用内商店页面为准。</p></section>
+<section class="content-section"><h2>不同平台的可选功能</h2><p>iOS 没有第三方广告或网页图片搜索。Android 可在监护人确认后选择奖励广告解锁内容，或使用网页图片搜索；这些服务需要联网。Pro 用户在 Android 上无需观看奖励广告即可使用相关内容。商店或广告服务不可用时，免费入门涂色页及核心绘画仍可使用。</p></section>
+<section class="content-section"><h2>作品去哪里，由你决定</h2><p>作品保存在应用本地数据中。通过监护人确认后，可在系统分享或打印面板选择目标；接收应用或打印机可能使用网络。开发者无法恢复因删除本地应用数据而丢失的作品，请提前导出想要保留的结果。</p></section>
+<footer><a href="mailto:qnqnckck@gmail.com">qnqnckck@gmail.com</a> · <a href="../../router.html">LABHUB 应用列表</a></footer>
+    </article>
+    <article class="locale" id="es" lang="es" data-title="Drawing Playground | Acerca de la app">
+<nav class="page-nav" aria-label="Acerca de la app"><a href="./#es" aria-current="page">Acerca de la app</a><a href="./support.html#es">Ayuda</a><a href="./privacy-policy.html#es">Política de privacidad</a></nav>
+<p class="updated">Esta guía describe la versión 1.9.5. Las funciones disponibles dependen de la versión instalada y de su estado de publicación en la tienda.</p>
+<div class="hero"><div><span class="eyebrow">Drawing Playground</span><h1>Tu foto. Tu obra de arte.</h1><p>Convierte una foto en una lámina para colorear, añade tus colores favoritos y guárdala en tu álbum. Drawing Playground convierte fotos, extrae colores y ejecuta sus herramientas básicas en tu dispositivo, sin cuenta de la app ni servidor del desarrollador.</p></div>
+<div class="hero-card"><ol class="steps"><li>Elige una foto</li><li>Ajusta el contorno</li><li>Colorea y guarda</li></ol></div></div>
+<section class="content-section"><h2>Un recorrido creativo que empieza con una foto</h2><div class="features"><section class="feature"><h3>Compara y ajusta antes de pintar</h3><p>Probar un ejemplo también abre el conversor real. Compara el original y el resultado mientras ajustas los detalles y el fondo. Los fondos complejos o el poco contraste pueden dar resultados menos claros.</p></section>
+<section class="feature"><h3>Dale tus propios colores</h3><p>Usa pinceles, el cubo de pintura, seis paletas seleccionadas y colores extraídos de tu foto. También puedes colorear las láminas incluidas.</p></section>
+<section class="feature"><h3>Un álbum al que volver</h3><p>Consulta títulos y fechas y abre las obras guardadas para seguir dibujando. Comparte un PNG, exporta un PDF de una página o abre el panel de impresión.</p></section>
+<section class="feature"><h3>Más formas de dibujar</h3><p>Explora el dibujo libre, el trazado, el coloreado por píxeles, el dibujo simétrico y el reto de figuras. Las actividades principales usan un amplio lienzo horizontal.</p></section></div></section>
+<section class="content-section notice"><h2>Empieza gratis. Elige Pro si necesitas más.</h2><p>La selección inicial y la experiencia de ejemplo son gratuitas, al igual que la primera lámina creada a partir de una foto propia que guardes. Previsualizar o cancelar no consume esa primera foto gratuita.</p>
+<p>Pro es una compra única, no una suscripción. Desbloquea todas las láminas y la creación de láminas a partir de fotos, además de álbumes PDF de varias páginas en formato A4 o Letter. Consulta el precio en la tienda dentro de la app.</p></section>
+<section class="content-section"><h2>Las funciones opcionales varían según la plataforma</h2><p>iOS no tiene anuncios de terceros ni búsqueda web de imágenes. En Android puedes elegir anuncios con recompensa para desbloquear contenido o buscar imágenes web tras una comprobación para adultos; estos servicios necesitan conexión. Pro permite acceder sin anuncios con recompensa en Android. Las láminas iniciales gratuitas y el dibujo básico siguen disponibles si la tienda o los anuncios no funcionan.</p></section>
+<section class="content-section"><h2>Tú eliges el destino de tus obras</h2><p>Las obras se guardan en los datos locales de la app. Tras una comprobación para adultos, puedes elegir dónde compartir o imprimir en el panel del sistema; la app receptora o la impresora puede usar una red. El desarrollador no puede recuperar obras perdidas al borrar los datos locales, así que exporta los resultados que quieras conservar.</p></section>
+<footer><a href="mailto:qnqnckck@gmail.com">qnqnckck@gmail.com</a> · <a href="../../router.html">Apps de LABHUB</a></footer>
+    </article>
+    <article class="locale" id="pt-BR" lang="pt-BR" data-title="Drawing Playground | Sobre o app">
+<nav class="page-nav" aria-label="Sobre o app"><a href="./#pt-BR" aria-current="page">Sobre o app</a><a href="./support.html#pt-BR">Suporte</a><a href="./privacy-policy.html#pt-BR">Política de privacidade</a></nav>
+<p class="updated">Este guia descreve a versão 1.9.5. Os recursos disponíveis dependem da versão instalada e do status de lançamento na loja.</p>
+<div class="hero"><div><span class="eyebrow">Drawing Playground</span><h1>Sua foto. Sua obra de arte.</h1><p>Transforme uma foto em uma página para colorir, use suas cores favoritas e guarde o resultado no álbum. O Drawing Playground converte fotos, extrai cores e executa suas ferramentas básicas no dispositivo, sem conta do app nem servidor do desenvolvedor.</p></div>
+<div class="hero-card"><ol class="steps"><li>Escolha uma foto</li><li>Ajuste o contorno</li><li>Pinte e salve</li></ol></div></div>
+<section class="content-section"><h2>Uma jornada criativa que começa com uma foto</h2><div class="features"><section class="feature"><h3>Compare e ajuste antes de pintar</h3><p>Experimentar exemplo também abre o conversor de verdade. Compare o original e o resultado enquanto ajusta os detalhes e o fundo. Fundos complexos ou fotos com pouco contraste podem gerar resultados menos nítidos.</p></section>
+<section class="feature"><h3>Dê suas próprias cores à obra</h3><p>Use canetas, o balde de tinta, seis paletas selecionadas e cores extraídas da foto. Você também pode colorir as páginas incluídas no app.</p></section>
+<section class="feature"><h3>Um álbum para revisitar</h3><p>Confira títulos e datas e reabra obras salvas para continuar desenhando. Compartilhe um PNG, exporte um PDF de uma página ou abra a tela de impressão.</p></section>
+<section class="feature"><h3>Mais jeitos de desenhar</h3><p>Explore o desenho livre, o traçado, a pintura em pixels, o desenho simétrico e o desafio de formas. As atividades principais usam uma tela ampla na horizontal.</p></section></div></section>
+<section class="content-section notice"><h2>Comece grátis. Escolha o Pro quando precisar de mais.</h2><p>A seleção inicial e a experiência com o exemplo são gratuitas, assim como a primeira página para colorir criada a partir de uma foto própria que você salvar. Apenas visualizar ou cancelar não consome essa primeira foto grátis.</p>
+<p>O Pro é uma compra única, não uma assinatura. Ele libera todas as páginas e a criação de páginas a partir de fotos, além de álbuns PDF com várias páginas em A4 ou Letter. Consulte o preço na loja dentro do app.</p></section>
+<section class="content-section"><h2>Os recursos opcionais variam por plataforma</h2><p>O iOS não tem anúncios de terceiros nem busca de imagens na web. No Android, você pode escolher anúncios com recompensa para liberar conteúdo ou buscar imagens na web após a verificação de um responsável; esses serviços precisam de conexão. O Pro permite acessar o conteúdo sem anúncios com recompensa no Android. As páginas iniciais gratuitas e o desenho básico continuam disponíveis se a loja ou os anúncios não funcionarem.</p></section>
+<section class="content-section"><h2>Você escolhe o destino das suas obras</h2><p>As obras ficam nos dados locais do app. Após a verificação de um responsável, você escolhe o destino de compartilhamento ou impressão na tela do sistema; o app receptor ou a impressora pode usar uma rede. O desenvolvedor não consegue recuperar obras perdidas ao apagar os dados locais, então exporte os resultados que deseja guardar.</p></section>
+<footer><a href="mailto:qnqnckck@gmail.com">qnqnckck@gmail.com</a> · <a href="../../router.html">Apps do LABHUB</a></footer>
+    </article>
+  </main>
+</body>
 </html>
 
