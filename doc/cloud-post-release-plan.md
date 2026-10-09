@@ -13,3 +13,5 @@ Language links keep equivalent content; support offers troubleshooting/contact; 
 Header [LABHUB / Intro / Support / Privacy] → language row → courier hero / gameplay evidence → modes / local data / optional ads → footer/contact. Support and privacy use same paper document system.
 
 Direction: sky postal sheet and dispatch coral, existing original icon and route screenshot; no new artwork. Existing app references remain unchanged. Cross-folder impact: public site only adds this app pages/router; app source is not imported into runtime.
+
+2026-10-09 localization alignment: the shipped Spanish launcher and App Store draft use Correo Celeste. Replace the older Correo de las Nubes name in the three published cloud-post Spanish pages. Scope: text/alt/title/footer only; verify live Spanish pages, responsive rendering and local links. Companion change in cloud-post/doc/public-copy-draft.json keeps the copy source aligned. No other app pages change.
