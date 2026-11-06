@@ -30,3 +30,5 @@ Official source: https://developers.google.com/admob/android/privacy/play-data-d
 
 ## Verification
 Record local browser screenshots, link audit, scoped commit and live HTTPS checks in the main game doc/store247-verification.md. app-ads.txt already contains the correct publisher record and is unchanged.
+
+The existing public google-privacy subtree returns404 even for the older Household Ledger reference. The ff61e16 deployment succeeded and its artifact contains all19 Dragon Oath entries with correct644/755 modes; root router.html is live with the new card. Add root entry mirrors like the existing household-ledger.html convention, retaining canonical source pages under google-privacy/dragon-oath. Root mirrors use their own scoped dragon-oath-* assets/CSS, and the directory card links these operational entry points. Browser checks verify locale/page navigation, no overflow or missing images. This is a routing compatibility measure, not a redesign of other apps or a claim that the underlying site-wide issue was fixed.
